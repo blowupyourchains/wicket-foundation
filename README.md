@@ -1,7 +1,7 @@
-wicket-foundation
-=================
+#wicket-foundation
 
 Integrates Apache Wicket 7.x and Zurb Foundation 5.x
+
 
 ## Build status and coverage:
 
