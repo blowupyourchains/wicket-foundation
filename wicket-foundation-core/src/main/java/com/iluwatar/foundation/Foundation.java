@@ -11,6 +11,10 @@ public class Foundation {
 	private static ResourceReference normalizeCssReference;
 	
 	private static ResourceReference foundationJsReference;
+
+	private static ResourceReference modernizrJsReference;
+
+	private static ResourceReference fastclickJsReference;
 	
 	public static ResourceReference getFoundationCssReference() {
 		if (foundationCssReference == null) {
@@ -28,9 +32,26 @@ public class Foundation {
 	
 	public static ResourceReference getFoundationJsReference() {
 		if (foundationJsReference == null) {
-			foundationJsReference = new JavaScriptResourceReference(Foundation.class, "foundation.js");
+			foundationJsReference = new JavaScriptResourceReference(Foundation.class, "foundation.min.js");
 		}
 		return foundationJsReference;
 	}
+
+	public static ResourceReference getModernizrJsReference() {
+		if (modernizrJsReference == null) {
+			modernizrJsReference = new JavaScriptResourceReference(Foundation.class, "modernizr.js");
+		}
+		return modernizrJsReference;
+	}
+
+	public static ResourceReference getFastclickJsReference() {
+		if (fastclickJsReference == null) {
+			fastclickJsReference = new JavaScriptResourceReference(Foundation.class, "fastclick.js");
+		}
+		return fastclickJsReference;
+	}	
 	
+	public static String getFoundationInitScript() {
+		return "$(document).foundation();";
+	}
 }

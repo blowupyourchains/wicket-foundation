@@ -18,6 +18,7 @@ public class FoundationAlertTest {
 		TagTester alertTag = tester.getTagByWicketId("alert");
 		assertTrue(alertTag.getMarkup().contains(FoundationAlertClassNames.DATA_ALERT));
 		assertTrue(alertTag.getAttributeIs("class", FoundationAlertClassNames.ALERT));
+		assertTrue(alertTag.hasChildTag("a"));
 		TagTester bodyTag = tester.getTagByWicketId("body");
 		assertEquals("hello world", bodyTag.getValue());
 	}
