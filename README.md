@@ -4,7 +4,7 @@ Integrates Apache Wicket 7.x and Zurb Foundation 5.x
 
 
 
-## Continuous integration build status and test coverage:
+## Build status and test coverage:
 
 ![Build status](https://travis-ci.org/iluwatar/wicket-foundation.svg?branch=master)
 &nbsp;&nbsp;&nbsp;
@@ -15,3 +15,12 @@ Integrates Apache Wicket 7.x and Zurb Foundation 5.x
 ## Screenshot from the sample application (shows project progress status):
 
 ![alt text](https://github.com/iluwatar/wicket-foundation/blob/master/catalog.jpg "Samples catalog")
+
+
+
+## Build instructions
+
+mvn clean install
+cd wicket-foundation-samples
+mvn jetty:run
+-> open browser and navigate to http://localhost:8080
