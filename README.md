@@ -1,6 +1,6 @@
 #wicket-foundation
 
-Integrates Apache Wicket 7.x and Zurb Foundation 5.x
+Integrates [Apache Wicket](http://wicket.apache.org/) 7.x and [Zurb Foundation](http://foundation.zurb.com/) 5.x
 
 
 
