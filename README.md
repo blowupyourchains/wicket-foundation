@@ -9,4 +9,6 @@ Integrates Apache Wicket 7.x and Zurb Foundation 5.x
 &nbsp;&nbsp;&nbsp;
 [![Coverage Status](https://coveralls.io/repos/iluwatar/wicket-foundation/badge.png?branch=master)](https://coveralls.io/r/iluwatar/wicket-foundation?branch=master)
 
+## Samples catalog:
+
 ![alt text](https://github.com/iluwatar/wicket-foundation/blob/master/catalog.jpg "Samples catalog")
