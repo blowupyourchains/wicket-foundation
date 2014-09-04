@@ -20,7 +20,9 @@ Integrates Apache Wicket 7.x and Zurb Foundation 5.x
 
 ## Build instructions
 
+```
 mvn clean install
 cd wicket-foundation-samples
 mvn jetty:run
+```
 -> open browser and navigate to http://localhost:8080
