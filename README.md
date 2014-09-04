@@ -12,6 +12,6 @@ Integrates Apache Wicket 7.x and Zurb Foundation 5.x
 
 
 
-# Project status:
+## Screenshot from the sample application (shows project progress status):
 
 ![alt text](https://github.com/iluwatar/wicket-foundation/blob/master/catalog.jpg "Samples catalog")
