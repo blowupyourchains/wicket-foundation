@@ -25,4 +25,4 @@ mvn clean install
 cd wicket-foundation-samples
 mvn jetty:run
 ```
-Now open browser and navigate to http://localhost:8080
+Now open browser and navigate to http://localhost:8080 to see the sample application.
