@@ -53,43 +53,41 @@
                 
                     <h4>HTML</h4>
 
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-alert</span> <span class="attribute">class</span>=<span class="value">&quot;alert-box&quot;</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;successRadius&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;warningRound&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;infoRadius&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;alertRound&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;secondary&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
 </div></code>
 </pre>
 
                     <h4>Java</h4>
 
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">add(new FoundationAlert(&quot;successRadius&quot;, Model.of(&quot;This is a success alert with a radius. &quot;),
+        new AlertOptions(FoundationButtonColor.SUCCESS, FoundationButtonRadius.RADIUS)));
+add(new FoundationAlert(&quot;warningRound&quot;, Model.of(&quot;This is a warning alert that is rounded. &quot;),
+        new AlertOptions(FoundationButtonColor.WARNING, FoundationButtonRadius.ROUND)));
+add(new FoundationAlert(&quot;infoRadius&quot;, Model.of(&quot;This is an info alert with a radius. &quot;),
+        new AlertOptions(FoundationButtonColor.INFO, FoundationButtonRadius.RADIUS)));
+add(new FoundationAlert(&quot;alertRound&quot;, Model.of(&quot;This is an alert - alert that is rounded. &quot;),
+        new AlertOptions(FoundationButtonColor.ALERT, FoundationButtonRadius.ROUND)));
+add(new FoundationAlert(&quot;secondary&quot;, Model.of(&quot;This is a secondary alert. &quot;),
+        new AlertOptions(FoundationButtonColor.SECONDARY)));
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
 
-                    <div data-alert class="alert-box success radius">
-                        This is a success alert with a radius. <a
-                            href="#" class="close">&times;</a>
-                    </div>
+                    <div wicket:id="successRadius"></div>
 
-                    <div data-alert class="alert-box warning round">
-                        This is a warning alert that is rounded. <a
-                            href="#" class="close">&times;</a>
-                    </div>
+                    <div wicket:id="warningRound"></div>
 
-                    <div data-alert class="alert-box info radius">
-                        This is an info alert with a radius. <a href="#"
-                            class="close">&times;</a>
-                    </div>
+                    <div wicket:id="infoRadius"></div>
 
-                    <div data-alert class="alert-box alert round">
-                        This is an alert - alert that is rounded. <a
-                            href="#" class="close">&times;</a>
-                    </div>
+                    <div wicket:id="alertRound"></div>
 
-                    <div data-alert class="alert-box secondary">
-                        This is a secondary alert. <a href="#"
-                            class="close">&times;</a>
-                    </div>
+                    <div wicket:id="secondary"></div>
 
                     <p>
                 </div>

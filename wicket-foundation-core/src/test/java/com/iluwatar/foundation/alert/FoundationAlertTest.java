@@ -30,7 +30,7 @@ public class FoundationAlertTest {
 	@Test
 	public void testAdvanced() {
 		WicketTester tester = new WicketTester();
-		AlertOptions options = new AlertOptions().setColor(FoundationButtonColor.ALERT).setRadius(FoundationButtonRadius.ROUND);
+		AlertOptions options = new AlertOptions().setColor(FoundationAlertColor.ALERT).setRadius(FoundationButtonRadius.ROUND);
 		FoundationAlert alert = new FoundationAlert("alert", Model.of("hello world"), options);
 		tester.startComponentInPage(alert);
 		TagTester alertTag = tester.getTagByWicketId("alert");

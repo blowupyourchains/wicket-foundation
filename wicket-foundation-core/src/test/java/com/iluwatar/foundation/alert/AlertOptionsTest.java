@@ -1,10 +1,10 @@
 package com.iluwatar.foundation.alert;
 
-import static com.iluwatar.foundation.button.FoundationButtonColor.SECONDARY;
-import static com.iluwatar.foundation.button.FoundationButtonRadius.ROUND;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.iluwatar.foundation.button.FoundationButtonRadius;
 
 
 public class AlertOptionsTest {
@@ -13,10 +13,11 @@ public class AlertOptionsTest {
 	public void testBasic() {
 		AlertOptions options = new AlertOptions();
 		AlertOptions options2 = new AlertOptions(options);
-		options2 = options2.setColor(SECONDARY).setRadius(ROUND);
-		AlertOptions options3 = new AlertOptions(SECONDARY);
-		AlertOptions options4 = new AlertOptions(ROUND);
-		assertEquals(SECONDARY, options3.getColor());
-		assertEquals(ROUND, options4.getRadius());
+		options2 = options2.setColor(FoundationAlertColor.SECONDARY).setRadius(FoundationButtonRadius.ROUND);
+		AlertOptions options3 = new AlertOptions(FoundationAlertColor.SECONDARY);
+		AlertOptions options4 = new AlertOptions(FoundationButtonRadius.ROUND);
+		assertEquals(FoundationAlertColor.SECONDARY, options3.getColor());
+		assertEquals(FoundationButtonRadius.ROUND, options4.getRadius());
+		AlertOptions options5 = new AlertOptions(FoundationAlertColor.SECONDARY, FoundationButtonRadius.ROUND);
 	}
 }
