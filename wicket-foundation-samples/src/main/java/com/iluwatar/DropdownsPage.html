@@ -6,7 +6,211 @@
 </head>
 <body>
     <wicket:extend>
-        dropdowns
+
+        <div class="row">
+            <h1 id="dropdowns">Dropdowns</h1>
+            <h3 class="subheader">We removed the various dropdowns
+                within different UI elements for Foundation 5. Instead,
+                we created a universal dropdown plugin that will attach
+                dropdowns or popovers to whatever element you need.</h3>
+
+            <hr>
+            <h3>Basic</h3>
+
+            <p>
+                You can create a dropdown using minimal markup. <strong>On
+                    a small device, the tooltips are full-width and
+                    bottom aligned.</strong>
+            </p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop1&quot;</span> <span class="attribute">aria-controls</span>=<span class="value">&quot;drop1&quot;</span> <span class="attribute">aria-expanded</span>=<span class="value">&quot;false&quot;</span>&gt;</span>Has Dropdown<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;drop1&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span> <span class="attribute">aria-hidden</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">tabindex</span>=<span class="value">&quot;-1&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop2&quot;</span> <span class="attribute">aria-controls</span>=<span class="value">&quot;drop2&quot;</span> <span class="attribute">aria-expanded</span>=<span class="value">&quot;false&quot;</span>&gt;</span>Has Content Dropdown<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">&quot;drop2&quot;</span> <span class="attribute">data-dropdown-content</span> <span class="attribute">class</span>=<span class="value">&quot;f-dropdown content&quot;</span> <span class="attribute">aria-hidden</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">tabindex</span>=<span class="value">&quot;-1&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>HTML Rendered</h4>
+                    <p>
+                        <a href="#" data-dropdown="drop1">Has
+                            Dropdown</a> | <a href="#" data-dropdown="drop2">Has
+                            Content Dropdown</a>
+                    <ul id="drop1" data-dropdown-content
+                        class="f-dropdown">
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                    <div id="drop2" data-dropdown-content
+                        class="f-dropdown content">
+                        <p>Some text that people will think is
+                            awesome! Some text that people will think is
+                            awesome! Some text that people will think is
+                            awesome!</p>
+                    </div>
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+            <h3>Advanced</h3>
+
+            <p>Additional classes can be added to your dropdown to
+                change its appearance.</p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;button&quot;</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop&quot;</span>&gt;</span>Link Dropdown &amp;raquo;<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;drop&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;[tiny small medium large content]f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <a href="#" class="button" data-dropdown="tinyDrop2">Link
+                        Dropdown &raquo;</a>
+                    <ul id="tinyDrop2" class="medium f-dropdown"
+                        data-dropdown-content>
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+            <h3>Directions</h3>
+
+            <p>
+                You can now position dropdowns on the top, bottom, left,
+                or right of the target element. The default position is
+                <em>bottom</em> and you do not need to change anything
+                to get your tooltip positioned <em>bottom</em>.
+            </p>
+            <p>
+                To set other alignments, just specify the
+                <code>align</code>
+                property in
+                <code>data-options</code>
+                on the target element.
+            </p>
+            <div>
+                <div>
+                
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span class="attribute">data-options</span>=<span class="value">&quot;align:left&quot;</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;button&quot;</span>&gt;</span>Link Dropdown &amp;raquo;<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;drop&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;[tiny small medium large content]f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <a href="#" class="button" data-dropdown="topDrop"
+                        data-options="align: top">Top &raquo;</a>
+                    <ul id="topDrop" class="f-dropdown"
+                        data-dropdown-content>
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                    <a href="#" class="button" data-dropdown="leftDrop"
+                        data-options="align: left">Left &raquo;</a>
+                    <ul id="leftDrop" class="f-dropdown"
+                        data-dropdown-content>
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                    <a href="#" class="button" data-dropdown="downDrop">Down
+                        &raquo;</a>
+                    <ul id="downDrop" class="f-dropdown"
+                        data-dropdown-content>
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                    <a href="#" class="button" data-dropdown="rightDrop"
+                        data-options="align: right">Right &raquo;</a>
+                    <ul id="rightDrop" class="f-dropdown"
+                        data-dropdown-content>
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+            <p>Available class options:</p>
+            <ul>
+                <li><code>tiny</code>: Make the dropdown have a
+                    max-width of 200px</li>
+                <li><code>small</code>: Make the dropdown have a
+                    max-width of 300px</li>
+                <li><code>medium</code>: Make the dropdown have a
+                    max-width of 500px</li>
+                <li><code>large</code>: Make the dropdown have a
+                    max-width of 800px</li>
+                <li><code>mega</code>: Make the dropdown go full
+                    100% width</li>
+                <li><code>content</code>: Add padding inside the
+                    dropdown for better-looking content</li>
+            </ul>
+            <h5 id="hoverable-dropdown-option">Hoverable Dropdown
+                Option</h5>
+            <p>If you&#39;d rather have your dropdown be accessible
+                by hover, you can add a data-option to the target
+                element:</p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;hover1&quot;</span> <span class="attribute">data-options</span>=<span class="value">&quot;is_hover:true&quot;</span>&gt;</span>Has Hover Dropdown<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;hover1&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <a href="#" data-dropdown="hover1"
+                        data-options="is_hover:true;">Has Hover
+                        Dropdown</a>
+
+                    <ul id="hover1" class="f-dropdown"
+                        data-dropdown-content>
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </wicket:extend>
 </body>
 </html>
