@@ -11,8 +11,8 @@ import org.junit.Test;
 
 import com.iluwatar.foundation.button.ButtonOptions;
 import com.iluwatar.foundation.button.FoundationButtonClassNames;
-import com.iluwatar.foundation.button.FoundationButtonColor;
-import com.iluwatar.foundation.button.FoundationButtonRadius;
+import com.iluwatar.foundation.button.ButtonColor;
+import com.iluwatar.foundation.button.ButtonRadius;
 import com.iluwatar.foundation.util.StringUtil;
 
 public class ButtonGroupPanelTest {
@@ -31,20 +31,20 @@ public class ButtonGroupPanelTest {
 		tester.startComponentInPage(createAdvancedButtonGroup("buttons"));
 		TagTester group = tester.getTagByWicketId("group");
 		assertTrue(group.getAttributeContains("class", ButtonGroupClassNames.BUTTON_GROUP));
-		assertTrue(group.getAttributeContains("class", StringUtil.EnumNameToCssClassName(FoundationButtonRadius.ROUND.name())));
+		assertTrue(group.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonRadius.ROUND.name())));
 		List<TagTester> btnList = tester.getTagsByWicketId("btn");
 		assertTrue(btnList.get(0).getAttributeContains("class", 
 				FoundationButtonClassNames.BUTTON));
 		assertTrue(btnList.get(0).getAttributeContains("class", 
-				StringUtil.EnumNameToCssClassName(FoundationButtonColor.ALERT.name())));
+				StringUtil.EnumNameToCssClassName(ButtonColor.ALERT.name())));
 		assertTrue(btnList.get(1).getAttributeContains("class", 
 				FoundationButtonClassNames.BUTTON));
 		assertTrue(btnList.get(1).getAttributeContains("class", 
-				StringUtil.EnumNameToCssClassName(FoundationButtonColor.SECONDARY.name())));
+				StringUtil.EnumNameToCssClassName(ButtonColor.SECONDARY.name())));
 		assertTrue(btnList.get(2).getAttributeContains("class", 
 				FoundationButtonClassNames.BUTTON));
 		assertTrue(btnList.get(2).getAttributeContains("class", 
-				StringUtil.EnumNameToCssClassName(FoundationButtonColor.SUCCESS.name())));
+				StringUtil.EnumNameToCssClassName(ButtonColor.SUCCESS.name())));
 	}
 
 	@Test
@@ -66,10 +66,10 @@ public class ButtonGroupPanelTest {
 
 	private TestButtonGroupPanel createAdvancedButtonGroup(String id) {
 		ArrayList<ButtonOptions> btnOptions = new ArrayList<>();
-		btnOptions.add(new ButtonOptions(FoundationButtonColor.ALERT));
-		btnOptions.add(new ButtonOptions(FoundationButtonColor.SECONDARY));
-		btnOptions.add(new ButtonOptions(FoundationButtonColor.SUCCESS));
-		ButtonGroupOptions groupOptions = new ButtonGroupOptions(FoundationButtonRadius.ROUND);
+		btnOptions.add(new ButtonOptions(ButtonColor.ALERT));
+		btnOptions.add(new ButtonOptions(ButtonColor.SECONDARY));
+		btnOptions.add(new ButtonOptions(ButtonColor.SUCCESS));
+		ButtonGroupOptions groupOptions = new ButtonGroupOptions(ButtonRadius.ROUND);
 		TestButtonGroupPanel group = new TestButtonGroupPanel(id, groupOptions, btnOptions);
 		return group;
 	}

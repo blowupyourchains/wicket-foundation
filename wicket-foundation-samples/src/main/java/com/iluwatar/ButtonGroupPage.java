@@ -9,8 +9,8 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.iluwatar.foundation.button.ButtonOptions;
-import com.iluwatar.foundation.button.FoundationButtonColor;
-import com.iluwatar.foundation.button.FoundationButtonRadius;
+import com.iluwatar.foundation.button.ButtonColor;
+import com.iluwatar.foundation.button.ButtonRadius;
 import com.iluwatar.foundation.button.FoundationLink;
 import com.iluwatar.foundation.buttongroup.ButtonBarBorder;
 import com.iluwatar.foundation.buttongroup.ButtonGroupOptions;
@@ -54,10 +54,10 @@ public class ButtonGroupPage extends BasePage {
 	
 	private void createAndAddAdvancedButtonGroup() {
 		List<ButtonOptions> btnOptions = Arrays.asList(
-				new ButtonOptions(FoundationButtonColor.ALERT), 
-				new ButtonOptions(FoundationButtonColor.ALERT), 
-				new ButtonOptions(FoundationButtonColor.ALERT));
-		add(new ButtonGroupPanel("advanced", new ButtonGroupOptions(FoundationButtonRadius.ROUND), btnOptions) {
+				new ButtonOptions(ButtonColor.ALERT), 
+				new ButtonOptions(ButtonColor.ALERT), 
+				new ButtonOptions(ButtonColor.ALERT));
+		add(new ButtonGroupPanel("advanced", new ButtonGroupOptions(ButtonRadius.ROUND), btnOptions) {
 
 			private static final long serialVersionUID = 1L;
 

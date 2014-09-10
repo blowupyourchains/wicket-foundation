@@ -6,7 +6,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.lang.Args;
 
-import com.iluwatar.foundation.foundationpanel.FoundationJsPanel;
+import com.iluwatar.foundation.component.FoundationJsPanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 

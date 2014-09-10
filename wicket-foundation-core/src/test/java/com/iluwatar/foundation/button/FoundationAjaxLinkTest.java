@@ -34,32 +34,32 @@ public class FoundationAjaxLinkTest {
 	
 	@Test
 	public void testAdvancedSize() {
-		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(FoundationButtonSize.TINY)), 
-				Arrays.asList(StringUtil.EnumNameToCssClassName(FoundationButtonSize.TINY.name())));
+		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(ButtonSize.TINY)), 
+				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonSize.TINY.name())));
 	}
 
 	@Test
 	public void testAdvancedColor() {
-		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(FoundationButtonColor.SUCCESS)), 
-				Arrays.asList(StringUtil.EnumNameToCssClassName(FoundationButtonColor.SUCCESS.name())));
+		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(ButtonColor.SUCCESS)), 
+				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonColor.SUCCESS.name())));
 	}
 
 	@Test
 	public void testAdvancedRadius() {
-		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(FoundationButtonRadius.RADIUS)), 
-				Arrays.asList(StringUtil.EnumNameToCssClassName(FoundationButtonRadius.RADIUS.name())));
+		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(ButtonRadius.RADIUS)), 
+				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonRadius.RADIUS.name())));
 	}
 
 	@Test
 	public void testAdvancedState() {
-		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(FoundationButtonState.DISABLED)), 
-				Arrays.asList(StringUtil.EnumNameToCssClassName(FoundationButtonState.DISABLED.name())));
+		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(ButtonState.DISABLED)), 
+				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonState.DISABLED.name())));
 	}
 
 	@Test
 	public void testAdvancedExpansion() {
-		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(FoundationButtonExpansion.EXPAND)), 
-				Arrays.asList(StringUtil.EnumNameToCssClassName(FoundationButtonExpansion.EXPAND.name())));
+		testButton(new WicketTester(), new FoundationTestAjaxLink("btn", new ButtonOptions(ButtonExpansion.EXPAND)), 
+				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonExpansion.EXPAND.name())));
 	}
 	
 	private void testButton(WicketTester tester, FoundationAjaxLink<?> btn, List<String> additionalCssClassesToVerify) {

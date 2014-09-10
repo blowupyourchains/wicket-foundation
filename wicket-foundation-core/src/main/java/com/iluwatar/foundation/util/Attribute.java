@@ -104,6 +104,51 @@ public class Attribute {
 		tag.put(attribute, StringValue.valueOf(v));
 		return tag;
 	}
+
+	/**
+	 * Adds attribute with given value
+	 * @param tag
+	 * @param attribute
+	 * @param value
+	 * @return
+	 */
+	public static ComponentTag addAttribute(ComponentTag tag, String attribute, String value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(attribute, "attribute");
+		Args.notNull(value, "value");
+		tag.put(attribute, value);
+		return tag;
+	}
+
+	/**
+	 * Adds attribute with given value
+	 * @param tag
+	 * @param attribute
+	 * @param value
+	 * @return
+	 */
+	public static ComponentTag addAttribute(ComponentTag tag, String attribute, boolean value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(attribute, "attribute");
+		Args.notNull(value, "value");
+		tag.put(attribute, value);
+		return tag;
+	}
+
+	/**
+	 * Adds attribute with given value
+	 * @param tag
+	 * @param attribute
+	 * @param value
+	 * @return
+	 */
+	public static ComponentTag addAttribute(ComponentTag tag, String attribute, int value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(attribute, "attribute");
+		Args.notNull(value, "value");
+		tag.put(attribute, value);
+		return tag;
+	}
 	
 	/**
 	 * Removes attribute
@@ -128,5 +173,17 @@ public class Attribute {
 		Args.notNull(tag, "tag");
 		Args.notNull(attribute, "attribute");
 		return tag.toString().contains(attribute);
+	}
+
+	/**
+	 * Gets attribute value
+	 * @param tag
+	 * @param attribute
+	 * @return
+	 */
+	public static String getAttribute(ComponentTag tag, String attribute) {
+		Args.notNull(tag, "tag");
+		Args.notNull(attribute, "attribute");
+		return tag.getAttribute(attribute);
 	}
 }

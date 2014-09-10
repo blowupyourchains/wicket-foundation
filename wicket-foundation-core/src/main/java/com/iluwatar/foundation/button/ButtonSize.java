@@ -1,5 +1,5 @@
 package com.iluwatar.foundation.button;
 
-public enum FoundationButtonSize {
+public enum ButtonSize {
 	TINY, SMALL, LARGE;
 }

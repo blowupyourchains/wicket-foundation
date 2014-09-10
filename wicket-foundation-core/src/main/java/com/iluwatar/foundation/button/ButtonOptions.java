@@ -6,32 +6,32 @@ public class ButtonOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private FoundationButtonSize size;
-	private FoundationButtonColor color;
-	private FoundationButtonRadius radius;
-	private FoundationButtonState state;
-	private FoundationButtonExpansion expansion;
+	private ButtonSize size;
+	private ButtonColor color;
+	private ButtonRadius radius;
+	private ButtonState state;
+	private ButtonExpansion expansion;
 	
 	public ButtonOptions() {
 	}
 	
-	public ButtonOptions(FoundationButtonSize size) {
+	public ButtonOptions(ButtonSize size) {
 		this.size = size;
 	}
 
-	public ButtonOptions(FoundationButtonColor color) {
+	public ButtonOptions(ButtonColor color) {
 		this.color = color;
 	}
 
-	public ButtonOptions(FoundationButtonRadius radius) {
+	public ButtonOptions(ButtonRadius radius) {
 		this.radius = radius;
 	}
 
-	public ButtonOptions(FoundationButtonState state) {
+	public ButtonOptions(ButtonState state) {
 		this.state = state;
 	}
 
-	public ButtonOptions(FoundationButtonExpansion expansion) {
+	public ButtonOptions(ButtonExpansion expansion) {
 		this.expansion = expansion;
 	}
 	
@@ -43,47 +43,47 @@ public class ButtonOptions implements Serializable {
 		this.expansion = options.getFoundationButtonExpansion();
 	}
 	
-	public FoundationButtonSize getFoundationButtonSize() {
+	public ButtonSize getFoundationButtonSize() {
 		return size;
 	}
 
-	public ButtonOptions setFoundationButtonSize(FoundationButtonSize foundationButtonSize) {
+	public ButtonOptions setFoundationButtonSize(ButtonSize foundationButtonSize) {
 		this.size = foundationButtonSize;
 		return this;
 	}
 
-	public FoundationButtonColor getFoundationButtonColor() {
+	public ButtonColor getFoundationButtonColor() {
 		return color;
 	}
 
-	public ButtonOptions setFoundationButtonColor(FoundationButtonColor foundationButtonColor) {
+	public ButtonOptions setFoundationButtonColor(ButtonColor foundationButtonColor) {
 		this.color = foundationButtonColor;
 		return this;
 	}
 
-	public FoundationButtonRadius getFoundationButtonRadius() {
+	public ButtonRadius getFoundationButtonRadius() {
 		return radius;
 	}
 
-	public ButtonOptions setFoundationButtonRadius(FoundationButtonRadius foundationButtonRadius) {
+	public ButtonOptions setFoundationButtonRadius(ButtonRadius foundationButtonRadius) {
 		this.radius = foundationButtonRadius;
 		return this;
 	}
 
-	public FoundationButtonState getFoundationButtonState() {
+	public ButtonState getFoundationButtonState() {
 		return state;
 	}
 
-	public ButtonOptions setFoundationButtonState(FoundationButtonState foundationButtonState) {
+	public ButtonOptions setFoundationButtonState(ButtonState foundationButtonState) {
 		this.state = foundationButtonState;
 		return this;
 	}
 
-	public FoundationButtonExpansion getFoundationButtonExpansion() {
+	public ButtonExpansion getFoundationButtonExpansion() {
 		return expansion;
 	}
 
-	public ButtonOptions setFoundationButtonExpansion(FoundationButtonExpansion foundationButtonExpansion) {
+	public ButtonOptions setFoundationButtonExpansion(ButtonExpansion foundationButtonExpansion) {
 		this.expansion = foundationButtonExpansion;
 		return this;
 	}

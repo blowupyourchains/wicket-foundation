@@ -2,6 +2,7 @@ package com.iluwatar.foundation.util;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.apache.wicket.markup.ComponentTag;
@@ -75,5 +76,9 @@ public class AttributeTest {
         assertTrue(Attribute.hasAttribute(tag, "data-foobar"));
         Attribute.removeAttribute(tag, "data-foobar");
         assertFalse(Attribute.hasAttribute(tag, "data-foobar"));
+        Attribute.addAttribute(tag, "data-dropdown", "123");
+        assertEquals("123", Attribute.getAttribute(tag, "data-dropdown"));
+        Attribute.removeAttribute(tag, "data-dropdown");
+        assertNull(Attribute.getAttribute(tag, "data-dropdown"));
 	}
 }

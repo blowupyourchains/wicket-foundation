@@ -8,8 +8,8 @@ import org.apache.wicket.util.tester.TagTester;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
 
-import com.iluwatar.foundation.button.FoundationButtonColor;
-import com.iluwatar.foundation.button.FoundationButtonRadius;
+import com.iluwatar.foundation.button.ButtonColor;
+import com.iluwatar.foundation.button.ButtonRadius;
 import com.iluwatar.foundation.util.StringUtil;
 
 public class FoundationAlertTest {
@@ -30,14 +30,14 @@ public class FoundationAlertTest {
 	@Test
 	public void testAdvanced() {
 		WicketTester tester = new WicketTester();
-		AlertOptions options = new AlertOptions().setColor(FoundationAlertColor.ALERT).setRadius(FoundationButtonRadius.ROUND);
+		AlertOptions options = new AlertOptions().setColor(FoundationAlertColor.ALERT).setRadius(ButtonRadius.ROUND);
 		FoundationAlert alert = new FoundationAlert("alert", Model.of("hello world"), options);
 		tester.startComponentInPage(alert);
 		TagTester alertTag = tester.getTagByWicketId("alert");
 		assertTrue(alertTag.getMarkup().contains(FoundationAlertClassNames.DATA_ALERT));
 		assertTrue(alertTag.getAttributeContains("class", FoundationAlertClassNames.ALERT));
-		assertTrue(alertTag.getAttributeContains("class", StringUtil.EnumNameToCssClassName(FoundationButtonColor.ALERT.name())));
-		assertTrue(alertTag.getAttributeContains("class", StringUtil.EnumNameToCssClassName(FoundationButtonRadius.ROUND.name())));
+		assertTrue(alertTag.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonColor.ALERT.name())));
+		assertTrue(alertTag.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonRadius.ROUND.name())));
 		assertTrue(alertTag.hasChildTag("a"));
 		TagTester bodyTag = tester.getTagByWicketId("body");
 		assertEquals("hello world", bodyTag.getValue());

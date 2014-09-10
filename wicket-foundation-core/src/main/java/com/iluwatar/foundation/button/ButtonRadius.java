@@ -1,5 +1,5 @@
 package com.iluwatar.foundation.button;
 
-public enum FoundationButtonRadius {
+public enum ButtonRadius {
 	RADIUS, ROUND;
 }

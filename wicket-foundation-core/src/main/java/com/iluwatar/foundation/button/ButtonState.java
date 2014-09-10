@@ -1,5 +1,5 @@
 package com.iluwatar.foundation.button;
 
-public enum FoundationButtonState {
+public enum ButtonState {
 	DISABLED;
 }

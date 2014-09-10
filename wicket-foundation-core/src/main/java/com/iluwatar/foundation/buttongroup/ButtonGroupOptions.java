@@ -2,25 +2,25 @@ package com.iluwatar.foundation.buttongroup;
 
 import java.io.Serializable;
 
-import com.iluwatar.foundation.button.FoundationButtonColor;
-import com.iluwatar.foundation.button.FoundationButtonRadius;
+import com.iluwatar.foundation.button.ButtonColor;
+import com.iluwatar.foundation.button.ButtonRadius;
 
 public class ButtonGroupOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private FoundationButtonRadius radius;
-	private FoundationButtonColor color;
+	private ButtonRadius radius;
+	private ButtonColor color;
 	private ButtonGroupStacking stacking;
 	
 	public ButtonGroupOptions() {
 	}
 
-	public ButtonGroupOptions(FoundationButtonRadius radius) {
+	public ButtonGroupOptions(ButtonRadius radius) {
 		this.radius = radius;
 	}
 	
-	public ButtonGroupOptions(FoundationButtonColor color) {
+	public ButtonGroupOptions(ButtonColor color) {
 		this.color = color;
 	}
 	
@@ -34,17 +34,17 @@ public class ButtonGroupOptions implements Serializable {
 		this.stacking = other.stacking;
 	}
 	
-	public FoundationButtonRadius getRadius() {
+	public ButtonRadius getRadius() {
 		return radius;
 	}
-	public ButtonGroupOptions setRadius(FoundationButtonRadius radius) {
+	public ButtonGroupOptions setRadius(ButtonRadius radius) {
 		this.radius = radius;
 		return this;
 	}
-	public FoundationButtonColor getColor() {
+	public ButtonColor getColor() {
 		return color;
 	}
-	public ButtonGroupOptions setColor(FoundationButtonColor color) {
+	public ButtonGroupOptions setColor(ButtonColor color) {
 		this.color = color;
 		return this;
 	}

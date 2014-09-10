@@ -1,4 +1,4 @@
-package com.iluwatar.foundation.foundationpanel;
+package com.iluwatar.foundation.component;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -7,7 +7,6 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.model.IModel;
 
 import com.iluwatar.foundation.Foundation;
-import com.iluwatar.foundation.component.FoundationBasePanel;
 
 public abstract class FoundationJsPanel extends FoundationBasePanel {
 
