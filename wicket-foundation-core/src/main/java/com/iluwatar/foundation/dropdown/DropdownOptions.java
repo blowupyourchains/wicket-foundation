@@ -3,6 +3,7 @@ package com.iluwatar.foundation.dropdown;
 import java.io.Serializable;
 
 import com.iluwatar.foundation.button.ButtonColor;
+import com.iluwatar.foundation.button.ButtonExpansion;
 import com.iluwatar.foundation.button.ButtonRadius;
 import com.iluwatar.foundation.button.ButtonSize;
 
@@ -13,6 +14,7 @@ public class DropdownOptions implements Serializable {
 	private ButtonSize size;
 	private ButtonColor color;
 	private ButtonRadius radius;
+	private ButtonExpansion expansion;
 
 	public DropdownOptions() {
 	}
@@ -28,11 +30,16 @@ public class DropdownOptions implements Serializable {
 	public DropdownOptions(ButtonRadius radius) {
 		this.radius = radius;
 	}
+
+	public DropdownOptions(ButtonExpansion expansion) {
+		this.expansion = expansion;
+	}
 	
 	public DropdownOptions(DropdownOptions other) {
 		this.size = other.size;
 		this.color = other.color;
 		this.radius = other.radius;
+		this.expansion = other.expansion;
 	}
 
 	public ButtonSize getSize() {
@@ -59,6 +66,15 @@ public class DropdownOptions implements Serializable {
 
 	public DropdownOptions setRadius(ButtonRadius radius) {
 		this.radius = radius;
+		return this;
+	}
+
+	public ButtonExpansion getExpansion() {
+		return expansion;
+	}
+
+	public DropdownOptions setExpansion(ButtonExpansion expansion) {
+		this.expansion = expansion;
 		return this;
 	}
 }

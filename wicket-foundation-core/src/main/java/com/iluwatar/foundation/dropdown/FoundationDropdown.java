@@ -31,13 +31,13 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 		FoundationDropdownContainer container = new FoundationDropdownContainer("container", linkTitleModels);
 		add(container);
 		
-		FoundationDropdownButton btn = new FoundationDropdownButton("btn", container.getMarkupId(), titleModel, optionsModel);
+		FoundationDropdownLink btn = new FoundationDropdownLink("btn", container.getMarkupId(), titleModel, optionsModel);
 		add(btn);
 	}
 	
 	protected abstract WebMarkupContainer createDropdownLink(int idx, String id);
 	
-	private static class FoundationDropdownButton extends WebMarkupContainer {
+	private static class FoundationDropdownLink extends WebMarkupContainer {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -45,10 +45,10 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 		private IModel<String> titleModel;
 		private IModel<DropdownOptions> optionsModel;
 
-		public FoundationDropdownButton(String id, String containerId, IModel<String> titleModel, IModel<DropdownOptions> optionsModel) {
+		public FoundationDropdownLink(String id, String containerId, IModel<String> titleModel, IModel<DropdownOptions> optionsModel) {
 			super(id);
 			Args.notNull(containerId, "containerId");
-			Args.notNull(optionsModel, "titleModel");
+			Args.notNull(titleModel, "titleModel");
 			Args.notNull(optionsModel, "optionsModel");
 			this.containerId = containerId;
 			this.titleModel = titleModel;
