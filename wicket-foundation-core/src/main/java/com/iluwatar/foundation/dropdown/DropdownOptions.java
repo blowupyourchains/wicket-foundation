@@ -11,12 +11,17 @@ public class DropdownOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private DropdownType type;
 	private ButtonSize size;
 	private ButtonColor color;
 	private ButtonRadius radius;
 	private ButtonExpansion expansion;
 
 	public DropdownOptions() {
+	}
+
+	public DropdownOptions(DropdownType type) {
+		this.type = type;
 	}
 	
 	public DropdownOptions(ButtonSize size) {
@@ -36,6 +41,7 @@ public class DropdownOptions implements Serializable {
 	}
 	
 	public DropdownOptions(DropdownOptions other) {
+		this.type = other.type;
 		this.size = other.size;
 		this.color = other.color;
 		this.radius = other.radius;
@@ -75,6 +81,15 @@ public class DropdownOptions implements Serializable {
 
 	public DropdownOptions setExpansion(ButtonExpansion expansion) {
 		this.expansion = expansion;
+		return this;
+	}
+
+	public DropdownType getType() {
+		return type;
+	}
+
+	public DropdownOptions setType(DropdownType type) {
+		this.type = type;
 		return this;
 	}
 }

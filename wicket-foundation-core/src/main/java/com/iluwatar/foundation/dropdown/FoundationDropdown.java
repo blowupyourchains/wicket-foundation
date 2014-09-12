@@ -57,19 +57,31 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 		
 		@Override
 		protected void onComponentTag(ComponentTag tag) {
+			DropdownOptions options = optionsModel.getObject();
+			DropdownType type = options.getType();
+			if (type == null || type.equals(DropdownType.DROPDOWN) || type.equals(DropdownType.DROPDOWNLINK)) {
+				tag.setName("a");
+			}
 			Attribute.addAttribute(tag, "data-dropdown", containerId);
 			Attribute.addAttribute(tag, "aria-controls", containerId);
 			Attribute.addAttribute(tag, "aria-expanded", false);
-			Attribute.addClass(tag, "button");
-			Attribute.addClass(tag, "dropdown");
-			if (optionsModel.getObject().getColor() != null) {
-				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(optionsModel.getObject().getColor().name()));
+			if (type != null && (type.equals(DropdownType.DROPDOWNLINK) || type.equals(DropdownType.DROPDOWNBUTTON))) {
+				Attribute.addClass(tag, "button");
 			}
-			if (optionsModel.getObject().getRadius() != null) {
-				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(optionsModel.getObject().getRadius().name()));
+			if (type != null && type.equals(DropdownType.DROPDOWNBUTTON)) {
+				Attribute.addClass(tag, "dropdown");
 			}
-			if (optionsModel.getObject().getSize() != null) {
-				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(optionsModel.getObject().getSize().name()));
+			if (options.getColor() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getColor().name()));
+			}
+			if (options.getRadius() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getRadius().name()));
+			}
+			if (options.getSize() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getSize().name()));
+			}
+			if (options.getExpansion() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getExpansion().name()));
 			}
 			super.onComponentTag(tag);
 		}
