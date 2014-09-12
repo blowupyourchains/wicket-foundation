@@ -167,15 +167,7 @@ public class FoundationDropdownTest {
 	public void renderDropdownContentTest() { 
 		WicketTester tester = new WicketTester();
 		final String testContent = "<b>frog</b>";
-		FoundationDropdown dropdown = new FoundationDropdown("id", "dropdown", new DropdownOptions(DropdownType.DROPDOWNCONTENT), testContent) {
-
-			@Override
-			protected WebMarkupContainer createDropdownLink(int idx, String id) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-		};
+		FoundationContentDropdown dropdown = new FoundationContentDropdown("id", "dropdown", new DropdownOptions(DropdownType.DROPDOWNCONTENT), testContent);
 		tester.startComponentInPage(dropdown);
 		tester.dumpPage();
 		TagTester btnTag = tester.getTagByWicketId("btn");
