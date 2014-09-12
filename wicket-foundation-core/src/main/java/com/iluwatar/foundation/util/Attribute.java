@@ -116,7 +116,12 @@ public class Attribute {
 		Args.notNull(tag, "tag");
 		Args.notNull(attribute, "attribute");
 		Args.notNull(value, "value");
-		tag.put(attribute, value);
+		if (!hasAttribute(tag, attribute)) {
+			tag.put(attribute, value);
+		} else {
+			String previous = getAttribute(tag, attribute);
+			tag.put(attribute, previous + " " + value);
+		}
 		return tag;
 	}
 
