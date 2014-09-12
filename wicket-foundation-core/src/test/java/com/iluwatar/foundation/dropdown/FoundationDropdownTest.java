@@ -162,4 +162,31 @@ public class FoundationDropdownTest {
 		assertTrue(btnTag.getAttributeContains("data-options", "is_hover: true"));
 		assertTrue(containerTag.getAttributeContains("class", "large"));
 	}
+	
+	@Test
+	public void renderDropdownContentTest() { 
+		WicketTester tester = new WicketTester();
+		final String testContent = "<b>frog</b>";
+		FoundationDropdown dropdown = new FoundationDropdown("id", "dropdown", new DropdownOptions(DropdownType.DROPDOWNCONTENT), testContent) {
+
+			@Override
+			protected WebMarkupContainer createDropdownLink(int idx, String id) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+		};
+		tester.startComponentInPage(dropdown);
+		tester.dumpPage();
+		TagTester btnTag = tester.getTagByWicketId("btn");
+		TagTester containerTag = tester.getTagByWicketId("content");
+		assertEquals(btnTag.getAttribute("data-dropdown"), containerTag.getAttribute("id"));
+		assertEquals("a", btnTag.getName());
+		assertTrue(containerTag.getMarkup().contains("data-dropdown-content"));
+		assertTrue(containerTag.getAttributeContains("class", "f-dropdown"));
+		assertEquals(0, tester.getTagsByWicketId("item").size());
+		assertEquals(0, tester.getTagsByWicketId("link").size());
+		assertEquals(0, tester.getTagsByWicketId("body").size());
+		assertEquals(containerTag.getValue(), testContent);
+	}	
 }

@@ -1,5 +1,6 @@
 package com.iluwatar.foundation.dropdown;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.wicket.markup.ComponentTag;
@@ -20,6 +21,10 @@ import com.iluwatar.foundation.util.StringUtil;
 public abstract class FoundationDropdown extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;
+
+	public FoundationDropdown(String id, String title, DropdownOptions options, String linkTitle) {
+		this(id, Model.of(title), Model.of(options), new ListModel<>(Arrays.<String>asList(linkTitle)));
+	}
 	
 	public FoundationDropdown(String id, String title, DropdownOptions options, List<String> linkTitles) {
 		this(id, Model.of(title), Model.of(options), new ListModel<>(linkTitles));
@@ -28,10 +33,19 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 	public FoundationDropdown(String id, IModel<String> titleModel, IModel<DropdownOptions> optionsModel, IModel<List<String>> linkTitleModels) {
 		super(id);
 		
+		DropdownOptions options = optionsModel.getObject();
+		boolean contentVisible = options.getType() != null && options.getType().equals(DropdownType.DROPDOWNCONTENT);
+		
 		FoundationDropdownContainer container = new FoundationDropdownContainer("container", linkTitleModels, optionsModel);
 		add(container);
+		container.setVisible(!contentVisible);
+
+		FoundationDropdownContent content = new FoundationDropdownContent("content", Model.of(linkTitleModels.getObject().get(0)));
+		add(content);
+		content.setVisible(contentVisible);
 		
-		FoundationDropdownLink btn = new FoundationDropdownLink("btn", container.getMarkupId(), titleModel, optionsModel);
+		String markupId = contentVisible ? content.getMarkupId() : container.getMarkupId();
+		FoundationDropdownLink btn = new FoundationDropdownLink("btn", markupId, titleModel, optionsModel);
 		add(btn);
 	}
 	
@@ -59,7 +73,7 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 		protected void onComponentTag(ComponentTag tag) {
 			DropdownOptions options = optionsModel.getObject();
 			DropdownType type = options.getType();
-			if (type == null || type.equals(DropdownType.DROPDOWN) || type.equals(DropdownType.DROPDOWNLINK)) {
+			if (type == null || type.equals(DropdownType.DROPDOWN) || type.equals(DropdownType.DROPDOWNLINK) || type.equals(DropdownType.DROPDOWNCONTENT)) {
 				tag.setName("a");
 			}
 			Attribute.addAttribute(tag, "data-dropdown", containerId);
@@ -153,4 +167,40 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 			super.onDetach();
 		}
 	}
+	
+	private class FoundationDropdownContent extends WebMarkupContainer {
+
+		private static final long serialVersionUID = 1L;
+		
+		private IModel<String> contentModel;
+		
+		public FoundationDropdownContent(String id, IModel<String> contentModel) {
+			super(id);
+			this.contentModel = contentModel;
+			this.setOutputMarkupId(true);
+		}
+		
+		@Override
+		protected void onComponentTag(ComponentTag tag) {
+			Attribute.addAttribute(tag, "data-dropdown-content");
+			Attribute.addClass(tag, "f-dropdown");
+			Attribute.addClass(tag, "content");
+			Attribute.addAttribute(tag, "aria-hidden", true);
+			Attribute.addAttribute(tag, "tabindex", -1);
+			super.onComponentTag(tag);
+		}
+		
+		@Override
+		public void onComponentTagBody(MarkupStream markupStream,
+				ComponentTag openTag) {
+			this.replaceComponentTagBody(markupStream, openTag, contentModel.getObject());
+			super.onComponentTagBody(markupStream, openTag);
+		}
+		
+		@Override
+		protected void onDetach() {
+			contentModel.detach();
+			super.onDetach();
+		}
+	}	
 }
