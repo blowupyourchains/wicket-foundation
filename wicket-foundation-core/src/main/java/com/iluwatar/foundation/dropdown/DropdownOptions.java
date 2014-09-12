@@ -16,6 +16,9 @@ public class DropdownOptions implements Serializable {
 	private ButtonColor color;
 	private ButtonRadius radius;
 	private ButtonExpansion expansion;
+	private DropdownListStyle listStyle;
+	private DropdownListAlignment listAlignment;
+	private DropdownHover hover;
 
 	public DropdownOptions() {
 	}
@@ -38,6 +41,18 @@ public class DropdownOptions implements Serializable {
 
 	public DropdownOptions(ButtonExpansion expansion) {
 		this.expansion = expansion;
+	}
+	
+	public DropdownOptions(DropdownListStyle listStyle) {
+		this.listStyle = listStyle;
+	}
+	
+	public DropdownOptions(DropdownListAlignment listAlignment) {
+		this.listAlignment = listAlignment;
+	}
+	
+	public DropdownOptions(DropdownHover hover) {
+		this.hover = hover;
 	}
 	
 	public DropdownOptions(DropdownOptions other) {
@@ -90,6 +105,33 @@ public class DropdownOptions implements Serializable {
 
 	public DropdownOptions setType(DropdownType type) {
 		this.type = type;
+		return this;
+	}
+
+	public DropdownListStyle getListStyle() {
+		return listStyle;
+	}
+
+	public DropdownOptions setListStyle(DropdownListStyle listStyle) {
+		this.listStyle = listStyle;
+		return this;
+	}
+
+	public DropdownListAlignment getListAlignment() {
+		return listAlignment;
+	}
+
+	public DropdownOptions setListAlignment(DropdownListAlignment listAlignment) {
+		this.listAlignment = listAlignment;
+		return this;
+	}
+
+	public DropdownHover getHover() {
+		return hover;
+	}
+
+	public DropdownOptions setHover(DropdownHover hover) {
+		this.hover = hover;
 		return this;
 	}
 }

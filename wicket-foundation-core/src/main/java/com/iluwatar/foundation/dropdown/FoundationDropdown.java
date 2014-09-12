@@ -28,7 +28,7 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 	public FoundationDropdown(String id, IModel<String> titleModel, IModel<DropdownOptions> optionsModel, IModel<List<String>> linkTitleModels) {
 		super(id);
 		
-		FoundationDropdownContainer container = new FoundationDropdownContainer("container", linkTitleModels);
+		FoundationDropdownContainer container = new FoundationDropdownContainer("container", linkTitleModels, optionsModel);
 		add(container);
 		
 		FoundationDropdownLink btn = new FoundationDropdownLink("btn", container.getMarkupId(), titleModel, optionsModel);
@@ -83,6 +83,13 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 			if (options.getExpansion() != null) {
 				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getExpansion().name()));
 			}
+			if (options.getListAlignment() != null) {
+				String partial = StringUtil.EnumNameToCssClassName(options.getListAlignment().name());
+				Attribute.addAttribute(tag, "data-options", "align: " + partial);
+			}
+			if (options.getHover() != null) {
+				Attribute.addAttribute(tag, "data-options", "is_hover: true");
+			}
 			super.onComponentTag(tag);
 		}
 		
@@ -104,9 +111,13 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 	private class FoundationDropdownContainer extends WebMarkupContainer {
 
 		private static final long serialVersionUID = 1L;
+		
+		private IModel<DropdownOptions> optionsModel;
 
-		public FoundationDropdownContainer(String id, IModel<List<String>> linkTitleModels) {
+		public FoundationDropdownContainer(String id, IModel<List<String>> linkTitleModels, IModel<DropdownOptions> optionsModel) {
 			super(id);
+			Args.notNull(optionsModel, "optionsModel");
+			this.optionsModel = optionsModel;
 			this.setOutputMarkupId(true);
 			
 			ListView<String> lv = new ListView<String>("item", linkTitleModels) {
@@ -129,7 +140,17 @@ public abstract class FoundationDropdown extends FoundationJsPanel {
 			Attribute.addClass(tag, "f-dropdown");
 			Attribute.addAttribute(tag, "aria-hidden", true);
 			Attribute.addAttribute(tag, "tabindex", -1);
+			DropdownOptions options = optionsModel.getObject();
+			if (options.getListStyle() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getListStyle().name()));
+			}
 			super.onComponentTag(tag);
+		}
+		
+		@Override
+		protected void onDetach() {
+			optionsModel.detach();
+			super.onDetach();
 		}
 	}
 }
