@@ -20,6 +20,8 @@ public class FoundationContentDropdown extends FoundationDropdownBase {
 		super(id, titleModel, optionsModel);
 		FoundationDropdownContent content = new FoundationDropdownContent("content", contentModel);
 		add(content);
+		DropdownOptions options = optionsModel.getObject().setType(DropdownType.DROPDOWNCONTENT);
+		optionsModel.setObject(options);
 	}
 
 	@Override
