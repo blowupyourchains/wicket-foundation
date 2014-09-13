@@ -19,5 +19,8 @@ public class DropdownOptionsTest {
 		DropdownOptions options4 = new DropdownOptions(options2.getRadius());
 		DropdownOptions options5 = new DropdownOptions(options2.getSize());
 		DropdownOptions options6 = new DropdownOptions(options2.getExpansion());
+		DropdownOptions options7 = new DropdownOptions(DropdownListStyle.LARGE);
+		DropdownOptions options8 = new DropdownOptions(DropdownListAlignment.RIGHT);
+		DropdownOptions options9 = new DropdownOptions(DropdownHover.HOVERABLE);
 	}
 }
