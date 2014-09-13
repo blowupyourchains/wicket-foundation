@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.wicket.model.Model;
 import org.apache.wicket.util.tester.TagTester;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
@@ -47,6 +48,30 @@ public class FoundationLinkTest {
 	public void testAdvancedExpansion() {
 		testButton(new WicketTester(), new FoundationTestLink("btn", new ButtonOptions(ButtonExpansion.EXPAND)), 
 				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonExpansion.EXPAND.name())));
+	}
+	
+	@Test
+	public void testConstructors() {
+		FoundationLink<Void> link1 = new FoundationLink<Void>("id") {
+			@Override
+			public void onClick() {
+			}
+		};
+		FoundationLink<Void> link2 = new FoundationLink<Void>("id", new ButtonOptions()) {
+			@Override
+			public void onClick() {
+			}
+		};
+		FoundationLink<String> link3 = new FoundationLink<String>("id", Model.of("foo")) {
+			@Override
+			public void onClick() {
+			}
+		};
+		FoundationLink<String> link4 = new FoundationLink<String>("id", Model.of("foo"), Model.of(new ButtonOptions())) {
+			@Override
+			public void onClick() {
+			}
+		};
 	}
 	
 	private void testButton(WicketTester tester, FoundationLink<?> btn, List<String> additionalCssClassesToVerify) {

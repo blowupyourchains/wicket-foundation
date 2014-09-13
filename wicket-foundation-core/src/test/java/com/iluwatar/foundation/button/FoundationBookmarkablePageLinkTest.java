@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.tester.TagTester;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
@@ -49,6 +51,15 @@ public class FoundationBookmarkablePageLinkTest {
 	public void testAdvancedExpansion() {
 		testButton(new WicketTester(), new FoundationTestBookmarkablePageLink("btn", FoundationButtonTestPage.class, new ButtonOptions(ButtonExpansion.EXPAND)), 
 				Arrays.asList(StringUtil.EnumNameToCssClassName(ButtonExpansion.EXPAND.name())));
+	}
+	
+	@Test
+	public void testConstructors() {
+		FoundationBookmarkablePageLink<Void> link1 = new FoundationBookmarkablePageLink<Void>("id", FoundationButtonTestPage.class);
+		FoundationBookmarkablePageLink<Void> link2 = new FoundationBookmarkablePageLink<Void>("id", FoundationButtonTestPage.class, new ButtonOptions());
+		FoundationBookmarkablePageLink<Void> link3 = new FoundationBookmarkablePageLink<Void>("id", FoundationButtonTestPage.class, Model.of(new ButtonOptions()));
+		FoundationBookmarkablePageLink<Void> link4 = new FoundationBookmarkablePageLink<Void>("id", FoundationButtonTestPage.class, new PageParameters(), new ButtonOptions());
+		FoundationBookmarkablePageLink<Void> link5 = new FoundationBookmarkablePageLink<Void>("id", FoundationButtonTestPage.class, new PageParameters(), Model.of(new ButtonOptions()));
 	}
 	
 	private void testButton(WicketTester tester, FoundationTestBookmarkablePageLink btn, List<String> additionalCssClassesToVerify) {
