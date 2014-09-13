@@ -1,12 +1,14 @@
 package com.iluwatar;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import com.iluwatar.foundation.dropdown.DropdownListAlignment;
 import com.iluwatar.foundation.dropdown.DropdownOptions;
 import com.iluwatar.foundation.dropdown.DropdownType;
 import com.iluwatar.foundation.dropdown.FoundationContentDropdown;
@@ -48,5 +50,24 @@ public class DropdownsPage extends BasePage {
 				}
 		};
 		add(advancedDropdownLink);		
+		
+		List<String> directionLinks = Arrays.asList("This is a link", "This is another", "Yet another");
+		add(createDirectionDropdown("directionTop", "Top", directionLinks, DropdownListAlignment.TOP));
+		add(createDirectionDropdown("directionLeft", "Left", directionLinks, DropdownListAlignment.LEFT));
+		add(createDirectionDropdown("directionDown", "Down", directionLinks, null));
+		add(createDirectionDropdown("directionRight", "Right", directionLinks, DropdownListAlignment.RIGHT));
+	}
+	
+	private FoundationDropdown createDirectionDropdown(String id, String title, List<String> links, DropdownListAlignment align) {
+		DropdownOptions options = new DropdownOptions(DropdownType.DROPDOWNLINK).setListAlignment(align);
+		return new FoundationDropdown(id, title, options, Collections.unmodifiableList(links)) {
+				@Override
+				protected WebMarkupContainer createDropdownLink(int idx, String id) {
+					return new Link<String>(id) {
+						@Override
+						public void onClick() {}
+					};
+				}
+		};
 	}
 }
