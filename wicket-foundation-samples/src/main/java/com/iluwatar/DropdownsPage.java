@@ -8,6 +8,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.iluwatar.foundation.dropdown.DropdownOptions;
+import com.iluwatar.foundation.dropdown.FoundationContentDropdown;
 import com.iluwatar.foundation.dropdown.FoundationDropdown;
 
 public class DropdownsPage extends BasePage {
@@ -16,9 +17,9 @@ public class DropdownsPage extends BasePage {
 
 	public DropdownsPage(PageParameters params) {
 		super(params);
+		
 		List<String> links = Arrays.asList("First link", "Second link", "Third link");
-		FoundationDropdown basic = new FoundationDropdown("basic", "Dropdown Button", new DropdownOptions(), links) {
-
+		FoundationDropdown basicDropdown = new FoundationDropdown("basicDropdown", "Has Dropdown", new DropdownOptions(), links) {
 				@Override
 				protected WebMarkupContainer createDropdownLink(int idx,
 						String id) {
@@ -27,8 +28,11 @@ public class DropdownsPage extends BasePage {
 						public void onClick() {}
 					};
 				}
-			
 		};
-		add(basic);
+		add(basicDropdown);
+		
+		final String content = "<p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p>";
+		FoundationContentDropdown basicContentDropdown = new FoundationContentDropdown("basicContentDropdown", "Has Content Dropdown", new DropdownOptions(), content);
+		add(basicContentDropdown);
 	}
 }

@@ -26,16 +26,29 @@
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop1&quot;</span> <span class="attribute">aria-controls</span>=<span class="value">&quot;drop1&quot;</span> <span class="attribute">aria-expanded</span>=<span class="value">&quot;false&quot;</span>&gt;</span>Has Dropdown<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;drop1&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span> <span class="attribute">aria-hidden</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">tabindex</span>=<span class="value">&quot;-1&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop2&quot;</span> <span class="attribute">aria-controls</span>=<span class="value">&quot;drop2&quot;</span> <span class="attribute">aria-expanded</span>=<span class="value">&quot;false&quot;</span>&gt;</span>Has Content Dropdown<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">&quot;drop2&quot;</span> <span class="attribute">data-dropdown-content</span> <span class="attribute">class</span>=<span class="value">&quot;f-dropdown content&quot;</span> <span class="attribute">aria-hidden</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">tabindex</span>=<span class="value">&quot;-1&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basicDropdown&quot;</span>&gt;</span>Has Dropdown<span class="tag">&lt;/<span class="title">span</span>&gt;</span> | <span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basicContentDropdown&quot;</span>&gt;</span>Has Dropdown<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">List&lt;String&gt; links = Arrays.asList(&quot;First link&quot;, &quot;Second link&quot;, &quot;Third link&quot;);
+FoundationDropdown basicDropdown = new FoundationDropdown(&quot;basicDropdown&quot;, &quot;Has Dropdown&quot;, new DropdownOptions(), links) {
+    @Override
+    protected WebMarkupContainer createDropdownLink(int idx, String id) {
+        return new Link&lt;String&gt;(id) {
+            @Override
+            public void onClick() {}
+        };
+    }
+};
+add(basicDropdown);
+
+final String content = &quot;&lt;p&gt;Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!&lt;/p&gt;&quot;;
+FoundationContentDropdown basicContentDropdown = new FoundationContentDropdown(&quot;basicContentDropdown&quot;, &quot;Has Content Dropdown&quot;, new DropdownOptions(), content);
+add(basicContentDropdown);
 </div></code>
 </pre>
 
@@ -43,7 +56,7 @@
                 <div>
                     <h4>HTML Rendered</h4>
 
-                    <div wicket:id="basic"></div>
+                    <span wicket:id="basicDropdown"></span> | <span wicket:id="basicContentDropdown"></span>
                     
                 </div>
             </div>
