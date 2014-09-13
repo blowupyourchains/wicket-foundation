@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <wicket:extend>
+
+        <div class="row">
+            <h1 id="dropdown-buttons">Dropdown Buttons</h1>
+            <h3 class="subheader">
+                Dropdown buttons are elements that, when tapped, reveal
+                additional content. We&#39;ve simplified our dropdown
+                buttons by getting rid of the dedicated ones associated
+                with the various buttons styles. Instead, you&#39;ll use
+                our <a href="dropdown.html">new dropdown plugin</a> to
+                attach a dropdown to the button style of your choice.
+            </h3>
+
+            <hr>
+            <h2>Basic</h2>
+
+            <p>You can create a dropdown using minimal markup.</p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">List&lt;String&gt; links = Arrays.asList(&quot;This is a link&quot;, &quot;This is another&quot;, &quot;Yet another&quot;);
+add(createDropdownButton(&quot;basic&quot;, &quot;Dropdown Button&quot;, links, new DropdownOptions(DropdownType.DROPDOWNBUTTON)));
+
+private FoundationDropdown createDropdownButton(String id, String title, List&lt;String&gt; links, DropdownOptions options) {
+    return new FoundationDropdown(id, title, options, Collections.unmodifiableList(links)) {
+            @Override
+            protected WebMarkupContainer createDropdownLink(int idx, String id) {
+                return new Link&lt;String&gt;(id) {
+                    @Override
+                    public void onClick() {}
+                };
+            }
+    };
+}
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <div wicket:id="basic"></div>
+                </div>
+            </div>
+
+            <hr>
+            <h2>Advanced</h2>
+
+            <p>Additional classes can be added to your dropdown
+                buttons to change their appearance.</p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basicDropdown&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span> | <span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basicContentDropdown&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <button data-dropdown="dropE" aria-controls="dropE"
+                        , aria-expanded="false"
+                        class="large alert round button dropdown">Dropdown
+                        Button</button>
+                    <br>
+                    <ul id="dropE" data-dropdown-content
+                        class="f-dropdown" role="menu"
+                        aria-hidden="false" tabindex="-1">
+                        <li><a href="#">This is a link</a></li>
+                        <li><a href="#">This is another</a></li>
+                        <li><a href="#">Yet another</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </wicket:extend>
+</body>
+</html>
