@@ -112,7 +112,10 @@ add(advancedDropdownLink);
                 <div>
                     <h4>HTML</h4>
                 
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;directionTop&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;directionLeft&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;directionDown&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;directionRight&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
 </div></code>
 </pre>
 
@@ -120,7 +123,24 @@ add(advancedDropdownLink);
                 <div>
                     <h4>Java</h4>
                 
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;String&gt; directionLinks = Arrays.asList(&quot;This is a link&quot;, &quot;This is another&quot;, &quot;Yet another&quot;);
+add(createDirectionDropdown(&quot;directionTop&quot;, &quot;Top&quot;, directionLinks, DropdownListAlignment.TOP));
+add(createDirectionDropdown(&quot;directionLeft&quot;, &quot;Left&quot;, directionLinks, DropdownListAlignment.LEFT));
+add(createDirectionDropdown(&quot;directionDown&quot;, &quot;Down&quot;, directionLinks, null));
+add(createDirectionDropdown(&quot;directionRight&quot;, &quot;Right&quot;, directionLinks, DropdownListAlignment.RIGHT));
+        
+private FoundationDropdown createDirectionDropdown(String id, String title, List&lt;String&gt; links, DropdownListAlignment align) {
+    DropdownOptions options = new DropdownOptions(DropdownType.DROPDOWNLINK).setListAlignment(align);
+    return new FoundationDropdown(id, title, options, Collections.unmodifiableList(links)) {
+            @Override
+            protected WebMarkupContainer createDropdownLink(int idx, String id) {
+                return new Link&lt;String&gt;(id) {
+                    @Override
+                    public void onClick() {}
+                };
+            }
+    };
+}
 </div></code>
 </pre>
 
@@ -135,52 +155,36 @@ add(advancedDropdownLink);
             </div>
 
             <hr>
-            <p>Available class options:</p>
-            <ul>
-                <li><code>tiny</code>: Make the dropdown have a
-                    max-width of 200px</li>
-                <li><code>small</code>: Make the dropdown have a
-                    max-width of 300px</li>
-                <li><code>medium</code>: Make the dropdown have a
-                    max-width of 500px</li>
-                <li><code>large</code>: Make the dropdown have a
-                    max-width of 800px</li>
-                <li><code>mega</code>: Make the dropdown go full
-                    100% width</li>
-                <li><code>content</code>: Add padding inside the
-                    dropdown for better-looking content</li>
-            </ul>
-            <h5 id="hoverable-dropdown-option">Hoverable Dropdown
-                Option</h5>
-            <p>If you&#39;d rather have your dropdown be accessible
-                by hover, you can add a data-option to the target
-                element:</p>
             <div>
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;hover1&quot;</span> <span class="attribute">data-options</span>=<span class="value">&quot;is_hover:true&quot;</span>&gt;</span>Has Hover Dropdown<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;hover1&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;hoverDropdown&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">List&lt;String&gt; hoverLinks = Arrays.asList(&quot;First link&quot;, &quot;Second link&quot;, &quot;Third link&quot;);
+FoundationDropdown hoverDropdown = new FoundationDropdown(&quot;hoverDropdown&quot;, &quot;Has Hover Dropdown&quot;, new DropdownOptions(DropdownHover.HOVERABLE), hoverLinks) {
+        @Override
+        protected WebMarkupContainer createDropdownLink(int idx, String id) {
+            return new Link&lt;String&gt;(id) {
+                @Override
+                public void onClick() {}
+            };
+        }
+};
+add(hoverDropdown);
 </div></code>
 </pre>
 
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
-                    <a href="#" data-dropdown="hover1"
-                        data-options="is_hover:true;">Has Hover
-                        Dropdown</a>
-
-                    <ul id="hover1" class="f-dropdown"
-                        data-dropdown-content>
-                        <li><a href="#">This is a link</a></li>
-                        <li><a href="#">This is another</a></li>
-                        <li><a href="#">Yet another</a></li>
-                    </ul>
+                    <div wicket:id="hoverDropdown"></div>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import com.iluwatar.foundation.dropdown.DropdownHover;
 import com.iluwatar.foundation.dropdown.DropdownListAlignment;
 import com.iluwatar.foundation.dropdown.DropdownOptions;
 import com.iluwatar.foundation.dropdown.DropdownType;
@@ -56,6 +57,18 @@ public class DropdownsPage extends BasePage {
 		add(createDirectionDropdown("directionLeft", "Left", directionLinks, DropdownListAlignment.LEFT));
 		add(createDirectionDropdown("directionDown", "Down", directionLinks, null));
 		add(createDirectionDropdown("directionRight", "Right", directionLinks, DropdownListAlignment.RIGHT));
+		
+		List<String> hoverLinks = Arrays.asList("First link", "Second link", "Third link");
+		FoundationDropdown hoverDropdown = new FoundationDropdown("hoverDropdown", "Has Hover Dropdown", new DropdownOptions(DropdownHover.HOVERABLE), hoverLinks) {
+				@Override
+				protected WebMarkupContainer createDropdownLink(int idx, String id) {
+					return new Link<String>(id) {
+						@Override
+						public void onClick() {}
+					};
+				}
+		};
+		add(hoverDropdown);
 	}
 	
 	private FoundationDropdown createDirectionDropdown(String id, String title, List<String> links, DropdownListAlignment align) {
