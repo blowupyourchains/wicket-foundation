@@ -70,26 +70,32 @@ add(basicContentDropdown);
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;button&quot;</span> <span class="attribute">data-dropdown</span>=<span class="value">&quot;drop&quot;</span>&gt;</span>Link Dropdown &amp;raquo;<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">&quot;drop&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;[tiny small medium large content]f-dropdown&quot;</span> <span class="attribute">data-dropdown-content</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is a link<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>This is another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">&quot;#&quot;</span>&gt;</span>Yet another<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;advancedDropdownLink&quot;</span>&gt;</span>Has Dropdown<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">List&lt;String&gt; advancedLinks = Arrays.asList(&quot;This is a link&quot;, &quot;This is another&quot;, &quot;Yet another&quot;);
+FoundationDropdown advancedDropdownLink = new FoundationDropdown(&quot;advancedDropdownLink&quot;, &quot;Link Dropdown&quot;, new DropdownOptions(DropdownType.DROPDOWNLINK), advancedLinks) {
+        @Override
+        protected WebMarkupContainer createDropdownLink(int idx, String id) {
+            return new Link&lt;String&gt;(id) {
+                @Override
+                public void onClick() {}
+            };
+        }
+};
+add(advancedDropdownLink);      
 </div></code>
 </pre>
 
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
-                    <a href="#" class="button" data-dropdown="tinyDrop2">Link
-                        Dropdown &raquo;</a>
-                    <ul id="tinyDrop2" class="medium f-dropdown"
-                        data-dropdown-content>
-                        <li><a href="#">This is a link</a></li>
-                        <li><a href="#">This is another</a></li>
-                        <li><a href="#">Yet another</a></li>
-                    </ul>
+                    <div wicket:id="advancedDropdownLink"></div>
                 </div>
             </div>
 
