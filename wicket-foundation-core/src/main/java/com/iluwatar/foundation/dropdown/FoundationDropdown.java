@@ -81,40 +81,4 @@ public abstract class FoundationDropdown extends FoundationDropdownBase {
 			super.onDetach();
 		}
 	}
-	
-//	private class FoundationDropdownContent extends WebMarkupContainer {
-//
-//		private static final long serialVersionUID = 1L;
-//		
-//		private IModel<String> contentModel;
-//		
-//		public FoundationDropdownContent(String id, IModel<String> contentModel) {
-//			super(id);
-//			this.contentModel = contentModel;
-//			this.setOutputMarkupId(true);
-//		}
-//		
-//		@Override
-//		protected void onComponentTag(ComponentTag tag) {
-//			Attribute.addAttribute(tag, "data-dropdown-content");
-//			Attribute.addClass(tag, "f-dropdown");
-//			Attribute.addClass(tag, "content");
-//			Attribute.addAttribute(tag, "aria-hidden", true);
-//			Attribute.addAttribute(tag, "tabindex", -1);
-//			super.onComponentTag(tag);
-//		}
-//		
-//		@Override
-//		public void onComponentTagBody(MarkupStream markupStream,
-//				ComponentTag openTag) {
-//			this.replaceComponentTagBody(markupStream, openTag, contentModel.getObject());
-//			super.onComponentTagBody(markupStream, openTag);
-//		}
-//		
-//		@Override
-//		protected void onDetach() {
-//			contentModel.detach();
-//			super.onDetach();
-//		}
-//	}	
 }
