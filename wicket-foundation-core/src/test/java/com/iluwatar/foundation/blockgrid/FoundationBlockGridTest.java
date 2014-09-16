@@ -18,7 +18,9 @@ public class FoundationBlockGridTest {
 	public void testParagraph() {
 		WicketTester tester = new WicketTester();
 		List<String> list = Arrays.asList("foo", "bar", "baz");
-		FoundationBlockGrid<String> grid = new FoundationBlockGrid<String>("id", new BlockGridOptions(BlockGridType.SMALL_BLOCK_GRID, 3), list) {
+		List<BlockGridOptions> optionsList = Arrays.asList(new BlockGridOptions(BlockGridType.SMALL_BLOCK_GRID, 3), 
+				new BlockGridOptions(BlockGridType.MEDIUM_BLOCK_GRID, 4), new BlockGridOptions(BlockGridType.LARGE_BLOCK_GRID, 5));
+		FoundationBlockGrid<String> grid = new FoundationBlockGrid<String>("id", optionsList, list) {
 
 			private static final long serialVersionUID = 1L;
 
@@ -31,7 +33,9 @@ public class FoundationBlockGridTest {
 		tester.startComponentInPage(grid);
 		tester.dumpPage();
 		TagTester container = tester.getTagByWicketId("container");
-		assertTrue(container.getAttributeIs("class", "small-block-grid-3"));
+		assertTrue(container.getAttributeContains("class", "small-block-grid-3"));
+		assertTrue(container.getAttributeContains("class", "medium-block-grid-4"));
+		assertTrue(container.getAttributeContains("class", "large-block-grid-5"));
 		assertEquals(3, tester.getTagsByWicketId("item").size());
 		assertEquals(3, tester.getTagsByWicketId("content").size());
 		assertEquals(3, tester.getTagsByWicketId("parent").size());

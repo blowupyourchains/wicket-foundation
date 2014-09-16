@@ -10,15 +10,6 @@
         create a row of five images or paragraphs that need to stay
         evenly spaced no matter the screen size, the block grid is for
         you.</h3>
-      <hr>
-      
-        <ul class="small-block-grid-3">
-          <li><wicket:link><img class="th"
-            src="satelite.jpg"></wicket:link></li>
-          <li><wicket:link><img class="th" src="space.jpg"></wicket:link></li>
-          <li><wicket:link><img class="th"
-            src="spacewalk.jpg"></wicket:link></li>
-        </ul>
       
       <hr>
       <h3>Basic</h3>
@@ -30,24 +21,23 @@
       </p>
 
           <h4>HTML</h4>
-<pre><code class="language-html"><div class="code-container">
-<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">&quot;small-block-grid-3&quot;</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+          <h4>Java</h4>
+<pre><code class="language-html"><div class="code-container">add(new FoundationBlockGrid&lt;String&gt;(&quot;basic&quot;, new BlockGridOptions(BlockGridType.SMALL_BLOCK_GRID, 3), Arrays.asList(&quot;satelite.jpg&quot;, &quot;space.jpg&quot;, &quot;spacewalk.jpg&quot;)) {
+    @Override
+    public WebMarkupContainer createContent(int idx, String id,
+            IModel&lt;String&gt; model) {
+        return new BlockGridImagePanel(id, new PackageResourceReference(this.getClass(), model.getObject()));
+    }           
+});
 </div></code>
 </pre>
 
           <h4>Rendered HTML</h4>
-          <ul class="small-block-grid-3">
-            <li><wicket:link><img class="th"
-              src="satelite.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="space.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="spacewalk.jpg"></wicket:link></li>
-          </ul>
+          <div wicket:id="basic"></div>
 
       <hr>
       <h3>Advanced</h3>
@@ -55,36 +45,26 @@
         items in a row for each screen size.</p>
 
           <h4>HTML</h4>
-<pre>
-<code class="language-html">
-<div class="code-container">
-<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">&quot;small-block-grid-2 medium-block-grid-3 large-block-grid-4&quot;</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="comment">&lt;!-- Your content goes here --&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;advanced&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+          <h4>Java</h4>
+<pre><code class="language-html"><div class="code-container">List&lt;BlockGridOptions&gt; optionsList = Arrays.asList(new BlockGridOptions(BlockGridType.SMALL_BLOCK_GRID, 2), 
+        new BlockGridOptions(BlockGridType.MEDIUM_BLOCK_GRID, 3), new BlockGridOptions(BlockGridType.LARGE_BLOCK_GRID, 4));
+List&lt;String&gt; imageList = Arrays.asList(&quot;satelite.jpg&quot;, &quot;space.jpg&quot;, &quot;spacewalk.jpg&quot;, &quot;satelite.jpg&quot;, &quot;space.jpg&quot;, &quot;spacewalk.jpg&quot;);
+add(new FoundationBlockGrid&lt;String&gt;(&quot;advanced&quot;, optionsList, imageList) {
+    @Override
+    public WebMarkupContainer createContent(int idx, String id,
+            IModel&lt;String&gt; model) {
+        return new BlockGridImagePanel(id, new PackageResourceReference(this.getClass(), model.getObject()));
+    }           
+});
 </div></code>
 </pre>
 
           <h4>Rendered HTML</h4>
-          <ul
-            class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-            <li><wicket:link><img class="th"
-              src="comet-th.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="earth-th.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="launch-th.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="satelite-th.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="space-th.jpg"></wicket:link></li>
-            <li><wicket:link><img class="th"
-              src="spacewalk-th.jpg"></wicket:link></li>
-          </ul>
+          <div wicket:id="advanced"></div>
 
       <p>
         If you use the
