@@ -10,10 +10,8 @@
         <div class="row">
             <h1 id="tooltips">Tooltips</h1>
             <h3 class="subheader">
-                Tooltips are a quick way to provide <a data-tooltip
-                    aria-haspopup="true" class="has-tip"
-                    title="Tooltips are awesome, you should totally use them!">extended
-                    information</a> on a term or action on a page.
+                Tooltips are a quick way to provide extended
+                    information on a term or action on a page.
             </h3>
 
             <hr>
@@ -24,23 +22,22 @@
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">data-tooltip</span> <span class="attribute">aria-haspopup</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;has-tip&quot;</span> <span class="attribute">title</span>=<span class="value">&quot;Tooltips are awesome, you should totally use them!&quot;</span>&gt;</span>extended information<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">Label basic = new Label(&quot;basic&quot;, Model.of(&quot;Hover on desktop or touch me on mobile!&quot;));
+basic.add(new FoundationTooltipBehavior(&quot;Tooltips are awesome, you should totally use them!&quot;));
+add(basic);
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
-                    <span data-tooltip aria-haspopup="true"
-                        class="has-tip"
-                        title="Tooltips are awesome, you should totally use them!">Hover
-                        on desktop or touch me on mobile!</span>
+                    <span wicket:id="basic"></span>
                 </div>
             </div>
 
@@ -53,14 +50,17 @@
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">data-tooltip</span> <span class="attribute">aria-haspopup</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;has-tip&quot;</span> <span class="attribute">title</span>=<span class="value">&quot;Tooltips are awesome, you should totally use them!&quot;</span>&gt;</span>extended information<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;advanced&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">Label advanced = new Label(&quot;advanced&quot;, Model.of(&quot;Hover on desktop or touch me on mobile!&quot;));
+TooltipOptions options = new TooltipOptions(TooltipPosition.TIP_TOP).setRadius(ButtonRadius.ROUND);
+advanced.add(new FoundationTooltipBehavior(&quot;Tooltips are awesome, you should totally use them!&quot;, options));
+add(advanced);
 </div></code>
 </pre>
                 </div>
@@ -68,11 +68,11 @@
             <h4>Rendered HTML</h4>
 
             <p>
-                <span data-tooltip aria-haspopup="true"
-                    class="has-tip tip-bottom radius"
-                    title="Tooltips are awesome, you should totally use them!">Hover
-                    on desktop and touch me on mobile!</span>
+                <span wicket:id="advanced"></span>
             </p>
+            
+            <h3>Visibility</h3>
+            
             <p>
                 You can now also add
                 <code>show_on</code>
@@ -93,26 +93,23 @@
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">data-tooltip</span> <span class="attribute">aria-haspopup</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;has-tip&quot;</span> <span class="attribute">title</span>=<span class="value">&quot;Tooltips are awesome, you should totally use them!&quot;</span>&gt;</span>extended information<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;visibility&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">Label visibility = new Label(&quot;visibility&quot;, Model.of(&quot;This one shows tooltip only on large displays!&quot;));
+TooltipOptions visibilityOptions = new TooltipOptions(TooltipVisibility.LARGE);
+visibility.add(new FoundationTooltipBehavior(&quot;Tooltips are awesome, you should totally use them!&quot;, visibilityOptions));
+add(visibility);
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
-                    <h3 class="subheader">
-                        Now tooltips have data-options! This tooltip
-                        will only <span data-tooltip
-                            aria-haspopup="true" class="has-tip"
-                            data-options="show_on: large"
-                            title="Large Screen Sizes">show on</span>.
-                    </h3>
+                    <span wicket:id="visibility"></span>
                 </div>
             </div>
 
@@ -126,25 +123,26 @@
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">data-tooltip</span> <span class="attribute">aria-haspopup</span>=<span class="value">&quot;true&quot;</span> <span class="attribute">class</span>=<span class="value">&quot;has-tip&quot;</span> <span class="attribute">title</span>=<span class="value">&quot;Tooltips are awesome, you should totally use them!&quot;</span>&gt;</span>extended information<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;disableForTouch&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
 </div></code>
 </pre>
                 </div>
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">Label disableForTouch = new Label(&quot;disableForTouch&quot;, Model.of(&quot;This one's tooltip is disabled for touch devices!&quot;));
+TooltipOptions touchOptions = new TooltipOptions(true);
+disableForTouch.add(new FoundationTooltipBehavior(&quot;Tooltips are awesome, you should totally use them!&quot;, touchOptions));
+add(disableForTouch);
 </div></code>
 </pre>
                 </div>
 
 
-            <p>
-                Tooltips applied to
-                <kbd>&lt;a&gt;</kbd>
-                tags will automatically be disabled for touch events, so
-                not to interfere with the link.
-            </p>
+                <div class="verticalPadding50">
+                    <h4>Rendered HTML</h4>
+                    <span wicket:id="disableForTouch"></span>
+                </div>
         </div>
 
     </wicket:extend>

@@ -48,6 +48,10 @@ public class FoundationTooltipBehavior extends FoundationJsBehavior {
 		if (options.getRadius() != null) {
 			Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getRadius().name()));
 		}
+		if (options.getVisibility() != null) {
+			String value = "show_on: " + StringUtil.EnumNameToCssClassName(options.getVisibility().name());
+			Attribute.addAttribute(tag, "data-options", value);
+		}
 		super.onComponentTag(component, tag);
 	}
 	

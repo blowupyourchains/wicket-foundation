@@ -32,7 +32,8 @@ public class FoundationTooltipBehaviorTest {
 	public void testAdvanced() {
 		WicketTester tester = new WicketTester();
 		Label label = new Label("id", Model.of("Some content"));
-		TooltipOptions options = new TooltipOptions(true).setPosition(TooltipPosition.TIP_RIGHT).setRadius(ButtonRadius.ROUND);
+		TooltipOptions options = new TooltipOptions(true).setPosition(TooltipPosition.TIP_RIGHT)
+				.setRadius(ButtonRadius.ROUND).setVisibility(TooltipVisibility.MEDIUM);
 		FoundationTooltipBehavior tooltip = new FoundationTooltipBehavior("My tooltip", options);
 		label.add(tooltip);
 		tester.startComponentInPage(label);
@@ -45,6 +46,7 @@ public class FoundationTooltipBehaviorTest {
 		assertEquals("Some content", idTag.getValue());
 		assertTrue(idTag.getAttributeContains("class", "tip-right"));
 		assertTrue(idTag.getAttributeContains("class", "round"));
-		assertTrue(idTag.getAttributeIs("data-options", "disable_for_touch: true"));
+		assertTrue(idTag.getAttributeContains("data-options", "disable_for_touch: true"));
+		assertTrue(idTag.getAttributeContains("data-options", "show_on: medium"));
 	}
 }

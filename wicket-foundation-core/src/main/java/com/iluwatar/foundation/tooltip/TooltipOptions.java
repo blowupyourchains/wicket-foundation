@@ -11,6 +11,7 @@ public class TooltipOptions implements Serializable {
 	private boolean disableForTouch;
 	private TooltipPosition position;
 	private ButtonRadius radius;
+	private TooltipVisibility visibility;
 	
 	public TooltipOptions() {
 	}
@@ -27,6 +28,10 @@ public class TooltipOptions implements Serializable {
 		this.radius = radius;
 	}
 
+	public TooltipOptions(TooltipVisibility visibility) {
+		this.visibility = visibility;
+	}
+	
 	public boolean isDisableForTouch() {
 		return disableForTouch;
 	}
@@ -51,6 +56,15 @@ public class TooltipOptions implements Serializable {
 
 	public TooltipOptions setRadius(ButtonRadius radius) {
 		this.radius = radius;
+		return this;
+	}
+
+	public TooltipVisibility getVisibility() {
+		return visibility;
+	}
+
+	public TooltipOptions setVisibility(TooltipVisibility visibility) {
+		this.visibility = visibility;
 		return this;
 	}	
 }
