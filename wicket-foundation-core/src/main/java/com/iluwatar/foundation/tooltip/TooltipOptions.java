@@ -1,0 +1,56 @@
+package com.iluwatar.foundation.tooltip;
+
+import java.io.Serializable;
+
+import com.iluwatar.foundation.button.ButtonRadius;
+
+public class TooltipOptions implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private boolean disableForTouch;
+	private TooltipPosition position;
+	private ButtonRadius radius;
+	
+	public TooltipOptions() {
+	}
+
+	public TooltipOptions(boolean disableForTouch) {
+		this.disableForTouch = disableForTouch;
+	}
+
+	public TooltipOptions(TooltipPosition position) {
+		this.position = position;
+	}
+
+	public TooltipOptions(ButtonRadius radius) {
+		this.radius = radius;
+	}
+
+	public boolean isDisableForTouch() {
+		return disableForTouch;
+	}
+
+	public TooltipOptions setDisableForTouch(boolean disableForTouch) {
+		this.disableForTouch = disableForTouch;
+		return this;
+	}
+
+	public TooltipPosition getPosition() {
+		return position;
+	}
+
+	public TooltipOptions setPosition(TooltipPosition position) {
+		this.position = position;
+		return this;
+	}
+
+	public ButtonRadius getRadius() {
+		return radius;
+	}
+
+	public TooltipOptions setRadius(ButtonRadius radius) {
+		this.radius = radius;
+		return this;
+	}	
+}
