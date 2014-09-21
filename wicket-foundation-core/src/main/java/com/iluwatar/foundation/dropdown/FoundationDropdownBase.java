@@ -93,10 +93,10 @@ public abstract class FoundationDropdownBase extends FoundationJsPanel {
 			}
 			if (options.getListAlignment() != null) {
 				String partial = StringUtil.EnumNameToCssClassName(options.getListAlignment().name());
-				Attribute.addAttribute(tag, "data-options", "align: " + partial);
+				Attribute.addDataOptions(tag, "align:" + partial);
 			}
 			if (options.getHover() != null) {
-				Attribute.addAttribute(tag, "data-options", "is_hover: true");
+				Attribute.addDataOptions(tag, "is_hover:true");
 			}
 			super.onComponentTag(tag);
 		}

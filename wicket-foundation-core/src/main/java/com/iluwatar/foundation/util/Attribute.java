@@ -16,6 +16,8 @@ import com.google.common.base.Splitter;
  */
 public class Attribute {
 
+	private static String DATA_OPTIONS_SEPARATOR = ";";
+	
 	/**
 	 * Set class attribute value (overwrite)
 	 * @param tag
@@ -191,4 +193,77 @@ public class Attribute {
 		Args.notNull(attribute, "attribute");
 		return tag.getAttribute(attribute);
 	}
+	
+	/**
+	 * Sets data-options attribute value
+	 * @param tag
+	 * @param value
+	 * @return
+	 */
+	public static ComponentTag setDataOptions(ComponentTag tag, String value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(value, "value");
+		tag.put("data-options", value + DATA_OPTIONS_SEPARATOR);
+		return tag;
+	}
+	
+	/**
+	 * Adds to data-options attribute value
+	 * @param tag
+	 * @param value
+	 * @return
+	 */
+	public static ComponentTag addDataOptions(ComponentTag tag, String value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(value, "value");
+		if (!hasDataOptions(tag, value)) {
+			String current = tag.getAttribute("data-options");
+			if (current == null) {
+				tag.put("data-options", value + DATA_OPTIONS_SEPARATOR);
+			} else {
+				tag.put("data-options", current + value + DATA_OPTIONS_SEPARATOR);
+			}
+		}
+		return tag;
+	}
+
+	/**
+	 * Remove data-options value
+	 * @param tag
+	 * @param value
+	 * @return
+	 */
+	public static ComponentTag removeDataOptions(ComponentTag tag, String value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(value, "value");
+		if (hasDataOptions(tag, value)) {
+			Iterator<String> iterator = Splitter.on(";").split(tag.getAttribute("data-options")).iterator();
+			StringBuilder sb = new StringBuilder();
+			while (iterator.hasNext()) {
+				String thisValue = iterator.next();
+				if (!thisValue.isEmpty() && !thisValue.equals(value)) {
+					sb.append(thisValue + DATA_OPTIONS_SEPARATOR);
+				}
+			}
+			tag.put("data-options", sb.toString());
+		}
+		return tag;
+	}
+	
+	/**
+	 * Tests whether data-options contains value
+	 * @param tag
+	 * @param value
+	 * @return
+	 */
+	public static boolean hasDataOptions(ComponentTag tag, String value) {
+		Args.notNull(tag, "tag");
+		Args.notNull(value, "value");
+		String current = tag.getAttribute("data-options");
+		if (current == null) {
+			return false;
+		}
+		String[] existing = current.split(";");
+		return Arrays.asList(existing).contains(value);
+	}	
 }

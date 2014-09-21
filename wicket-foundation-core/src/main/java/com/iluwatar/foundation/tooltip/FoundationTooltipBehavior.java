@@ -40,7 +40,7 @@ public class FoundationTooltipBehavior extends FoundationJsBehavior {
 		Attribute.addAttribute(tag, "title", titleModel.getObject());
 		TooltipOptions options = optionsModel.getObject();
 		if (options.isDisableForTouch()) {
-			Attribute.addAttribute(tag, "data-options", "disable_for_touch: true");
+			Attribute.addDataOptions(tag, "disable_for_touch:true");
 		}
 		if (options.getPosition() != null) {
 			Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getPosition().name()));
@@ -49,8 +49,8 @@ public class FoundationTooltipBehavior extends FoundationJsBehavior {
 			Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getRadius().name()));
 		}
 		if (options.getVisibility() != null) {
-			String value = "show_on: " + StringUtil.EnumNameToCssClassName(options.getVisibility().name());
-			Attribute.addAttribute(tag, "data-options", value);
+			String value = "show_on:" + StringUtil.EnumNameToCssClassName(options.getVisibility().name());
+			Attribute.addDataOptions(tag, value);
 		}
 		super.onComponentTag(component, tag);
 	}

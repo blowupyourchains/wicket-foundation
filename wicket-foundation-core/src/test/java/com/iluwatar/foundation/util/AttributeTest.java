@@ -81,4 +81,22 @@ public class AttributeTest {
         Attribute.removeAttribute(tag, "data-dropdown");
         assertNull(Attribute.getAttribute(tag, "data-dropdown"));
 	}
+
+	@Test
+	public void testAddRemoveDataOptions() {
+        final ComponentTag tag = new ComponentTag("div", XmlTag.TagType.OPEN_CLOSE);
+        Attribute.setDataOptions(tag, "color:red");
+        assertEquals("color:red;", Attribute.getAttribute(tag, "data-options"));
+        Attribute.setDataOptions(tag, "color:brown");
+        assertEquals("color:brown;", Attribute.getAttribute(tag, "data-options"));
+        Attribute.addDataOptions(tag, "weight:100");
+        assertEquals("color:brown;weight:100;", Attribute.getAttribute(tag, "data-options"));
+        Attribute.addDataOptions(tag, "height:195");
+        assertEquals("color:brown;weight:100;height:195;", Attribute.getAttribute(tag, "data-options"));
+        Attribute.removeDataOptions(tag, "weight:100");
+        assertEquals("color:brown;height:195;", Attribute.getAttribute(tag, "data-options"));
+        Attribute.removeDataOptions(tag, "height:195");
+        assertEquals("color:brown;", Attribute.getAttribute(tag, "data-options"));        
+        assertTrue(Attribute.hasDataOptions(tag, "color:brown"));
+	}
 }

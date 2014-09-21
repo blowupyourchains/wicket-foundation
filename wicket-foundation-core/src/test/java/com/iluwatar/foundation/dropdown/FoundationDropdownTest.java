@@ -158,8 +158,8 @@ public class FoundationDropdownTest {
 		assertTrue(btnTag.getAttributeContains("class", "round"));
 		assertTrue(btnTag.getAttributeContains("class", "large"));
 		assertTrue(btnTag.getAttributeContains("class", "expand"));
-		assertTrue(btnTag.getAttributeContains("data-options", "align: left"));
-		assertTrue(btnTag.getAttributeContains("data-options", "is_hover: true"));
+		assertTrue(btnTag.getAttributeContains("data-options", "align:left"));
+		assertTrue(btnTag.getAttributeContains("data-options", "is_hover:true"));
 		assertTrue(containerTag.getAttributeContains("class", "large"));
 	}
 	
