@@ -46,7 +46,7 @@ public class FoundationTooltipBehaviorTest {
 		assertEquals("Some content", idTag.getValue());
 		assertTrue(idTag.getAttributeContains("class", "tip-right"));
 		assertTrue(idTag.getAttributeContains("class", "round"));
-		assertTrue(idTag.getAttributeContains("data-options", "disable_for_touch: true"));
-		assertTrue(idTag.getAttributeContains("data-options", "show_on: medium"));
+		assertTrue(idTag.getAttributeContains("data-options", "disable_for_touch:true"));
+		assertTrue(idTag.getAttributeContains("data-options", "show_on:medium"));
 	}
 }
