@@ -31,9 +31,6 @@ Now open browser and navigate to http://localhost:8080 to see the sample applica
 
 ## License
 
-License
--------
-
 Wicket-foundation is distributed under the terms of the Apache Software Foundation
 license, version 2.0. The text is included in the file LICENSE.md in the root
 of the project.
