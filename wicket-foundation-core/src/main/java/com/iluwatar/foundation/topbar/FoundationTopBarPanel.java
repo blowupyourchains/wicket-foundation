@@ -9,7 +9,7 @@ import com.iluwatar.foundation.component.FoundationJsPanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
-public class FoundationTopBarPanel extends FoundationJsPanel {
+public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,11 @@ public class FoundationTopBarPanel extends FoundationJsPanel {
 		add(topBarContainer);
 		FoundationTopBar topBar = new FoundationTopBar("topBar", optionsModel);
 		topBarContainer.add(topBar);
+		WebMarkupContainer titleContainer = createTitleContainer("titleContainer");
+		topBar.add(titleContainer);
 	}
+	
+	public abstract WebMarkupContainer createTitleContainer(String id);
 	
 	private static class FoundationTopBarContainer extends WebMarkupContainer {
 
