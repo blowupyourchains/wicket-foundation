@@ -44,6 +44,7 @@ public abstract class FoundationTopBarTitlePanel extends FoundationBasePanel {
 		@Override
 		protected void onComponentTag(ComponentTag tag) {
 			TopBarMenuLayout layout = menuLayoutModel.getObject();
+			Attribute.addClass(tag, "toggle-topbar");
 			if (layout.equals(TopBarMenuLayout.ICON) || layout.equals(TopBarMenuLayout.TITLE_AND_ICON)) {
 				Attribute.addClass(tag, "menu-icon");
 			}
