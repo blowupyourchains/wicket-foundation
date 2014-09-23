@@ -1,9 +1,13 @@
 package com.iluwatar.foundation.topbar;
 
+import java.util.List;
+
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.model.util.ListModel;
 
 import com.iluwatar.foundation.component.FoundationJsPanel;
 import com.iluwatar.foundation.util.Attribute;
@@ -13,15 +17,15 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public FoundationTopBarPanel(String id) {
-		this(id, new TopBarOptions());
+	public FoundationTopBarPanel(String id, List<TopBarItem> rightItems, List<TopBarItem> leftItems) {
+		this(id, new TopBarOptions(), rightItems, leftItems);
 	}
 	
-	public FoundationTopBarPanel(String id, TopBarOptions options) {
-		this(id, Model.of(options));
+	public FoundationTopBarPanel(String id, TopBarOptions options, List<TopBarItem> rightItems, List<TopBarItem> leftItems) {
+		this(id, Model.of(options), new ListModel<>(rightItems), new ListModel<>(leftItems));
 	}
 	
-	public FoundationTopBarPanel(String id, IModel<TopBarOptions> optionsModel) {
+	public FoundationTopBarPanel(String id, IModel<TopBarOptions> optionsModel, IModel<List<TopBarItem>> rightItems, IModel<List<TopBarItem>> leftItems) {
 		super(id);
 		FoundationTopBarContainer topBarContainer = new FoundationTopBarContainer("topBarContainer", optionsModel);
 		add(topBarContainer);
@@ -29,9 +33,21 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 		topBarContainer.add(topBar);
 		WebMarkupContainer titleContainer = createTitleContainer("titleContainer");
 		topBar.add(titleContainer);
+		topBar.add(new FoundationItemContainer("rightContainer"));
+		topBar.add(new FoundationItemContainer("leftContainer"));
 	}
 	
 	public abstract WebMarkupContainer createTitleContainer(String id);
+	
+	private static class FoundationItemContainer extends WebMarkupContainer {
+
+		private static final long serialVersionUID = 1L;
+		
+		public FoundationItemContainer(String id) {
+			super(id);
+			add(new RepeatingView("item"));
+		}
+	}
 	
 	private static class FoundationTopBarContainer extends WebMarkupContainer {
 

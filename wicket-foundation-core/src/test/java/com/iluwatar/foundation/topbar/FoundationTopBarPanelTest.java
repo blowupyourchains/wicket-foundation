@@ -3,6 +3,7 @@ package com.iluwatar.foundation.topbar;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -19,7 +20,7 @@ public class FoundationTopBarPanelTest {
 	public void testBasic() {
 		WicketTester tester = new WicketTester();
 
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id") {
+		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
@@ -40,7 +41,7 @@ public class FoundationTopBarPanelTest {
 		WicketTester tester = new WicketTester();
 		TopBarOptions options = new TopBarOptions().setFixed(true);
 		
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", options) {
+		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", options, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
@@ -59,7 +60,7 @@ public class FoundationTopBarPanelTest {
 		TopBarOptions options = new TopBarOptions().setClickable(true).setContainToGrid(true)
 				.setSticky(true).setStickySizes(EnumSet.of(TopBarStickySize.LARGE));
 		
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", options) {
+		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", options, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
@@ -80,7 +81,7 @@ public class FoundationTopBarPanelTest {
 	public void testTitlePanel() {
 		WicketTester tester = new WicketTester();
 
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id") {
+		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new FoundationTopBarTitlePanel(id, Model.of("Home"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
