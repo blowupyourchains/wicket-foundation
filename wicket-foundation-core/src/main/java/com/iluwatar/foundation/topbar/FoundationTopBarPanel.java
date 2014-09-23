@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -25,7 +26,8 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 		this(id, Model.of(options), new ListModel<>(rightItems), new ListModel<>(leftItems));
 	}
 	
-	public FoundationTopBarPanel(String id, IModel<TopBarOptions> optionsModel, IModel<List<TopBarItem>> rightItems, IModel<List<TopBarItem>> leftItems) {
+	public FoundationTopBarPanel(String id, IModel<TopBarOptions> optionsModel, IModel<List<TopBarItem>> rightItemsModel, 
+			IModel<List<TopBarItem>> leftItemsModel) {
 		super(id);
 		FoundationTopBarContainer topBarContainer = new FoundationTopBarContainer("topBarContainer", optionsModel);
 		add(topBarContainer);
@@ -33,8 +35,8 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 		topBarContainer.add(topBar);
 		WebMarkupContainer titleContainer = createTitleContainer("titleContainer");
 		topBar.add(titleContainer);
-		topBar.add(new FoundationItemContainer("rightContainer"));
-		topBar.add(new FoundationItemContainer("leftContainer"));
+		topBar.add(new FoundationItemContainer("rightContainer", rightItemsModel));
+		topBar.add(new FoundationItemContainer("leftContainer", leftItemsModel));
 	}
 	
 	public abstract WebMarkupContainer createTitleContainer(String id);
@@ -43,9 +45,25 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 
 		private static final long serialVersionUID = 1L;
 		
-		public FoundationItemContainer(String id) {
+		public FoundationItemContainer(String id, IModel<List<TopBarItem>> itemsModel) {
 			super(id);
-			add(new RepeatingView("item"));
+			RepeatingView rv = new RepeatingView("item");
+			add(rv);
+			for (TopBarItem item: itemsModel.getObject()) {
+				FoundationTopBarLinkPanel linkPanel = new FoundationTopBarLinkPanel(rv.newChildId()) {
+
+					@Override
+					public WebMarkupContainer createLink(String id) {
+						return new Link(id) {
+							@Override
+							public void onClick() {
+							}
+						};
+					}
+					
+				};
+				rv.add(linkPanel);
+			}
 		}
 	}
 	

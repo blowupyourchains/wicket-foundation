@@ -20,7 +20,10 @@ public class FoundationTopBarPanelTest {
 	public void testBasic() {
 		WicketTester tester = new WicketTester();
 
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+		ArrayList<TopBarItem> leftItems = new ArrayList<TopBarItem>();
+		leftItems.add(new SimpleTopBarItem("foobar"));
+		
+		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
@@ -68,7 +71,7 @@ public class FoundationTopBarPanelTest {
 		};
 		
 		tester.startComponentInPage(topBarPanel);
-		tester.dumpPage();
+		//tester.dumpPage();
 		TagTester topBarContainer = tester.getTagByWicketId("topBarContainer");
 		assertTrue(topBarContainer.getAttributeContains("class", "contain-to-grid"));
 		assertTrue(topBarContainer.getAttributeContains("class", "sticky"));
@@ -98,7 +101,7 @@ public class FoundationTopBarPanelTest {
 		};
 		
 		tester.startComponentInPage(topBarPanel);
-		tester.dumpPage();
+		//tester.dumpPage();
 		TagTester titleContainer = tester.getTagByWicketId("titleContainer");
 		assertEquals("title-area", titleContainer.getAttribute("class"));
 		TagTester titleLink = tester.getTagByWicketId("titleLink");
