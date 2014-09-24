@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -41,7 +40,9 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 	
 	public abstract WebMarkupContainer createTitleContainer(String id);
 	
-	private static class FoundationItemContainer extends WebMarkupContainer {
+	public abstract WebMarkupContainer createLink(String id, String itemId);
+	
+	private class FoundationItemContainer extends WebMarkupContainer {
 
 		private static final long serialVersionUID = 1L;
 		
@@ -50,17 +51,12 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 			RepeatingView rv = new RepeatingView("item");
 			add(rv);
 			for (TopBarItem item: itemsModel.getObject()) {
-				FoundationTopBarLinkPanel linkPanel = new FoundationTopBarLinkPanel(rv.newChildId()) {
-
+				
+				TopBarRecursiveLinkPanel linkPanel = new TopBarRecursiveLinkPanel(rv.newChildId(), item) {
 					@Override
-					public WebMarkupContainer createLink(String id) {
-						return new Link(id) {
-							@Override
-							public void onClick() {
-							}
-						};
+					public WebMarkupContainer createLink(String id, String itemId) {
+						return FoundationTopBarPanel.this.createLink(id, itemId);
 					}
-					
 				};
 				rv.add(linkPanel);
 			}

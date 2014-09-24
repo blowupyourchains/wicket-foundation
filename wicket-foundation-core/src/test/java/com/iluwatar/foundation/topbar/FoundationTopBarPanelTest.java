@@ -21,12 +21,21 @@ public class FoundationTopBarPanelTest {
 		WicketTester tester = new WicketTester();
 
 		ArrayList<TopBarItem> leftItems = new ArrayList<TopBarItem>();
-		leftItems.add(new SimpleTopBarItem("foobar"));
+		leftItems.add(new SimpleTopBarItem("foo"));
+		leftItems.add(new SimpleTopBarItem("bar"));
 		
 		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
+			}
+			@Override
+			public WebMarkupContainer createLink(String id, String itemId) {
+				return new Link<Void>(id) {
+					@Override
+					public void onClick() {
+					}
+				};
 			}
 		};
 		
@@ -37,6 +46,9 @@ public class FoundationTopBarPanelTest {
 		assertEquals("top-bar", topBar.getAttribute("class"));
 		assertTrue(topBar.hasAttribute("data-topbar"));
 		assertTrue(topBar.getAttributeIs("role", "navigation"));
+		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:1:link", Link.class);
+		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:2:link", Link.class);
+		tester.debugComponentTrees();
 	}
 
 	@Test
@@ -48,6 +60,14 @@ public class FoundationTopBarPanelTest {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
+			}
+			@Override
+			public WebMarkupContainer createLink(String id, String itemId) {
+				return new Link<Void>(id) {
+					@Override
+					public void onClick() {
+					}
+				};
 			}
 		};
 		
@@ -67,6 +87,14 @@ public class FoundationTopBarPanelTest {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
+			}
+			@Override
+			public WebMarkupContainer createLink(String id, String itemId) {
+				return new Link<Void>(id) {
+					@Override
+					public void onClick() {
+					}
+				};
 			}
 		};
 		
@@ -95,6 +123,14 @@ public class FoundationTopBarPanelTest {
 							public void onClick() {
 							}
 						};
+					}
+				};
+			}
+			@Override
+			public WebMarkupContainer createLink(String id, String itemId) {
+				return new Link<Void>(id) {
+					@Override
+					public void onClick() {
 					}
 				};
 			}
