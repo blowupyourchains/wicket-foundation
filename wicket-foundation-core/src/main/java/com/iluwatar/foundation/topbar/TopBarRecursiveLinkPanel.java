@@ -2,7 +2,9 @@ package com.iluwatar.foundation.topbar;
 
 import java.util.Iterator;
 
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 
@@ -13,15 +15,18 @@ public abstract class TopBarRecursiveLinkPanel extends Panel {
 	public TopBarRecursiveLinkPanel(String id, TopBarItem topBarItem) {
 		super(id);
 		if (!topBarItem.hasChildren()) {
-			add(createLink("link", topBarItem.getItemId()));
+			WebMarkupContainer link = createLink("link", topBarItem.getItemId());
+			add(link);
+			link.add(new Label("text", topBarItem.getText()));
 			WebMarkupContainer dropdown = new WebMarkupContainer("dropdown");
 			dropdown.setVisible(false);
 			add(dropdown);
 			dropdown.add(new WebMarkupContainer("item"));
 		} else {
+			add(new AttributeModifier("class", "has-dropdown"));
 			WebMarkupContainer link = new WebMarkupContainer("link");
-			link.setVisible(false);
 			add(link);
+			link.add(new Label("text", topBarItem.getText()));
 			WebMarkupContainer dropdown = new WebMarkupContainer("dropdown");
 			add(dropdown);
 			RepeatingView rv = new RepeatingView("item");

@@ -21,8 +21,8 @@ public class FoundationTopBarPanelTest {
 		WicketTester tester = new WicketTester();
 
 		ArrayList<TopBarItem> leftItems = new ArrayList<TopBarItem>();
-		leftItems.add(new SimpleTopBarItem("foo"));
-		leftItems.add(new SimpleTopBarItem("bar"));
+		leftItems.add(new SimpleTopBarItem("foo", "Foo"));
+		leftItems.add(new SimpleTopBarItem("bar", "Bar"));
 		
 		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {
 			@Override
@@ -117,7 +117,7 @@ public class FoundationTopBarPanelTest {
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new FoundationTopBarTitlePanel(id, Model.of("Home"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
 					@Override
-					WebMarkupContainer createTitleLink(String id) {
+					public WebMarkupContainer createTitleLink(String id) {
 						return new Link(id) {
 							@Override
 							public void onClick() {
@@ -155,11 +155,11 @@ public class FoundationTopBarPanelTest {
 		WicketTester tester = new WicketTester();
 
 		ArrayList<TopBarItem> leftItems = new ArrayList<TopBarItem>();
-		SimpleTopBarItem foo = new SimpleTopBarItem("foo");
-		SimpleTopBarItem bar = new SimpleTopBarItem("bar");
+		SimpleTopBarItem foo = new SimpleTopBarItem("foo", "Foo");
+		SimpleTopBarItem bar = new SimpleTopBarItem("bar", "Bar");
 		foo.addChild(bar);
-		bar.addChild(new SimpleTopBarItem("bar1"));
-		bar.addChild(new SimpleTopBarItem("bar2"));
+		bar.addChild(new SimpleTopBarItem("bar1", "Bar1"));
+		bar.addChild(new SimpleTopBarItem("bar2", "Bar2"));
 		leftItems.add(foo);
 		
 		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {

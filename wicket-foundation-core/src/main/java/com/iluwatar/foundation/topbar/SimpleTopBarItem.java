@@ -8,16 +8,23 @@ public class SimpleTopBarItem implements TopBarItem {
 	private static final long serialVersionUID = 1L;
 	
 	private String itemId;
+	private String text;
 	
 	private List<TopBarItem> children = new ArrayList<>();
 
-	public SimpleTopBarItem(String itemId) {
+	public SimpleTopBarItem(String itemId, String text) {
 		this.itemId = itemId;
+		this.text = text;
 	}
 	
 	@Override
 	public String getItemId() {
 		return itemId;
+	}
+	
+	@Override
+	public String getText() {
+		return text;
 	}
 
 	@Override

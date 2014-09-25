@@ -21,7 +21,7 @@ public abstract class FoundationTopBarTitlePanel extends FoundationBasePanel {
 		add(new FoundationTopBarMenuContainer("menuContainer", menuLayoutModel, menuTitleModel));
 	}
 	
-	abstract WebMarkupContainer createTitleLink(String id);
+	public abstract WebMarkupContainer createTitleLink(String id);
 	
 	private static class FoundationTopBarMenuContainer extends WebMarkupContainer {
 
