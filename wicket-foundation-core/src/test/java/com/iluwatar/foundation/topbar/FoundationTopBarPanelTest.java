@@ -40,7 +40,7 @@ public class FoundationTopBarPanelTest {
 		};
 		
 		tester.startComponentInPage(topBarPanel);
-		tester.dumpPage();
+//		tester.dumpPage();
 		TagTester topBarContainer = tester.getTagByWicketId("topBarContainer");
 		TagTester topBar = tester.getTagByWicketId("topBar");
 		assertEquals("top-bar", topBar.getAttribute("class"));
@@ -48,7 +48,7 @@ public class FoundationTopBarPanelTest {
 		assertTrue(topBar.getAttributeIs("role", "navigation"));
 		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:1:link", Link.class);
 		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:2:link", Link.class);
-		tester.debugComponentTrees();
+//		tester.debugComponentTrees();
 	}
 
 	@Test
@@ -148,5 +148,46 @@ public class FoundationTopBarPanelTest {
 		assertEquals("toggle-topbar menu-icon", menuContainer.getAttribute("class"));
 		TagTester menuTitle = tester.getTagByWicketId("menuTitle");
 		assertEquals("Menu", menuTitle.getValue());
+	}
+	
+	@Test
+	public void testDropdown() {
+		WicketTester tester = new WicketTester();
+
+		ArrayList<TopBarItem> leftItems = new ArrayList<TopBarItem>();
+		SimpleTopBarItem foo = new SimpleTopBarItem("foo");
+		SimpleTopBarItem bar = new SimpleTopBarItem("bar");
+		foo.addChild(bar);
+		bar.addChild(new SimpleTopBarItem("bar1"));
+		bar.addChild(new SimpleTopBarItem("bar2"));
+		leftItems.add(foo);
+		
+		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {
+			@Override
+			public WebMarkupContainer createTitleContainer(String id) {
+				return new EmptyPanel(id);
+			}
+			@Override
+			public WebMarkupContainer createLink(String id, String itemId) {
+				return new Link<Void>(id) {
+					@Override
+					public void onClick() {
+					}
+				};
+			}
+		};
+		
+		tester.startComponentInPage(topBarPanel);
+		tester.dumpPage();
+		TagTester topBarContainer = tester.getTagByWicketId("topBarContainer");
+		TagTester topBar = tester.getTagByWicketId("topBar");
+		assertEquals("top-bar", topBar.getAttribute("class"));
+		assertTrue(topBar.hasAttribute("data-topbar"));
+		assertTrue(topBar.getAttributeIs("role", "navigation"));
+		tester.debugComponentTrees();
+		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:1", TopBarRecursiveLinkPanel.class);
+		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:1:dropdown:item:1", TopBarRecursiveLinkPanel.class);
+		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:1:dropdown:item:1:dropdown:item:1", TopBarRecursiveLinkPanel.class);
+		tester.assertComponent("id:topBarContainer:topBar:leftContainer:item:1:dropdown:item:1:dropdown:item:2", TopBarRecursiveLinkPanel.class);
 	}	
 }
