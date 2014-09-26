@@ -117,7 +117,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">HTML</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;fixed&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
 </div></code>
 </pre>
             </div>
@@ -125,19 +125,30 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">Java</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">add(new FoundationTopBarPanel(&quot;fixed&quot;, new TopBarOptions().setFixed(true), new ArrayList&lt;TopBarItem&gt;(), new ArrayList&lt;TopBarItem&gt;()) {
+  @Override
+  public WebMarkupContainer createTitleContainer(String id) {
+      return new EmptyPanel(id);
+  }
+  @Override
+  public WebMarkupContainer createLink(String id, String itemId) {
+      return new Link&lt;Void&gt;(id) {
+          @Override
+          public void onClick() {
+          }
+      };
+  }
+});
 </div></code>
 </pre>
             </div>
             
+<!--              
             <div>
                 <h4 id="html">Rendered HTML</h4>
-            
-<pre><code class="language-html"><div class="code-container">
-</div></code>
-</pre>
+                <div wicket:id="fixed"></div>            
             </div>
-
+-->
             <hr>
             <h3 id="sticky-top-bar">Sticky Top Bar</h3>
             <p>
@@ -160,7 +171,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">HTML</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;sticky&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
 </div></code>
 </pre>
             </div>
@@ -168,45 +179,30 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">Java</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">add(new FoundationTopBarPanel(&quot;sticky&quot;, new TopBarOptions().setSticky(true), new ArrayList&lt;TopBarItem&gt;(), new ArrayList&lt;TopBarItem&gt;()) {
+    @Override
+    public WebMarkupContainer createTitleContainer(String id) {
+        return new EmptyPanel(id);
+    }
+    @Override
+    public WebMarkupContainer createLink(String id, String itemId) {
+        return new Link&lt;Void&gt;(id) {
+            @Override
+            public void onClick() {
+            }
+        };
+    }
+});
 </div></code>
 </pre>
             </div>
             
-            
+<!--              
             <div>
                 <h4 id="html">Rendered HTML</h4>
-                <div>
-                    <div class="sticky">
-                        <nav class="top-bar" data-topbar
-                            role="navigation"
-                            data-options="sticky_on: large">
-                            <ul class="title-area">
-                                <!-- Title Area -->
-                                <li class="name">
-                                    <h1>
-                                        <a href="#">Sticky Top Bar</a>
-                                    </h1>
-                                </li>
-                                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                                <li class="toggle-topbar menu-icon"><a
-                                    href="#"><span>Menu</span></a></li>
-                            </ul>
-
-                            <section class="top-bar-section">
-
-                                <!-- Right Nav Section -->
-                                <ul class="right">
-                                    <li class="divider hide-for-small"></li>
-                                    <li><a href="#">Main Item 1</a></li>
-                                </ul>
-                            </section>
-                        </nav>
-                    </div>
-
-                    <p>
-                </div>
+                <div wicket:id="sticky"></div>
             </div>
+-->            
             <div>
                 <br>
             </div>

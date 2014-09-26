@@ -23,6 +23,8 @@ public class TopBarPage extends BasePage {
 	public TopBarPage(PageParameters params) {
 		super(params);
 		
+		// basic
+		
 		List<TopBarItem> rightItems = new ArrayList<>();
 		rightItems.add(new SimpleTopBarItem("rightButtonActive", "Right Button Active", true, false));
 		SimpleTopBarItem rightButtonDropdown = new SimpleTopBarItem("rightButtonDropdown", "Right Button Dropdown");
@@ -61,5 +63,40 @@ public class TopBarPage extends BasePage {
 				};
 			}
 		});
+
+		// fixed
+		
+//		add(new FoundationTopBarPanel("fixed", new TopBarOptions().setFixed(true), new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+//			@Override
+//			public WebMarkupContainer createTitleContainer(String id) {
+//				return new EmptyPanel(id);
+//			}
+//			@Override
+//			public WebMarkupContainer createLink(String id, String itemId) {
+//				return new Link<Void>(id) {
+//					@Override
+//					public void onClick() {
+//					}
+//				};
+//			}
+//		});
+		
+		// sticky
+
+//		add(new FoundationTopBarPanel("sticky", new TopBarOptions().setSticky(true), new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+//			@Override
+//			public WebMarkupContainer createTitleContainer(String id) {
+//				return new EmptyPanel(id);
+//			}
+//			@Override
+//			public WebMarkupContainer createLink(String id, String itemId) {
+//				return new Link<Void>(id) {
+//					@Override
+//					public void onClick() {
+//					}
+//				};
+//			}
+//		});
+		
 	}
 }
