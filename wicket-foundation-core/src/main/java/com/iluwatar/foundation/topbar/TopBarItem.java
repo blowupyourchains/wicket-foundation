@@ -7,6 +7,8 @@ public interface TopBarItem extends Serializable {
 
 	String getItemId();
 	String getText();
+	boolean isActive();
+	boolean isLabel();
 	List<TopBarItem> getChildren();
 	boolean hasChildren();
 	void addChild(TopBarItem item);

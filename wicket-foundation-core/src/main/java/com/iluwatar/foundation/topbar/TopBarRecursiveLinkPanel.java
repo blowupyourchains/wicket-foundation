@@ -3,6 +3,7 @@ package com.iluwatar.foundation.topbar;
 import java.util.Iterator;
 
 import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -15,20 +16,37 @@ public abstract class TopBarRecursiveLinkPanel extends Panel {
 	public TopBarRecursiveLinkPanel(String id, TopBarItem topBarItem) {
 		super(id);
 		if (!topBarItem.hasChildren()) {
+			// label
+			WebMarkupContainer labelContainer = new WebMarkupContainer("labelContainer");
+			add(labelContainer);
+			labelContainer.add(new Label("label", topBarItem.getText()));
+			labelContainer.setVisible(topBarItem.isLabel());
+			// link
 			WebMarkupContainer link = createLink("link", topBarItem.getItemId());
 			add(link);
 			link.add(new Label("text", topBarItem.getText()));
+			link.setVisible(!topBarItem.isLabel());
+			// dropdown
 			WebMarkupContainer dropdown = new WebMarkupContainer("dropdown");
 			dropdown.setVisible(false);
 			add(dropdown);
 			dropdown.add(new WebMarkupContainer("item"));
 		} else {
 			add(new AttributeModifier("class", "has-dropdown"));
+			// label
+			WebMarkupContainer labelContainer = new WebMarkupContainer("labelContainer");
+			add(labelContainer);
+			labelContainer.add(new Label("label", topBarItem.getText()));
+			labelContainer.setVisible(topBarItem.isLabel());
+			// link
 			WebMarkupContainer link = new WebMarkupContainer("link");
 			add(link);
 			link.add(new Label("text", topBarItem.getText()));
+			link.setVisible(!topBarItem.isLabel());
+			// dropdown
 			WebMarkupContainer dropdown = new WebMarkupContainer("dropdown");
 			add(dropdown);
+			dropdown.setVisible(!topBarItem.isLabel());
 			RepeatingView rv = new RepeatingView("item");
 			dropdown.add(rv);
 			Iterator<TopBarItem> childIterator = topBarItem.getChildren().iterator();
@@ -44,6 +62,9 @@ public abstract class TopBarRecursiveLinkPanel extends Panel {
 					}
 				});
 			}
+		}
+		if (topBarItem.isActive()) {
+			add(new AttributeAppender("class", "active"));
 		}
 	}
 	

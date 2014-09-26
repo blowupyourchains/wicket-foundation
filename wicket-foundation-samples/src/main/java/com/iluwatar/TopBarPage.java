@@ -26,6 +26,7 @@ public class TopBarPage extends BasePage {
 		List<TopBarItem> rightItems = new ArrayList<>();
 		rightItems.add(new SimpleTopBarItem("rightButtonActive", "Right Button Active"));
 		SimpleTopBarItem rightButtonDropdown = new SimpleTopBarItem("rightButtonDropdown", "Right Button Dropdown");
+		rightButtonDropdown.addChild(new SimpleTopBarItem("labelInDropdown", "Label in dropdown", false, true));
 		rightButtonDropdown.addChild(new SimpleTopBarItem("firstLinkInDropdown", "First link in dropdown"));
 		rightButtonDropdown.addChild(new SimpleTopBarItem("activeLinkInDropdown", "Active link in dropdown"));
 		rightItems.add(rightButtonDropdown);

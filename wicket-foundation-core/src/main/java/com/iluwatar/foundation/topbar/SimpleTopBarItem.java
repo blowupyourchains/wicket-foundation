@@ -9,12 +9,20 @@ public class SimpleTopBarItem implements TopBarItem {
 	
 	private String itemId;
 	private String text;
+	private boolean active;
+	private boolean isLabel;
 	
 	private List<TopBarItem> children = new ArrayList<>();
 
 	public SimpleTopBarItem(String itemId, String text) {
+		this(itemId, text, false, false);
+	}
+
+	public SimpleTopBarItem(String itemId, String text, boolean active, boolean isLabel) {
 		this.itemId = itemId;
 		this.text = text;
+		this.active = active;
+		this.isLabel = isLabel;
 	}
 	
 	@Override
@@ -40,5 +48,15 @@ public class SimpleTopBarItem implements TopBarItem {
 	@Override
 	public void addChild(TopBarItem item) {
 		children.add(item);
+	}
+
+	@Override
+	public boolean isActive() {
+		return active;
+	}
+
+	@Override
+	public boolean isLabel() {
+		return isLabel;
 	}
 }
