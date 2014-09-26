@@ -46,20 +46,30 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 
 		private static final long serialVersionUID = 1L;
 		
-		public FoundationItemContainer(String id, IModel<List<TopBarItem>> itemsModel) {
+		public FoundationItemContainer(String id, final IModel<List<TopBarItem>> itemsModel) {
 			super(id);
-			RepeatingView rv = new RepeatingView("item");
-			add(rv);
-			for (TopBarItem item: itemsModel.getObject()) {
-				
-				TopBarRecursiveLinkPanel linkPanel = new TopBarRecursiveLinkPanel(rv.newChildId(), item) {
-					@Override
-					public WebMarkupContainer createLink(String id, String itemId) {
-						return FoundationTopBarPanel.this.createLink(id, itemId);
+			add(new RepeatingView("item") {
+
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				protected void onPopulate() {
+					this.removeAll();
+					for (TopBarItem item: itemsModel.getObject()) {
+						
+						TopBarRecursiveLinkPanel linkPanel = new TopBarRecursiveLinkPanel(newChildId(), item) {
+
+							private static final long serialVersionUID = 1L;
+
+							@Override
+							public WebMarkupContainer createLink(String id, String itemId) {
+								return FoundationTopBarPanel.this.createLink(id, itemId);
+							}
+						};
+						add(linkPanel);
 					}
-				};
-				rv.add(linkPanel);
-			}
+				}
+			});
 		}
 	}
 	

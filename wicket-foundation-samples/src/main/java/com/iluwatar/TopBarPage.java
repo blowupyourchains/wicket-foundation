@@ -24,11 +24,10 @@ public class TopBarPage extends BasePage {
 		super(params);
 		
 		List<TopBarItem> rightItems = new ArrayList<>();
-		rightItems.add(new SimpleTopBarItem("rightButtonActive", "Right Button Active"));
+		rightItems.add(new SimpleTopBarItem("rightButtonActive", "Right Button Active", true, false));
 		SimpleTopBarItem rightButtonDropdown = new SimpleTopBarItem("rightButtonDropdown", "Right Button Dropdown");
-		rightButtonDropdown.addChild(new SimpleTopBarItem("labelInDropdown", "Label in dropdown", false, true));
 		rightButtonDropdown.addChild(new SimpleTopBarItem("firstLinkInDropdown", "First link in dropdown"));
-		rightButtonDropdown.addChild(new SimpleTopBarItem("activeLinkInDropdown", "Active link in dropdown"));
+		rightButtonDropdown.addChild(new SimpleTopBarItem("activeLinkInDropdown", "Active link in dropdown", true, false));
 		rightItems.add(rightButtonDropdown);
 		
 		List<TopBarItem> leftItems = new ArrayList<>();
@@ -38,7 +37,7 @@ public class TopBarPage extends BasePage {
 
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
-				return new FoundationTopBarTitlePanel(id, Model.of("Home"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
+				return new FoundationTopBarTitlePanel(id, Model.of("My Site"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
 					@Override
 					public WebMarkupContainer createTitleLink(String id) {
 						return new Link(id) {

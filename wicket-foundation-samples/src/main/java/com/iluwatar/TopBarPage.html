@@ -32,7 +32,7 @@
             <div>
                 <h4 id="html">HTML</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
 </div></code>
 </pre>
             </div>
@@ -40,7 +40,44 @@
             <div>
                 <h4 id="html">Java</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;TopBarItem&gt; rightItems = new ArrayList&lt;&gt;();
+rightItems.add(new SimpleTopBarItem(&quot;rightButtonActive&quot;, &quot;Right Button Active&quot;, true, false));
+SimpleTopBarItem rightButtonDropdown = new SimpleTopBarItem(&quot;rightButtonDropdown&quot;, &quot;Right Button Dropdown&quot;);
+rightButtonDropdown.addChild(new SimpleTopBarItem(&quot;firstLinkInDropdown&quot;, &quot;First link in dropdown&quot;));
+rightButtonDropdown.addChild(new SimpleTopBarItem(&quot;activeLinkInDropdown&quot;, &quot;Active link in dropdown&quot;, true, false));
+rightItems.add(rightButtonDropdown);
+
+List&lt;TopBarItem&gt; leftItems = new ArrayList&lt;&gt;();
+leftItems.add(new SimpleTopBarItem(&quot;leftButton&quot;, &quot;Left Button&quot;));
+
+add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
+
+    @Override
+    public WebMarkupContainer createTitleContainer(String id) {
+        return new FoundationTopBarTitlePanel(id, Model.of(&quot;My Site&quot;), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of(&quot;Menu&quot;)) {
+            @Override
+            public WebMarkupContainer createTitleLink(String id) {
+                return new Link(id) {
+                    @Override
+                    public void onClick() {
+                    }
+                };
+            }
+        };
+    }
+
+    @Override
+    public WebMarkupContainer createLink(String id, final String itemId) {
+        return new AjaxLink&lt;Void&gt;(id) {
+
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+                target.appendJavaScript(String.format(&quot;alert('%s');&quot;, itemId));
+            }
+            
+        };
+    }
+});
 </div></code>
 </pre>
             </div>
