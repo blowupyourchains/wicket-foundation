@@ -229,7 +229,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">HTML</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;sticky&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
 </div></code>
 </pre>
             </div>
@@ -237,15 +237,33 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">Java</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">TopBarOptions stickyConditionsOptions = new TopBarOptions();
+stickyConditionsOptions.setSticky(true);
+stickyConditionsOptions.setStickySizes(EnumSet.of(TopBarStickySize.LARGE));
+add(new FoundationTopBarPanel(&quot;stickyConditions&quot;, stickyConditionsOptions, new ArrayList&lt;TopBarItem&gt;(), new ArrayList&lt;TopBarItem&gt;()) {
+    @Override
+    public WebMarkupContainer createTitleContainer(String id) {
+        return new EmptyPanel(id);
+    }
+    @Override
+    public WebMarkupContainer createLink(String id, String itemId) {
+        return new Link&lt;Void&gt;(id) {
+            @Override
+            public void onClick() {
+            }
+        };
+    }
+});     
 </div></code>
 </pre>
             </div>
 
+<!--  
             <div>
                 <h4 id="html">Rendered HTML</h4>
+                <div wicket:id="stickyConditions"></div>
             </div>
-            <div>Foo</div>
+-->
 
             <hr>
             <p>
@@ -259,7 +277,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">HTML</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;sticky&quot;</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
 </div></code>
 </pre>
             </div>
@@ -267,92 +285,50 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
             <div>
                 <h4 id="html">Java</h4>
             
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;TopBarItem&gt; clickableRightItems = new ArrayList&lt;&gt;();
+clickableRightItems.add(new SimpleTopBarItem(&quot;rightButtonActive&quot;, &quot;Right Button Active&quot;, true, false));
+SimpleTopBarItem clickableRightDropdown = new SimpleTopBarItem(&quot;clickableRightDropdown&quot;, &quot;Right Button Dropdown&quot;);
+clickableRightDropdown.addChild(new SimpleTopBarItem(&quot;firstLinkInDropdown&quot;, &quot;First link in dropdown&quot;));
+clickableRightDropdown.addChild(new SimpleTopBarItem(&quot;activeLinkInDropdown&quot;, &quot;Active link in dropdown&quot;, true, false));
+clickableRightItems.add(rightButtonDropdown);
+
+add(new FoundationTopBarPanel(&quot;clickable&quot;, new TopBarOptions().setClickable(true), rightItems, new ArrayList&lt;TopBarItem&gt;()) {
+
+    @Override
+    public WebMarkupContainer createTitleContainer(String id) {
+        return new FoundationTopBarTitlePanel(id, Model.of(&quot;My Site&quot;), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of(&quot;Menu&quot;)) {
+            @Override
+            public WebMarkupContainer createTitleLink(String id) {
+                return new Link(id) {
+                    @Override
+                    public void onClick() {
+                    }
+                };
+            }
+        };
+    }
+
+    @Override
+    public WebMarkupContainer createLink(String id, final String itemId) {
+        return new AjaxLink&lt;Void&gt;(id) {
+
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+                target.appendJavaScript(String.format(&quot;alert('%s');&quot;, itemId));
+            }
+            
+        };
+    }
+});
 </div></code>
 </pre>
             </div>
-                
+
             <div>
                 <h4 id="html">Rendered HTML</h4>
-                <div>
-                    <nav class="top-bar" data-topbar role="navigation"
-                        data-options="is_hover: false">
-                        <ul class="title-area">
-                            <!-- Title Area -->
-                            <li class="name">
-                                <h1>
-                                    <a href="#">Clickable Top Bar</a>
-                                </h1>
-                            </li>
-                            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                            <li class="toggle-topbar menu-icon"><a
-                                href="#"><span>Menu</span></a></li>
-                        </ul>
-
-                        <section class="top-bar-section">
-
-                            <!-- Right Nav Section -->
-                            <ul class="right">
-                                <li class="divider hide-for-small"></li>
-                                <li class="has-dropdown"><a
-                                    href="#">Main Item 1</a>
-                                    <ul class="dropdown">
-                                        <li><label>Dropdown
-                                                Level 1 Label</label></li>
-                                        <li class="has-dropdown"><a
-                                            href="#">Dropdown Level
-                                                1a</a>
-
-                                            <ul class="dropdown">
-                                                <li><a href="#">Dropdown
-                                                        Level 2a</a></li>
-                                                <li><a href="#">Dropdown
-                                                        Level 2b</a></li>
-                                                <li class="has-dropdown"><a
-                                                    href="#">Dropdown
-                                                        Level 2c</a>
-
-                                                    <ul class="dropdown">
-                                                        <li><a
-                                                            href="#">Dropdown
-                                                                Level 3a</a></li>
-                                                        <li><a
-                                                            href="#">Dropdown
-                                                                Level 3b</a></li>
-                                                        <li><a
-                                                            href="#">Dropdown
-                                                                Level 3c</a></li>
-                                                    </ul></li>
-                                                <li><a href="#">Dropdown
-                                                        Level 2d</a></li>
-                                                <li><a href="#">Dropdown
-                                                        Level 2e</a></li>
-                                                <li><a href="#">Dropdown
-                                                        Level 2f</a></li>
-                                            </ul></li>
-                                        <li><a href="#">Dropdown
-                                                Level 1b</a></li>
-                                        <li><a href="#">Dropdown
-                                                Level 1c</a></li>
-                                        <li class="divider"></li>
-                                        <li><label>Dropdown
-                                                Level 1 Label</label></li>
-                                        <li><a href="#">Dropdown
-                                                Level 1d</a></li>
-                                        <li><a href="#">Dropdown
-                                                Level 1e</a></li>
-                                        <li><a href="#">Dropdown
-                                                Level 1f</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">See all
-                                                &rarr;</a></li>
-                                    </ul></li>
-                            </ul>
-                        </section>
-                    </nav>
-
-                </div>
+                <div wicket:id="clickable"></div>
             </div>
+
             <div>
                 <br>
             </div>

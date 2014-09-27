@@ -15,6 +15,7 @@ import com.iluwatar.foundation.topbar.FoundationTopBarTitlePanel;
 import com.iluwatar.foundation.topbar.SimpleTopBarItem;
 import com.iluwatar.foundation.topbar.TopBarItem;
 import com.iluwatar.foundation.topbar.TopBarMenuLayout;
+import com.iluwatar.foundation.topbar.TopBarOptions;
 
 public class TopBarPage extends BasePage {
 
@@ -97,6 +98,64 @@ public class TopBarPage extends BasePage {
 //				};
 //			}
 //		});
+
+		// sticky options
+
+//		TopBarOptions stickyConditionsOptions = new TopBarOptions();
+//		stickyConditionsOptions.setSticky(true);
+//		stickyConditionsOptions.setStickySizes(EnumSet.of(TopBarStickySize.LARGE));
+//		add(new FoundationTopBarPanel("stickyConditions", stickyConditionsOptions, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+//			@Override
+//			public WebMarkupContainer createTitleContainer(String id) {
+//				return new EmptyPanel(id);
+//			}
+//			@Override
+//			public WebMarkupContainer createLink(String id, String itemId) {
+//				return new Link<Void>(id) {
+//					@Override
+//					public void onClick() {
+//					}
+//				};
+//			}
+//		});		
+
+		// clickable
+		
+		List<TopBarItem> clickableRightItems = new ArrayList<>();
+		clickableRightItems.add(new SimpleTopBarItem("rightButtonActive", "Right Button Active", true, false));
+		SimpleTopBarItem clickableRightDropdown = new SimpleTopBarItem("clickableRightDropdown", "Right Button Dropdown");
+		clickableRightDropdown.addChild(new SimpleTopBarItem("firstLinkInDropdown", "First link in dropdown"));
+		clickableRightDropdown.addChild(new SimpleTopBarItem("activeLinkInDropdown", "Active link in dropdown", true, false));
+		clickableRightItems.add(rightButtonDropdown);
+		
+		add(new FoundationTopBarPanel("clickable", new TopBarOptions().setClickable(true), rightItems, new ArrayList<TopBarItem>()) {
+
+			@Override
+			public WebMarkupContainer createTitleContainer(String id) {
+				return new FoundationTopBarTitlePanel(id, Model.of("My Site"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
+					@Override
+					public WebMarkupContainer createTitleLink(String id) {
+						return new Link(id) {
+							@Override
+							public void onClick() {
+							}
+						};
+					}
+				};
+			}
+
+			@Override
+			public WebMarkupContainer createLink(String id, final String itemId) {
+				return new AjaxLink<Void>(id) {
+
+					@Override
+					public void onClick(AjaxRequestTarget target) {
+						target.appendJavaScript(String.format("alert('%s');", itemId));
+					}
+					
+				};
+			}
+		});
 		
 	}
 }
