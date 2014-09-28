@@ -3,7 +3,367 @@
 <body>
   <wicket:extend>
 
+        <div class="row">
+            <h1 id="icon-bar">Icon Bar</h1>
+            <h3 class="subheader">An Icon Bar provides a menu to
+                quickly navigate an app. Use the Icon Bar horizontally
+                or vertically, with the labels below the icons or to the
+                right. Have it your way.</h3>
 
-  </wicket:extend>
+            <hr>
+            <h3>Basic</h3>
+
+            <p>
+                You can create an Icon Bar using minimal markup.
+                Specifying the number of items
+                <code>one-up</code>
+                through
+                <code>six-up</code>
+                will ensure the items are evenly spaced.
+            </p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    <pre>
+                        <code class="language-html">
+                            <div class="code-container">
+                                <span class="tag">&lt;<span
+                                    class="title">div</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;icon-bar five-up&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-home.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Home<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-bookmark.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Bookmark<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-info.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Info<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-mail.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Mail<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-like.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Like<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+                            </div>
+                        </code>
+                    </pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <div class="icon-bar five-up">
+                        <a class="item"> <img
+                            src="../assets/img/images/fi-home.svg">
+                            <label>Home</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-bookmark.svg">
+                            <label>Bookmark</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-info.svg">
+                            <label>Info</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-mail.svg">
+                            <label>Mail</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-like.svg">
+                            <label>Like</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <h3>Vertical Icon Bar</h3>
+
+            <p>
+                It&#39;s easy. Just add a class of
+                <code>.vertical</code>
+                to make the Icon Bar stack up. For an Icon bar
+                that&#39;s horizontal on small screens but vertical on
+                larger use &#39;.medium-vertical&#39; and
+                &#39;large-vertical&#39; to utilize those breakpoints.
+            </p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    <pre>
+                        <code class="language-html">
+                            <div class="code-container">
+                                <span class="tag">&lt;<span
+                                    class="title">div</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;icon-bar vertical five-up&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-home.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Home<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-bookmark.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Bookmark<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-info.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Info<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-mail.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Mail<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-like.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Like<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;icon-bar large-vertical four-up&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-home.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Home<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-bookmark.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Bookmark<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-info.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Info<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">img</span> <span
+                                    class="attribute">src</span>=<span
+                                    class="value">&quot;../assets/img/images/fi-mail.svg&quot;</span> &gt;</span>
+    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Mail<span
+                                    class="tag">&lt;/<span
+                                    class="title">label</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+                            </div>
+                        </code>
+                    </pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <div class="icon-bar vertical five-up">
+                        <a class="item"> <img
+                            src="../assets/img/images/fi-home.svg">
+                            <label>Home</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-bookmark.svg">
+                            <label>Bookmark</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-info.svg">
+                            <label>Info</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-mail.svg">
+                            <label>Mail</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-like.svg">
+                            <label>Like</label>
+                        </a>
+                    </div>
+
+                    <div class="icon-bar large-vertical four-up">
+                        <a class="item"> <img
+                            src="../assets/img/images/fi-home.svg">
+                            <label>Home</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-bookmark.svg">
+                            <label>Bookmark</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-info.svg">
+                            <label>Info</label>
+                        </a> <a class="item"> <img
+                            src="../assets/img/images/fi-mail.svg">
+                            <label>Mail</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <h3 id="advanced">Advanced</h3>
+            <p>
+                Instead of images you can use Icon Fonts. This will help
+                you change the colors and size faster instead of having
+                to upload new images each time. <a
+                    href="http://zurb.com/playground/foundation-icon-fonts-3">Check
+                    out our badass Icon Fonts here.</a>
+            </p>
+            <div>
+                <div>
+                    <h4>HTML</h4>
+                    <pre>
+                        <code class="language-html">
+                            <div class="code-container">
+                                <span class="tag">&lt;<span
+                                    class="title">div</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;icon-bar five-up&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">i</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;fi-home&quot;</span>&gt;</span><span
+                                    class="tag">&lt;/<span
+                                    class="title">i</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">i</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;fi-bookmark&quot;</span>&gt;</span><span
+                                    class="tag">&lt;/<span
+                                    class="title">i</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">i</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;fi-info&quot;</span>&gt;</span><span
+                                    class="tag">&lt;/<span
+                                    class="title">i</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">i</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;fi-mail&quot;</span>&gt;</span><span
+                                    class="tag">&lt;/<span
+                                    class="title">i</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;item&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">i</span> <span
+                                    class="attribute">class</span>=<span
+                                    class="value">&quot;fi-like&quot;</span>&gt;</span><span
+                                    class="tag">&lt;/<span
+                                    class="title">i</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+                            </div>
+                        </code>
+                    </pre>
+
+                </div>
+                <div>
+                    <h4>Rendered HTML</h4>
+                    <div class="icon-bar five-up">
+                        <a class="item"> <i class="fi-home"></i>
+                        </a> <a class="item"> <i class="fi-bookmark"></i>
+                        </a> <a class="item"> <i class="fi-info"></i>
+                        </a> <a class="item"> <i class="fi-mail"></i>
+                        </a> <a class="item"> <i class="fi-like"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 id="other-options">Other Options</h3>
+            <p>
+                The default orientation for the labels are on the
+                bottom. By adding a class of
+                <code>.label-right</code>
+                you can have the label on the right and icon on the
+                left.
+            </p>
+        </div>
+
+    </wicket:extend>
 </body>
 </html>
