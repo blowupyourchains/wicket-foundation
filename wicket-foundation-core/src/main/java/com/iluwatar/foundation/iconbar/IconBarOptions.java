@@ -8,6 +8,17 @@ public class IconBarOptions implements Serializable {
 	
 	private IconBarVerticalStyle verticalStyle;
 	private boolean labelRight;
+
+	public IconBarOptions() {
+	}
+	
+	public IconBarOptions(IconBarVerticalStyle verticalStyle) {
+		this.verticalStyle = verticalStyle;
+	}
+
+	public IconBarOptions(boolean labelRight) {
+		this.labelRight = labelRight;
+	}
 	
 	public IconBarVerticalStyle getVerticalStyle() {
 		return verticalStyle;
