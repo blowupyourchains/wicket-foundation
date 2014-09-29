@@ -41,7 +41,13 @@ public class FoundationIconBar extends FoundationBasePanel {
 
 			@Override
 			protected void populateItem(ListItem<IconBarItem> item) {
-				item.add(new Image("img", item.getModelObject().getImageResourceReference()));
+				if (item.getModelObject().getImageResourceReference() != null) {
+					item.add(new Image("img", item.getModelObject().getImageResourceReference()));
+					item.add(new WebMarkupContainer("icon").setVisible(false));
+				} else {
+					item.add(new WebMarkupContainer("img").setVisible(false));
+					item.add(new IconFontContainer("icon", item.getModelObject().getFontId()));
+				}
 				WebMarkupContainer label = new WebMarkupContainer("label");
 				item.add(label);
 				label.add(new Label("text", item.getModelObject().getLabel()));
@@ -75,5 +81,21 @@ public class FoundationIconBar extends FoundationBasePanel {
 		optionsModel.detach();
 		itemsModel.detach();
 		super.onDetach();
+	}
+	
+	private static class IconFontContainer extends WebMarkupContainer {
+
+		private String fontId;
+
+		public IconFontContainer(String id, String fontId) {
+			super(id);
+			this.fontId = fontId;
+		}
+		
+		@Override
+		protected void onComponentTag(ComponentTag tag) {
+			Attribute.addClass(tag, fontId);
+			super.onComponentTag(tag);
+		}
 	}
 }

@@ -122,7 +122,7 @@ private void createLargeVertical() {
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;advanced&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </div></code>
 </pre>
 
@@ -130,13 +130,21 @@ private void createLargeVertical() {
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;IconBarItem&gt; items = new ArrayList&lt;&gt;();
+items.add(new IconBarFontItem(&quot;fi-bookmark&quot;, &quot;Bookmark&quot;));
+items.add(new IconBarFontItem(&quot;fi-home&quot;, &quot;Home&quot;));
+items.add(new IconBarFontItem(&quot;fi-info&quot;, &quot;Info&quot;));
+items.add(new IconBarFontItem(&quot;fi-like&quot;, &quot;Like&quot;));
+items.add(new IconBarFontItem(&quot;fi-mail&quot;, &quot;Mail&quot;));
+FoundationIconBar iconBar = new FoundationIconBar(&quot;advanced&quot;, items);
+add(iconBar);
 </div></code>
 </pre>
 
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
+                    <div wicket:id="advanced"></div>
                 </div>
             </div>
         </div>

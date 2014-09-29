@@ -1,24 +1,20 @@
 package com.iluwatar.foundation.iconbar;
 
-import java.io.Serializable;
-
 import org.apache.wicket.request.resource.ResourceReference;
 
-public class IconBarResourceItem implements IconBarItem, Serializable {
+public class IconBarFontItem implements IconBarItem {
 
-	private static final long serialVersionUID = 1L;
-	
-	private ResourceReference resource;
+	private String fontId;
 	private String text;
 
-	public IconBarResourceItem(ResourceReference resource, String text) {
-		this.resource = resource;
+	public IconBarFontItem(String fontId, String text) {
+		this.fontId = fontId;
 		this.text = text;
 	}
 	
 	@Override
 	public ResourceReference getImageResourceReference() {
-		return resource;
+		return null;
 	}
 
 	@Override
@@ -28,6 +24,6 @@ public class IconBarResourceItem implements IconBarItem, Serializable {
 
 	@Override
 	public String getFontId() {
-		return null;
+		return fontId;
 	}
 }

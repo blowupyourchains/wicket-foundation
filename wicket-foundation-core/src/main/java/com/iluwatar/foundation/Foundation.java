@@ -8,6 +8,8 @@ public class Foundation {
 
 	private static ResourceReference foundationCssReference;
 
+	private static ResourceReference foundationIconsCssReference;
+	
 	private static ResourceReference normalizeCssReference;
 	
 	private static ResourceReference foundationJsReference;
@@ -23,6 +25,13 @@ public class Foundation {
 		return foundationCssReference;
 	}
 
+	public static ResourceReference getFoundationIconsCssReference() {
+		if (foundationIconsCssReference == null) {
+			foundationIconsCssReference = new CssResourceReference(Foundation.class, "foundation-icons.css");
+		}
+		return foundationIconsCssReference;
+	}
+	
 	public static ResourceReference getNormalizeCssReference() {
 		if (normalizeCssReference == null) {
 			normalizeCssReference = new CssResourceReference(Foundation.class, "normalize.css");

@@ -23,5 +23,6 @@ public abstract class FoundationBasePanel extends Panel {
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);
 		response.render(CssHeaderItem.forReference(Foundation.getFoundationCssReference()));
+		response.render(CssHeaderItem.forReference(Foundation.getFoundationIconsCssReference()));
 	}
 }

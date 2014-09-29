@@ -7,6 +7,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.PackageResourceReference;
 
 import com.iluwatar.foundation.iconbar.FoundationIconBar;
+import com.iluwatar.foundation.iconbar.IconBarFontItem;
 import com.iluwatar.foundation.iconbar.IconBarItem;
 import com.iluwatar.foundation.iconbar.IconBarOptions;
 import com.iluwatar.foundation.iconbar.IconBarResourceItem;
@@ -21,6 +22,7 @@ public class IconBarPage extends BasePage {
 		createBasic();
 		createVertical();
 		createLargeVertical();
+		createAdvanced();
 	}
 
 	private void createBasic() {
@@ -54,6 +56,17 @@ public class IconBarPage extends BasePage {
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-like.svg"), "Like"));
 		IconBarOptions options = new IconBarOptions(IconBarVerticalStyle.LARGE_VERTICAL);
 		FoundationIconBar iconBar = new FoundationIconBar("largeVertical", options, items);
+		add(iconBar);
+	}
+	
+	private void createAdvanced() {
+		List<IconBarItem> items = new ArrayList<>();
+		items.add(new IconBarFontItem("fi-bookmark", "Bookmark"));
+		items.add(new IconBarFontItem("fi-home", "Home"));
+		items.add(new IconBarFontItem("fi-info", "Info"));
+		items.add(new IconBarFontItem("fi-like", "Like"));
+		items.add(new IconBarFontItem("fi-mail", "Mail"));
+		FoundationIconBar iconBar = new FoundationIconBar("advanced", items);
 		add(iconBar);
 	}
 }
