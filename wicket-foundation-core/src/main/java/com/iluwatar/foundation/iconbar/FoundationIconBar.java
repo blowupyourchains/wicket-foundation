@@ -23,6 +23,10 @@ public class FoundationIconBar extends FoundationBasePanel {
 	private IModel<IconBarOptions> optionsModel;
 	private IModel<List<IconBarItem>> itemsModel;
 
+	public FoundationIconBar(String id, List<IconBarItem> items) {
+		this(id, new IconBarOptions(), items);
+	}
+	
 	public FoundationIconBar(String id, IconBarOptions options, List<IconBarItem> items) {
 		this(id, Model.of(options), new ListModel<>(items));
 	}

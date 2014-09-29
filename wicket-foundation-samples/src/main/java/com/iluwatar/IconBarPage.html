@@ -24,89 +24,30 @@
             <div>
                 <div>
                     <h4>HTML</h4>
-                    <pre>
-                        <code class="language-html">
-                            <div class="code-container">
-                                <span class="tag">&lt;<span
-                                    class="title">div</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;icon-bar five-up&quot;</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-                                    class="attribute">src</span>=<span
-                                    class="value">&quot;../assets/img/images/fi-home.svg&quot;</span> &gt;</span>
-    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Home<span
-                                    class="tag">&lt;/<span
-                                    class="title">label</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-                                    class="attribute">src</span>=<span
-                                    class="value">&quot;../assets/img/images/fi-bookmark.svg&quot;</span> &gt;</span>
-    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Bookmark<span
-                                    class="tag">&lt;/<span
-                                    class="title">label</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-                                    class="attribute">src</span>=<span
-                                    class="value">&quot;../assets/img/images/fi-info.svg&quot;</span> &gt;</span>
-    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Info<span
-                                    class="tag">&lt;/<span
-                                    class="title">label</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-                                    class="attribute">src</span>=<span
-                                    class="value">&quot;../assets/img/images/fi-mail.svg&quot;</span> &gt;</span>
-    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Mail<span
-                                    class="tag">&lt;/<span
-                                    class="title">label</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-                                    class="attribute">src</span>=<span
-                                    class="value">&quot;../assets/img/images/fi-like.svg&quot;</span> &gt;</span>
-    <span class="tag">&lt;<span class="title">label</span>&gt;</span>Like<span
-                                    class="tag">&lt;/<span
-                                    class="title">label</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-                            </div>
-                        </code>
-                    </pre>
+                    
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">List&lt;IconBarItem&gt; items = new ArrayList&lt;&gt;();
+items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-bookmark.svg&quot;), &quot;Bookmark&quot;));
+items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-home.svg&quot;), &quot;Home&quot;));
+items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-info.svg&quot;), &quot;Info&quot;));
+items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-like.svg&quot;), &quot;Like&quot;));
+items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-mail.svg&quot;), &quot;Mail&quot;));
+FoundationIconBar basic = new FoundationIconBar(&quot;basic&quot;, items);
+add(basic);
+</div></code>
+</pre>
 
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
-                    <div class="icon-bar five-up">
-                        <a class="item"> <img
-                            src="../assets/img/images/fi-home.svg">
-                            <label>Home</label>
-                        </a> <a class="item"> <img
-                            src="../assets/img/images/fi-bookmark.svg">
-                            <label>Bookmark</label>
-                        </a> <a class="item"> <img
-                            src="../assets/img/images/fi-info.svg">
-                            <label>Info</label>
-                        </a> <a class="item"> <img
-                            src="../assets/img/images/fi-mail.svg">
-                            <label>Mail</label>
-                        </a> <a class="item"> <img
-                            src="../assets/img/images/fi-like.svg">
-                            <label>Like</label>
-                        </a>
-                    </div>
+                    <div wicket:id="basic"></div>
                 </div>
             </div>
 
