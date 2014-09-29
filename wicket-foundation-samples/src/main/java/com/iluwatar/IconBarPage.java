@@ -30,8 +30,8 @@ public class IconBarPage extends BasePage {
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-info.svg"), "Info"));
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-like.svg"), "Like"));
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-mail.svg"), "Mail"));
-		FoundationIconBar basic = new FoundationIconBar("basic", items);
-		add(basic);
+		FoundationIconBar iconBar = new FoundationIconBar("basic", items);
+		add(iconBar);
 	}
 	
 	private void createVertical() {
@@ -42,8 +42,8 @@ public class IconBarPage extends BasePage {
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-like.svg"), "Like"));
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-mail.svg"), "Mail"));
 		IconBarOptions options = new IconBarOptions(IconBarVerticalStyle.VERTICAL);
-		FoundationIconBar basic = new FoundationIconBar("vertical", options, items);
-		add(basic);
+		FoundationIconBar iconBar = new FoundationIconBar("vertical", options, items);
+		add(iconBar);
 	}
 	
 	private void createLargeVertical() {
@@ -53,7 +53,7 @@ public class IconBarPage extends BasePage {
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-info.svg"), "Info"));
 		items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), "fi-like.svg"), "Like"));
 		IconBarOptions options = new IconBarOptions(IconBarVerticalStyle.LARGE_VERTICAL);
-		FoundationIconBar basic = new FoundationIconBar("largeVertical", options, items);
-		add(basic);
+		FoundationIconBar iconBar = new FoundationIconBar("largeVertical", options, items);
+		add(iconBar);
 	}
 }

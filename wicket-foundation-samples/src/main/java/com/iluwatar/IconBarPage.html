@@ -39,8 +39,8 @@ items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), 
 items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-info.svg&quot;), &quot;Info&quot;));
 items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-like.svg&quot;), &quot;Like&quot;));
 items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-mail.svg&quot;), &quot;Mail&quot;));
-FoundationIconBar basic = new FoundationIconBar(&quot;basic&quot;, items);
-add(basic);
+FoundationIconBar iconBar = new FoundationIconBar(&quot;basic&quot;, items);
+add(iconBar);
 </div></code>
 </pre>
 
@@ -84,8 +84,8 @@ private void createVertical() {
     items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-like.svg&quot;), &quot;Like&quot;));
     items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-mail.svg&quot;), &quot;Mail&quot;));
     IconBarOptions options = new IconBarOptions(IconBarVerticalStyle.VERTICAL);
-    FoundationIconBar basic = new FoundationIconBar(&quot;vertical&quot;, options, items);
-    add(basic);
+    FoundationIconBar iconBar = new FoundationIconBar(&quot;vertical&quot;, options, items);
+    add(iconBar);
 }
 
 private void createLargeVertical() {
@@ -95,8 +95,8 @@ private void createLargeVertical() {
     items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-info.svg&quot;), &quot;Info&quot;));
     items.add(new IconBarResourceItem(new PackageResourceReference(this.getClass(), &quot;fi-like.svg&quot;), &quot;Like&quot;));
     IconBarOptions options = new IconBarOptions(IconBarVerticalStyle.LARGE_VERTICAL);
-    FoundationIconBar basic = new FoundationIconBar(&quot;largeVertical&quot;, options, items);
-    add(basic);
+    FoundationIconBar iconBar = new FoundationIconBar(&quot;largeVertical&quot;, options, items);
+    add(iconBar);
 }
 </div></code>
 </pre>
@@ -121,85 +121,24 @@ private void createLargeVertical() {
             <div>
                 <div>
                     <h4>HTML</h4>
-                    <pre>
-                        <code class="language-html">
-                            <div class="code-container">
-                                <span class="tag">&lt;<span
-                                    class="title">div</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;icon-bar five-up&quot;</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">i</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;fi-home&quot;</span>&gt;</span><span
-                                    class="tag">&lt;/<span
-                                    class="title">i</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">i</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;fi-bookmark&quot;</span>&gt;</span><span
-                                    class="tag">&lt;/<span
-                                    class="title">i</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">i</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;fi-info&quot;</span>&gt;</span><span
-                                    class="tag">&lt;/<span
-                                    class="title">i</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">i</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;fi-mail&quot;</span>&gt;</span><span
-                                    class="tag">&lt;/<span
-                                    class="title">i</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;item&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">i</span> <span
-                                    class="attribute">class</span>=<span
-                                    class="value">&quot;fi-like&quot;</span>&gt;</span><span
-                                    class="tag">&lt;/<span
-                                    class="title">i</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-                            </div>
-                        </code>
-                    </pre>
+                    
+<pre><code class="language-html"><div class="code-container">
+</div></code>
+</pre>
+
+                </div>
+                <div>
+                    <h4>Java</h4>
+                    
+<pre><code class="language-html"><div class="code-container">
+</div></code>
+</pre>
 
                 </div>
                 <div>
                     <h4>Rendered HTML</h4>
-                    <div class="icon-bar five-up">
-                        <a class="item"> <i class="fi-home"></i>
-                        </a> <a class="item"> <i class="fi-bookmark"></i>
-                        </a> <a class="item"> <i class="fi-info"></i>
-                        </a> <a class="item"> <i class="fi-mail"></i>
-                        </a> <a class="item"> <i class="fi-like"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
-
-            <h3 id="other-options">Other Options</h3>
-            <p>
-                The default orientation for the labels are on the
-                bottom. By adding a class of
-                <code>.label-right</code>
-                you can have the label on the right and icon on the
-                left.
-            </p>
         </div>
 
     </wicket:extend>
