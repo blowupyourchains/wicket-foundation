@@ -12,6 +12,20 @@ Integrates [Apache Wicket](http://wicket.apache.org/) 7.x and [Zurb Foundation](
 
 
 
+## Usage
+
+Wicket-Foundation is available in the Sonatype Nexus. Add the following dependency to the project pom.xml:
+
+```xml
+<dependency>
+    <groupId>com.iluwatar</groupId>
+    <artifactId>wicket-foundation-core</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+
+
 ## Screenshot from the sample application (shows project progress status):
 
 ![alt text](https://github.com/iluwatar/wicket-foundation/blob/master/catalog.jpg "Samples catalog")
