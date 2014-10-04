@@ -2,7 +2,7 @@
 
 Integrates [Apache Wicket](http://wicket.apache.org/) 7.x and [Zurb Foundation](http://foundation.zurb.com/) 5.x
 
-
+<br><br>
 
 ## Build status and test coverage:
 
@@ -10,7 +10,7 @@ Integrates [Apache Wicket](http://wicket.apache.org/) 7.x and [Zurb Foundation](
 &nbsp;&nbsp;&nbsp;
 [![Coverage Status](https://coveralls.io/repos/iluwatar/wicket-foundation/badge.png?branch=master)](https://coveralls.io/r/iluwatar/wicket-foundation?branch=master)
 
-
+<br><br>
 
 ## Usage
 
