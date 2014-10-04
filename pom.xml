@@ -20,7 +20,13 @@
             <name>Ilkka Seppälä</name>
             <url>https://github.com/iluwatar</url>
         </developer>
-    </developers>    
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/iluwatar/wicket-foundation.git</connection>
+        <developerConnection>scm:git:https://github.com/iluwatar/wicket-foundation.git</developerConnection>
+        <url>https://github.com/iluwatar/wicket-foundation</url>
+    </scm>
 
     <modules>
         <module>wicket-foundation-samples</module>
