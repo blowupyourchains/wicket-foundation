@@ -15,6 +15,13 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Ilkka Seppälä</name>
+            <url>https://github.com/iluwatar</url>
+        </developer>
+    </developers>    
+
     <modules>
         <module>wicket-foundation-samples</module>
         <module>wicket-foundation-core</module>

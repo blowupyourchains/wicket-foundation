@@ -20,6 +20,13 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Ilkka Seppälä</name>
+            <url>https://github.com/iluwatar</url>
+        </developer>
+    </developers>    
+
     <properties>
         <jetty9.version>9.1.5.v20140505</jetty9.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
