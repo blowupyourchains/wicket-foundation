@@ -13,26 +13,6 @@
     <artifactId>wicket-foundation-samples</artifactId>
     <packaging>war</packaging>
 
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>Ilkka Seppälä</name>
-            <url>https://github.com/iluwatar</url>
-        </developer>
-    </developers>    
-
-    <scm>
-        <connection>scm:git:https://github.com/iluwatar/wicket-foundation.git</connection>
-        <developerConnection>scm:git:https://github.com/iluwatar/wicket-foundation.git</developerConnection>
-        <url>https://github.com/iluwatar/wicket-foundation</url>
-    </scm>
-
     <properties>
         <jetty9.version>9.1.5.v20140505</jetty9.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
