@@ -15,8 +15,6 @@
     <packaging>war</packaging>
 
     <properties>
-        <jetty9.version>9.1.5.v20140505</jetty9.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <wtp.version>none</wtp.version>
     </properties>
 
@@ -120,14 +118,6 @@
                     <downloadSources>true</downloadSources>
                     <wtpversion>${wtp.version}</wtpversion>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
         </plugins>
 
