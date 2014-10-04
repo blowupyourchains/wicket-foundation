@@ -30,7 +30,7 @@ Wicket-Foundation is available in the Sonatype Nexus. Add the following dependen
 
 ![alt text](https://github.com/iluwatar/wicket-foundation/blob/master/catalog.jpg "Samples catalog")
 
-
+<br>
 
 ## Build instructions
 
@@ -41,7 +41,7 @@ mvn jetty:run
 ```
 Now open browser and navigate to http://localhost:8080 to see the sample application.
 
-
+<br>
 
 ## License
 
