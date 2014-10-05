@@ -94,9 +94,30 @@ public class AttributeTest {
         Attribute.addDataOptions(tag, "height:195");
         assertEquals("color:brown;weight:100;height:195;", Attribute.getAttribute(tag, "data-options"));
         Attribute.removeDataOptions(tag, "weight:100");
-        assertEquals("color:brown;height:195;", Attribute.getAttribute(tag, "data-options"));
+        assertEquals("color:brown;height:195", Attribute.getAttribute(tag, "data-options"));
         Attribute.removeDataOptions(tag, "height:195");
-        assertEquals("color:brown;", Attribute.getAttribute(tag, "data-options"));        
+        assertEquals("color:brown", Attribute.getAttribute(tag, "data-options"));        
         assertTrue(Attribute.hasDataOptions(tag, "color:brown"));
+	}
+	
+	@Test
+	public void testRemoveToken() {
+		String data1 = "foo bar baz";
+		String sep1 = " ";
+		String result1 = Attribute.removeToken(data1, "foo", sep1);
+		assertEquals("bar baz", result1);
+		String result2 = Attribute.removeToken(data1, "bar", sep1);
+		assertEquals("foo baz", result2);
+		String result3 = Attribute.removeToken(data1, "baz", sep1);
+		assertEquals("foo bar", result3);
+		String result4 = Attribute.removeToken(data1, "hello", sep1);
+		assertEquals("foo bar baz", result4);
+		String result5 = Attribute.removeToken(data1, null, sep1);
+		assertEquals("foo bar baz", result5);
+		
+		String data2 = "foo;bar;baz;";
+		String sep2 = ";";
+		String result6 = Attribute.removeToken(data2, "foo", sep2);
+		assertEquals("bar;baz", result6);
 	}
 }

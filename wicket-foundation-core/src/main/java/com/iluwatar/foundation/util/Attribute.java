@@ -1,13 +1,11 @@
 package com.iluwatar.foundation.util;
 
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.StringTokenizer;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.string.StringValue;
-
-import com.google.common.base.Splitter;
 
 /**
  * 
@@ -61,18 +59,7 @@ public class Attribute {
 		Args.notNull(tag, "tag");
 		Args.notNull(className, "className");
 		if (hasClass(tag, className)) {
-			Iterator<String> iterator = Splitter.on(" ").split(tag.getAttribute("class")).iterator();
-			StringBuilder sb = new StringBuilder();
-			while (iterator.hasNext()) {
-				if (sb.length() > 0) {
-					sb.append(" ");
-				}
-				String cname = iterator.next();
-				if (!cname.equals(className)) {
-					sb.append(cname);
-				}
-			}
-			tag.put("class", sb.toString());
+			tag.put("class", removeToken(tag.getAttribute("class"), className, " "));
 		}
 		return tag;
 	}
@@ -237,15 +224,7 @@ public class Attribute {
 		Args.notNull(tag, "tag");
 		Args.notNull(value, "value");
 		if (hasDataOptions(tag, value)) {
-			Iterator<String> iterator = Splitter.on(";").split(tag.getAttribute("data-options")).iterator();
-			StringBuilder sb = new StringBuilder();
-			while (iterator.hasNext()) {
-				String thisValue = iterator.next();
-				if (!thisValue.isEmpty() && !thisValue.equals(value)) {
-					sb.append(thisValue + DATA_OPTIONS_SEPARATOR);
-				}
-			}
-			tag.put("data-options", sb.toString());
+			tag.put("data-options", removeToken(tag.getAttribute("data-options"), value, DATA_OPTIONS_SEPARATOR));
 		}
 		return tag;
 	}
@@ -266,4 +245,23 @@ public class Attribute {
 		String[] existing = current.split(";");
 		return Arrays.asList(existing).contains(value);
 	}	
+	
+	public static String removeToken(String attribute, String remove, String separator) {
+		if (attribute == null || remove == null || separator == null) {
+			return attribute;
+		}
+		StringTokenizer tokenizer = new StringTokenizer(attribute, separator);
+		StringBuilder sb = new StringBuilder();
+		while (tokenizer.hasMoreTokens()) {
+			String token = tokenizer.nextToken();
+			if (!token.isEmpty() && !token.equals(remove)) {
+				if (sb.length() <= 0) {
+					sb.append(token);
+				} else {
+					sb.append(separator + token);
+				}
+			}
+		}
+		return sb.toString();
+	}
 }
