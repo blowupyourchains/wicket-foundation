@@ -57,5 +57,6 @@ v0.0.2
 * Added basic Javadoc to important classes.
 * Removed Guava dependency.
 * Removed jetty dependency from wicket-foundation-core.
+ 
 v0.0.1
 * Initial release with Visibility, Grid, Block Grid, Top Bar, Icon Bar, Breadcrumbs, Buttons, Button Groups, Dropdown Buttons, Type, Inline Lists, Labels, Alerts, Panels, Tooltips, Dropdowns.
