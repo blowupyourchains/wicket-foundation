@@ -9,6 +9,12 @@ import org.apache.wicket.markup.html.list.ListView;
 
 import com.iluwatar.foundation.component.FoundationBasePanel;
 
+/**
+ * This simple construct creates a horizontal list of links, like in a footer.
+ * http://foundation.zurb.com/docs/components/inline_lists.html
+ * @author ilkka
+ *
+ */
 public abstract class FoundationInlineList extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;

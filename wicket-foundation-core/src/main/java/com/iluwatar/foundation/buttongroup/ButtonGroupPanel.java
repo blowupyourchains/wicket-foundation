@@ -15,6 +15,12 @@ import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Button groups are containers for related action items.
+ * http://foundation.zurb.com/docs/components/button_groups.html
+ * @author ilkka
+ *
+ */
 public abstract class ButtonGroupPanel extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;

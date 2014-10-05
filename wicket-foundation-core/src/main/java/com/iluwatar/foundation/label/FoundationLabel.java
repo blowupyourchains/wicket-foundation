@@ -9,6 +9,12 @@ import org.apache.wicket.model.IModel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Labels are useful inline styles that can be dropped into body copy to call out certain sections or to attach metadata.
+ * http://foundation.zurb.com/docs/components/labels.html
+ * @author ilkka
+ *
+ */
 public class FoundationLabel extends Label {
 
 	private static final long serialVersionUID = 1L;

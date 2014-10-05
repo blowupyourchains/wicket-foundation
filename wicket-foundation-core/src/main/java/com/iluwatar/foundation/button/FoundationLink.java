@@ -7,6 +7,13 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.lang.Args;
 
+/**
+ * Foundation styled Link.
+ * http://foundation.zurb.com/docs/components/buttons.html
+ * @author ilkka
+ *
+ * @param <T>
+ */
 public abstract class FoundationLink<T> extends Link<T> {
 
 	private static final long serialVersionUID = 1L;

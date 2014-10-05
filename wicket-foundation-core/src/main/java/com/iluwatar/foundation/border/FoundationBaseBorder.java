@@ -7,6 +7,11 @@ import org.apache.wicket.model.IModel;
 
 import com.iluwatar.foundation.Foundation;
 
+/**
+ * Base class for Borders that includes Foundation CSS.
+ * @author ilkka
+ *
+ */
 public class FoundationBaseBorder extends Border {
 
 	private static final long serialVersionUID = 1L;

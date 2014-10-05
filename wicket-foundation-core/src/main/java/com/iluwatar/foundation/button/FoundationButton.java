@@ -7,6 +7,12 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.lang.Args;
 
+/**
+ * Foundation styled Button.
+ * http://foundation.zurb.com/docs/components/buttons.html
+ * @author ilkka
+ *
+ */
 public class FoundationButton extends Button {
 
 	private static final long serialVersionUID = 1L;

@@ -7,6 +7,11 @@ import org.apache.wicket.model.IModel;
 
 import com.iluwatar.foundation.Foundation;
 
+/**
+ * Base class for Foundation styled Panels.
+ * @author ilkka
+ *
+ */
 public abstract class FoundationBasePanel extends Panel {
 
 	private static final long serialVersionUID = 1L;

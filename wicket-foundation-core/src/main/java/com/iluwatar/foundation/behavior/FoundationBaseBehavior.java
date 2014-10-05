@@ -7,6 +7,11 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 
 import com.iluwatar.foundation.Foundation;
 
+/**
+ * Behavior that includes Foundation CSS.
+ * @author ilkka
+ *
+ */
 public abstract class FoundationBaseBehavior extends Behavior {
 
 	private static final long serialVersionUID = 1L;

@@ -16,6 +16,12 @@ import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * An Icon Bar provides a menu to quickly navigate an app.
+ * http://foundation.zurb.com/docs/components/icon-bar.html
+ * @author ilkka
+ *
+ */
 public class FoundationIconBar extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;

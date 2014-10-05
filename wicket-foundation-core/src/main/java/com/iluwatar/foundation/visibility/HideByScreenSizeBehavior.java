@@ -8,6 +8,12 @@ import com.iluwatar.foundation.behavior.FoundationBaseBehavior;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Visibility classes let you show or hide elements based on screen size or device orientation.
+ * http://foundation.zurb.com/docs/components/visibility.html
+ * @author ilkka
+ *
+ */
 public class HideByScreenSizeBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;

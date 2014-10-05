@@ -7,6 +7,12 @@ import org.apache.wicket.util.lang.Args;
 import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 
+/**
+ * A panel is a simple, helpful Foundation component that enables you to outline sections of your page easily.
+ * http://foundation.zurb.com/docs/components/panels.html
+ * @author ilkka
+ *
+ */
 public abstract class FoundationPanel extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;

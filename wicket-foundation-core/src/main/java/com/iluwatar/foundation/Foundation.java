@@ -4,6 +4,12 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
 
+/**
+ * Foundation resources container.
+ * Typically used by component base classes.
+ * @author ilkka
+ *
+ */
 public class Foundation {
 
 	private static ResourceReference foundationCssReference;

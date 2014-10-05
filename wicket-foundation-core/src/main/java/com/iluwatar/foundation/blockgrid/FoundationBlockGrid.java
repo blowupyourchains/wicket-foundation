@@ -14,6 +14,12 @@ import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Block grids give you a way to evenly split contents of a list within the grid.
+ * http://foundation.zurb.com/docs/components/block_grid.html
+ * @author ilkka
+ * @param <T>
+ */
 public abstract class FoundationBlockGrid<T> extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;

@@ -8,6 +8,12 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.util.lang.Args;
 
+/**
+ * Foundation styled SubmitLink.
+ * http://foundation.zurb.com/docs/components/buttons.html
+ * @author ilkka
+ *
+ */
 public class FoundationSubmitLink extends SubmitLink {
 
 	private static final long serialVersionUID = 1L;

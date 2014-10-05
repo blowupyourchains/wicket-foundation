@@ -10,6 +10,12 @@ import com.iluwatar.foundation.component.FoundationJsPanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Alert boxes are elements you can use to communicate success, warnings, failure or just information.
+ * http://foundation.zurb.com/docs/components/alert_boxes.html
+ * @author ilkka
+ *
+ */
 public class FoundationAlert extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;

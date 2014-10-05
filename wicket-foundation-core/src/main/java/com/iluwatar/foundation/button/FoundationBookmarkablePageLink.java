@@ -9,6 +9,13 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.lang.Args;
 
+/**
+ * Foundation styled BookmarkablePageLink.
+ * http://foundation.zurb.com/docs/components/buttons.html
+ * @author ilkka
+ *
+ * @param <T>
+ */
 public class FoundationBookmarkablePageLink<T> extends BookmarkablePageLink<T> {
 
 	private static final long serialVersionUID = 1L;

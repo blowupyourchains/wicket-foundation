@@ -8,6 +8,12 @@ import org.apache.wicket.model.Model;
 
 import com.iluwatar.foundation.util.Attribute;
 
+/**
+ * Dropdown buttons are elements that, when tapped, reveal additional content.
+ * http://foundation.zurb.com/docs/components/dropdown_buttons.html
+ * @author ilkka
+ *
+ */
 public class FoundationContentDropdown extends FoundationDropdownBase {
 
 	private static final long serialVersionUID = 1L;

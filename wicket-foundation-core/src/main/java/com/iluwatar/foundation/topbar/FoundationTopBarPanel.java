@@ -13,6 +13,12 @@ import com.iluwatar.foundation.component.FoundationJsPanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * The Foundation Top Bar gives you a great way to display a complex navigation bar on small, medium or large screens.
+ * http://foundation.zurb.com/docs/components/topbar.html
+ * @author ilkka
+ *
+ */
 public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;

@@ -10,6 +10,12 @@ import com.iluwatar.foundation.behavior.FoundationJsBehavior;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Tooltips are a quick way to provide extended information on a term or action on a page.
+ * http://foundation.zurb.com/docs/components/tooltips.html
+ * @author ilkka
+ *
+ */
 public class FoundationTooltipBehavior extends FoundationJsBehavior {
 
 	private static final long serialVersionUID = 1L;

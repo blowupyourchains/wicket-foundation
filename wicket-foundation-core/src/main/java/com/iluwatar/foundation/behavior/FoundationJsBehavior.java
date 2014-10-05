@@ -8,6 +8,11 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 
 import com.iluwatar.foundation.Foundation;
 
+/**
+ * Behavior that includes Foundation CSS and JS libraries.
+ * @author ilkka
+ *
+ */
 public class FoundationJsBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;

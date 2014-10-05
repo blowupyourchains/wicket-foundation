@@ -13,6 +13,12 @@ import org.apache.wicket.model.Model;
 import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 
+/**
+ * Breadcrumbs come in handy to show a navigation trail for users clicking through a site or app.
+ * http://foundation.zurb.com/docs/components/breadcrumbs.html
+ * @author ilkka
+ *
+ */
 public class BreadcrumbsPanel extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
