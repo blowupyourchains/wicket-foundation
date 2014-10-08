@@ -1,76 +1,36 @@
 package com.iluwatar.foundation.icon;
 
-public enum FoundationIcon {
-	HEART,
-	STAR,
-	PLUS,
-	MINUS,
-	X,
-	CHECK,
-	UPLOAD,
-	DOWNLOAD,
-	WIDGET,
-	MARKER,
-	REFRESH,
-	HOME,
-	TRASH,
-	PAPERCLIP,
-	LOCK,
-	UNLOCK,
-	CALENDAR,
-	CLOUD,
-	MAGNIFYING_GLASS,
-	ZOOM_OUT,
-	ZOOM_IN,
-	WRENCH,
-	RSS,
-	SHARE,
-	FLAG,
-	LIST_THUMBNAILS,
-	LIST,
-	THUMBNAILS,
-	ANNOTATE,
-	FOLDER,
-	FOLDER_LOCK,
-	FOLDER_ADD,
-	CLOCK,
-	PLAY_VIDEO,
-	CROP,
-	ARCHIVE,
-	PENCIL,
-	GRAPH_TREND,
-	GRAPH_BAR,
-	GRAPH_HORIZONTAL,
-	GRAPH_PIE,
-	CHECKBOX,
-	MINUS_CIRCLE,
-	X_CIRCLE,
-	EYE,
-	DATABASE,
-	RESULTS,
-	RESULTS_DEMOGRAPHICS,
-	LIKE,
-	DISLIKE,
-	UPLOAD_CLOUD,
-	CAMERA,
-	ALERT,
-	BOOKMARK,
-	CONTRAST,
-	MAIL,
-	VIDEO,
-	TELEPHONE,
-	COMMENT,
-	COMMENT_VIDEO,
-	COMMENT_QUOTES,
-	COMMENT_MINUS,
-	MICROPHONE,
-	MEGAPHONE,
-	SOUND,
-	ADDRESS_BOOK,
-	BLUETOOTH,
-	HTML5,
-	CSS3,
-	LAYOUT,
-	WEB,
-	FOUNDATION;
+import org.apache.wicket.markup.ComponentTag;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+
+import com.iluwatar.foundation.util.Attribute;
+import com.iluwatar.foundation.util.StringUtil;
+
+public class FoundationIcon extends WebMarkupContainer {
+
+	private static final long serialVersionUID = 1L;
+	
+	private FoundationIconType iconType;
+
+	private FoundationIconSize iconSize;
+
+	public FoundationIcon(String id, FoundationIconType iconType) {
+		this(id, iconType, null);
+	}
+
+	public FoundationIcon(String id, FoundationIconType iconType, FoundationIconSize iconSize) {
+		super(id);
+		this.iconType = iconType;
+		this.iconSize = iconSize;
+	}
+	
+	@Override
+	protected void onComponentTag(ComponentTag tag) {
+		final String prefix = "fi-";
+		Attribute.addClass(tag, prefix + StringUtil.EnumNameToCssClassName(iconType.name()));
+		if (iconSize != null) {
+			Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(iconSize.name()));
+		}
+		super.onComponentTag(tag);
+	}
 }
