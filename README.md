@@ -53,6 +53,9 @@ of the project.
 
 ## Changelog
 
+v0.1.1
+* Added tests. Minor implementation changes to FoundationIconBar.
+
 v0.1.0
 * Foundation icons added.
 
