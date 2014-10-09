@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import org.apache.wicket.request.resource.ResourceReference;
 
+import com.iluwatar.foundation.icon.FoundationIconType;
+
 public class IconBarResourceItem implements IconBarItem, Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,7 +29,7 @@ public class IconBarResourceItem implements IconBarItem, Serializable {
 	}
 
 	@Override
-	public String getFontId() {
+	public FoundationIconType getIconType() {
 		return null;
 	}
 }

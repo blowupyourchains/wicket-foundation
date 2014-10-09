@@ -2,13 +2,15 @@ package com.iluwatar.foundation.iconbar;
 
 import org.apache.wicket.request.resource.ResourceReference;
 
+import com.iluwatar.foundation.icon.FoundationIconType;
+
 public class IconBarFontItem implements IconBarItem {
 
-	private String fontId;
 	private String text;
+	private FoundationIconType iconType;
 
-	public IconBarFontItem(String fontId, String text) {
-		this.fontId = fontId;
+	public IconBarFontItem(FoundationIconType iconType, String text) {
+		this.iconType = iconType;
 		this.text = text;
 	}
 	
@@ -23,7 +25,7 @@ public class IconBarFontItem implements IconBarItem {
 	}
 
 	@Override
-	public String getFontId() {
-		return fontId;
+	public FoundationIconType getIconType() {
+		return iconType;
 	}
 }

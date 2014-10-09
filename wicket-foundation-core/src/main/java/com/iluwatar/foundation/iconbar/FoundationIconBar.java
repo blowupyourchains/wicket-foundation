@@ -13,6 +13,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 
 import com.iluwatar.foundation.component.FoundationBasePanel;
+import com.iluwatar.foundation.icon.FoundationIcon;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
@@ -52,7 +53,7 @@ public class FoundationIconBar extends FoundationBasePanel {
 					item.add(new WebMarkupContainer("icon").setVisible(false));
 				} else {
 					item.add(new WebMarkupContainer("img").setVisible(false));
-					item.add(new IconFontContainer("icon", item.getModelObject().getFontId()));
+					item.add(new FoundationIcon("icon", item.getModelObject().getIconType()));
 				}
 				WebMarkupContainer label = new WebMarkupContainer("label");
 				item.add(label);
@@ -87,21 +88,5 @@ public class FoundationIconBar extends FoundationBasePanel {
 		optionsModel.detach();
 		itemsModel.detach();
 		super.onDetach();
-	}
-	
-	private static class IconFontContainer extends WebMarkupContainer {
-
-		private String fontId;
-
-		public IconFontContainer(String id, String fontId) {
-			super(id);
-			this.fontId = fontId;
-		}
-		
-		@Override
-		protected void onComponentTag(ComponentTag tag) {
-			Attribute.addClass(tag, fontId);
-			super.onComponentTag(tag);
-		}
 	}
 }
