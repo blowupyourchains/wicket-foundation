@@ -42,9 +42,7 @@ public class ShowByScreenSizeBehavior extends FoundationBaseBehavior {
 
 	@Override
 	public void detach(Component component) {
-		if (showTypeModel != null) {
-			showTypeModel.detach();
-		}
+		showTypeModel.detach();
 		super.detach(component);
 	}
 }

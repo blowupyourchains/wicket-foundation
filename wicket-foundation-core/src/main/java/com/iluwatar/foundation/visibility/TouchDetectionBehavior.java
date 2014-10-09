@@ -36,9 +36,7 @@ public class TouchDetectionBehavior extends FoundationBaseBehavior {
 
 	@Override
 	public void detach(Component component) {
-		if (typeModel != null) {
-			typeModel.detach();
-		}
+		typeModel.detach();
 		super.detach(component);
 	}
 }

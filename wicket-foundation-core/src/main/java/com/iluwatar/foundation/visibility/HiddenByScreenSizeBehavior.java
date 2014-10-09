@@ -42,9 +42,7 @@ public class HiddenByScreenSizeBehavior extends FoundationBaseBehavior {
 
 	@Override
 	public void detach(Component component) {
-		if (hideTypeModel != null) {
-			hideTypeModel.detach();
-		}
+		hideTypeModel.detach();
 		super.detach(component);
 	}
 }
