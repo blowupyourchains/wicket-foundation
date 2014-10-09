@@ -56,6 +56,12 @@ public class ButtonGroupPanelTest {
 		tag.getAttributeContains("class", ButtonGroupClassNames.BUTTON_BAR);
 	}
 	
+	@Test
+	public void renderStacked() {
+		WicketTester tester = new WicketTester();
+		tester.startComponentInPage(createStackedButtonGroup("buttons"));
+	}
+	
 	private TestButtonGroupPanel createBasicButtonGroup(String id) {
 		ArrayList<ButtonOptions> btnOptions = new ArrayList<>();
 		btnOptions.add(new ButtonOptions());
@@ -70,6 +76,16 @@ public class ButtonGroupPanelTest {
 		btnOptions.add(new ButtonOptions(ButtonColor.SECONDARY));
 		btnOptions.add(new ButtonOptions(ButtonColor.SUCCESS));
 		ButtonGroupOptions groupOptions = new ButtonGroupOptions(ButtonRadius.ROUND);
+		TestButtonGroupPanel group = new TestButtonGroupPanel(id, groupOptions, btnOptions);
+		return group;
+	}
+	
+	private TestButtonGroupPanel createStackedButtonGroup(String id) {
+		ArrayList<ButtonOptions> btnOptions = new ArrayList<>();
+		btnOptions.add(new ButtonOptions(ButtonColor.ALERT));
+		btnOptions.add(new ButtonOptions(ButtonColor.SECONDARY));
+		btnOptions.add(new ButtonOptions(ButtonColor.SUCCESS));
+		ButtonGroupOptions groupOptions = new ButtonGroupOptions(ButtonGroupStacking.STACK);
 		TestButtonGroupPanel group = new TestButtonGroupPanel(id, groupOptions, btnOptions);
 		return group;
 	}
