@@ -5,7 +5,7 @@
 
     <groupId>com.iluwatar</groupId>
     <artifactId>wicket-foundation-parent</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.1</version>
     <packaging>pom</packaging>
     <name>Wicket Foundation Parent</name>
     <description>Integration for Apache Wicket and Zurb Foundation.</description>
