@@ -1,0 +1,92 @@
+package com.iluwatar.foundation.progressbar;
+
+import org.apache.wicket.markup.ComponentTag;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+
+import com.iluwatar.foundation.component.FoundationBasePanel;
+import com.iluwatar.foundation.util.Attribute;
+import com.iluwatar.foundation.util.StringUtil;
+
+/**
+ * A simple way to add progress bars to your layouts.
+ * http://foundation.zurb.com/docs/components/progress_bars.html
+ * @author ilkka
+ *
+ */
+public class FoundationProgressBarPanel extends FoundationBasePanel {
+
+	private static final long serialVersionUID = 1L;
+
+	public FoundationProgressBarPanel(String id, int percent) {
+		this(id, Model.of(new ProgressBarOptions()), Model.of(percent));
+	}
+	
+	public FoundationProgressBarPanel(String id, ProgressBarOptions options, int percent) {
+		this(id, Model.of(options), Model.of(percent));
+	}
+
+	public FoundationProgressBarPanel(String id, IModel<ProgressBarOptions> optionsModel, IModel<Integer> percentModel) {
+		super(id);
+		ProgressContainer progressContainer = new ProgressContainer("progressContainer", optionsModel);
+		add(progressContainer);
+		Progress progress = new Progress("progress", percentModel);
+		progressContainer.add(progress);
+	}
+	
+	private static class ProgressContainer extends WebMarkupContainer {
+
+		private static final long serialVersionUID = 1L;
+		
+		private IModel<ProgressBarOptions> optionsModel;
+
+		public ProgressContainer(String id, IModel<ProgressBarOptions> optionsModel) {
+			super(id);
+			this.optionsModel = optionsModel;
+		}
+		
+		@Override
+		protected void onComponentTag(ComponentTag tag) {
+			Attribute.addClass(tag, "progress");
+			ProgressBarOptions options = optionsModel.getObject();
+			if (options.getColor() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getColor().name()));
+			}
+			if (options.getRadius() != null) {
+				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getRadius().name()));
+			}
+			super.onComponentTag(tag);
+		}
+		
+		@Override
+		protected void onDetach() {
+			optionsModel.detach();
+			super.onDetach();
+		}
+	}
+	
+	private static class Progress extends WebMarkupContainer {
+
+		private static final long serialVersionUID = 1L;
+		
+		private IModel<Integer> percentModel;
+
+		public Progress(String id, IModel<Integer> percentModel) {
+			super(id);
+			this.percentModel = percentModel;
+		}
+		
+		@Override
+		protected void onComponentTag(ComponentTag tag) {
+			Attribute.addClass(tag, "meter");
+			super.onComponentTag(tag);
+		}
+		
+		@Override
+		protected void onDetach() {
+			percentModel.detach();
+			super.onDetach();
+		}
+	}
+}
