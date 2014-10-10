@@ -80,6 +80,11 @@ public class FoundationProgressBarPanel extends FoundationBasePanel {
 		@Override
 		protected void onComponentTag(ComponentTag tag) {
 			Attribute.addClass(tag, "meter");
+			Integer percent = percentModel.getObject();
+			if (percent == null || percent < 0 || percent > 100) {
+				percent = 100;
+			}
+			Attribute.addAttribute(tag, "style", String.format("width:%d%%", percent));
 			super.onComponentTag(tag);
 		}
 		

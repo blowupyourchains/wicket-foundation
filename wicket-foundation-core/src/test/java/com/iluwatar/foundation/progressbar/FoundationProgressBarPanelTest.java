@@ -27,7 +27,7 @@ public class FoundationProgressBarPanelTest {
 	public void testAdvanced() {
 		WicketTester tester = new WicketTester();
 		ProgressBarOptions options = new ProgressBarOptions().setColor(ButtonColor.SUCCESS).setRadius(ButtonRadius.ROUND);
-		FoundationProgressBarPanel progress = new FoundationProgressBarPanel("id", options, 100);
+		FoundationProgressBarPanel progress = new FoundationProgressBarPanel("id", options, 47);
 		tester.startComponentInPage(progress);
 		tester.dumpPage();
 		TagTester progressContainerTag = tester.getTagByWicketId("progressContainer");
@@ -36,5 +36,6 @@ public class FoundationProgressBarPanelTest {
 		assertTrue(progressContainerTag.getAttributeContains("class", "round"));
 		TagTester progressTag = tester.getTagByWicketId("progress");
 		assertEquals("meter", progressTag.getAttribute("class"));
+		assertEquals("width:47%", progressTag.getAttribute("style"));
 	}
 }

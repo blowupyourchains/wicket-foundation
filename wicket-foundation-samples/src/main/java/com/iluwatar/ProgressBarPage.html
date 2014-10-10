@@ -26,16 +26,14 @@
 </pre>
 
           <h4>Java</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">add(new FoundationProgressBarPanel("basic", 100));
 </div></code>
 </pre>
 
 				</div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<div class="progress">
-						<span class="meter"></span>
-					</div>
+					<div wicket:id="basic"></div>
 				</div>
 			</div>
 
@@ -49,21 +47,20 @@
 				
 				
           <h4>HTML</h4>
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;advanced&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </div></code>
 </pre>
 
           <h4>Java</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">ProgressBarOptions options = new ProgressBarOptions(ButtonColor.SUCCESS).setRadius(ButtonRadius.ROUND);
+add(new FoundationProgressBarPanel("advanced", options, 80));
 </div></code>
 </pre>
 
 				</div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<div class="progress large-9 success round">
-						<span class="meter" style="width: 80%"></span>
-					</div>
+					<div wicket:id="advanced"></div>
 				</div>
 			</div>
 		</div>
