@@ -51,6 +51,12 @@ of the project.
 
 <br>
 
+## Semantic versioning
+
+Wicket-foundation uses [semantic versioning](http://semver.org/). However, for versions 0.x while the fundamental operations are still under development the API breaks can and will happen.
+
+<br>
+
 ## Changelog
 
 v0.1.1
