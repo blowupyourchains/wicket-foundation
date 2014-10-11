@@ -26,19 +26,29 @@
 </pre>
 
           <h4>Java</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;SideNavItem&gt; basicItems = new ArrayList&lt;&gt;();
+basicItems.add(new SideNavLinkItem(&quot;Link 1&quot;));
+basicItems.add(new SideNavLinkItem(&quot;Link 2&quot;));
+basicItems.add(new SideNavLinkItem(&quot;Link 3&quot;));
+basicItems.add(new SideNavLinkItem(&quot;Link 4&quot;));
+add(new FoundationSideNav(&quot;basic&quot;, basicItems) {
+	@Override
+	public AbstractLink createLink(final String id, int idx) {
+		return new AjaxLink&lt;Void&gt;(id) {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				target.appendJavaScript(String.format(&quot;alert('%s');&quot;, id));
+			}
+		};
+	}
+});
 </div></code>
 </pre>
 
 				</div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<ul class="side-nav">
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-					</ul>
+					<div wicket:id="basic"></div>
 				</div>
 			</div>
 
@@ -50,25 +60,36 @@
 				<div>
 				
           <h4>HTML</h4>
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;advanced&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </div></code>
 </pre>
 
           <h4>Java</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;SideNavItem&gt; advancedItems = new ArrayList&lt;&gt;();
+advancedItems.add(new SideNavHeaderItem(&quot;Header&quot;));
+advancedItems.add(new SideNavLinkItem(&quot;Link 1&quot;, true));
+advancedItems.add(new SideNavLinkItem(&quot;Link 2&quot;));
+advancedItems.add(new SideNavDividerItem());
+advancedItems.add(new SideNavLinkItem(&quot;Link 3&quot;));
+advancedItems.add(new SideNavLinkItem(&quot;Link 4&quot;));
+add(new FoundationSideNav(&quot;advanced&quot;, advancedItems) {
+	@Override
+	public AbstractLink createLink(final String id, final int idx) {
+		return new AjaxLink&lt;Void&gt;(id) {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				target.appendJavaScript(String.format(&quot;alert('%d');&quot;, idx));
+			}
+		};
+	}
+});
 </div></code>
 </pre>
 
 				</div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<ul class="side-nav">
-						<li class="active"><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-					</ul>
+					<div wicket:id="advanced"></div>
 				</div>
 			</div>
 		</div>
