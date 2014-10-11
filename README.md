@@ -20,7 +20,7 @@ Wicket-Foundation is available in the Sonatype Nexus. Add the following dependen
 <dependency>
     <groupId>com.iluwatar</groupId>
     <artifactId>wicket-foundation-core</artifactId>
-    <version>0.1.1</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -58,6 +58,11 @@ Wicket-foundation uses [semantic versioning](http://semver.org/). However, for v
 <br>
 
 ## Changelog
+
+v0.2.0
+* Added progress bar.
+* Added side nav.
+* Added sub nav.
 
 v0.1.1
 * Added tests. Minor implementation changes to FoundationIconBar.
