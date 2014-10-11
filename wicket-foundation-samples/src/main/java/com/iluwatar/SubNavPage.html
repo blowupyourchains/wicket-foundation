@@ -45,28 +45,29 @@
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;SubNavItem&gt; items = new ArrayList&lt;&gt;();
+items.add(new SubNavItem(&quot;All&quot;, true));
+items.add(new SubNavItem(&quot;Active&quot;));
+items.add(new SubNavItem(&quot;Pending&quot;));
+items.add(new SubNavItem(&quot;Suspended&quot;));
+add(new FoundationSubNav(&quot;basic&quot;, &quot;FILTER&quot;, items) {
+	@Override
+	public AbstractLink createLink(String id, final int idx) {
+		return new AjaxLink&lt;Void&gt;(id) {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				target.appendJavaScript(String.format(&quot;alert('%d');&quot;, idx));
+			}
+		};
+	}
+});
 </div></code>
 </pre>
 
                 </div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<dl class="sub-nav">
-						<dt>Filter:</dt>
-						<dd class="active">
-							<a href="#">All</a>
-						</dd>
-						<dd>
-							<a href="#">Active</a>
-						</dd>
-						<dd>
-							<a href="#">Pending</a>
-						</dd>
-						<dd>
-							<a href="#">Suspended</a>
-						</dd>
-					</dl>
+					<div wicket:id="basic"></div>
 				</div>
 			</div>
 		</div>
