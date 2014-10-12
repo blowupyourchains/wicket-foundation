@@ -5,18 +5,19 @@ import java.util.List;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
-import org.apache.wicket.util.lang.Args;
 
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
 /**
  * Dropdown buttons are elements that, when tapped, reveal additional content.
+ * FoundationDropdown provides set of links for the user to click.
  * http://foundation.zurb.com/docs/components/dropdown_buttons.html
  * @author ilkka
  *
@@ -25,10 +26,24 @@ public abstract class FoundationDropdown extends FoundationDropdownBase {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationDropdown.
+	 * @param id - Wicket id.
+	 * @param title - Title of the dropdown button.
+	 * @param options - Options for the dropdown.
+	 * @param linkTitles - Titles for the dropdown links.
+	 */
 	public FoundationDropdown(String id, String title, DropdownOptions options, List<String> linkTitles) {
 		this(id, Model.of(title), Model.of(options), new ListModel<>(linkTitles));
 	}
 	
+	/**
+	 * Create FoundationDropdown.
+	 * @param id - Wicket id.
+	 * @param titleModel - Model for the dropdown button title.
+	 * @param optionsModel - Model for the dropdown options.
+	 * @param linkTitleModels - Model for the dropdown link titles.
+	 */
 	public FoundationDropdown(String id, IModel<String> titleModel, IModel<DropdownOptions> optionsModel, IModel<List<String>> linkTitleModels) {
 		super(id, titleModel, optionsModel);
 		FoundationDropdownContainer container = new FoundationDropdownContainer("container", linkTitleModels, optionsModel);
@@ -40,7 +55,7 @@ public abstract class FoundationDropdown extends FoundationDropdownBase {
 		return this.get("container").getMarkupId();
 	}
 	
-	protected abstract WebMarkupContainer createDropdownLink(int idx, String id);
+	protected abstract AbstractLink createDropdownLink(int idx, String id);
 	
 	private class FoundationDropdownContainer extends WebMarkupContainer {
 
@@ -50,7 +65,6 @@ public abstract class FoundationDropdown extends FoundationDropdownBase {
 
 		public FoundationDropdownContainer(String id, IModel<List<String>> linkTitleModels, IModel<DropdownOptions> optionsModel) {
 			super(id);
-			Args.notNull(optionsModel, "optionsModel");
 			this.optionsModel = optionsModel;
 			this.setOutputMarkupId(true);
 			
@@ -60,7 +74,7 @@ public abstract class FoundationDropdown extends FoundationDropdownBase {
 
 				@Override
 				protected void populateItem(ListItem<String> item) {
-					WebMarkupContainer link = FoundationDropdown.this.createDropdownLink(item.getIndex(), "link");
+					AbstractLink link = FoundationDropdown.this.createDropdownLink(item.getIndex(), "link");
 					item.add(link);
 					link.add(new Label("body", item.getModel()));
 				}

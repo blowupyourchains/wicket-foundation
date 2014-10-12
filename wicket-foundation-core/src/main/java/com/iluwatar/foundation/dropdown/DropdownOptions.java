@@ -7,6 +7,11 @@ import com.iluwatar.foundation.button.ButtonExpansion;
 import com.iluwatar.foundation.button.ButtonRadius;
 import com.iluwatar.foundation.button.ButtonSize;
 
+/**
+ * Options for the dropdown.
+ * @author ilkka
+ *
+ */
 public class DropdownOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;

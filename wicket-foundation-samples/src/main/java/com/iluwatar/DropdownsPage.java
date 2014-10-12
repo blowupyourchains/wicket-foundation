@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
@@ -25,7 +25,7 @@ public class DropdownsPage extends BasePage {
 		List<String> links = Arrays.asList("First link", "Second link", "Third link");
 		FoundationDropdown basicDropdown = new FoundationDropdown("basicDropdown", "Has Dropdown", new DropdownOptions(), links) {
 				@Override
-				protected WebMarkupContainer createDropdownLink(int idx,
+				protected AbstractLink createDropdownLink(int idx,
 						String id) {
 					return new Link<String>(id) {
 						@Override
@@ -42,7 +42,7 @@ public class DropdownsPage extends BasePage {
 		List<String> advancedLinks = Arrays.asList("This is a link", "This is another", "Yet another");
 		FoundationDropdown advancedDropdownLink = new FoundationDropdown("advancedDropdownLink", "Link Dropdown", new DropdownOptions(DropdownType.DROPDOWNLINK), advancedLinks) {
 				@Override
-				protected WebMarkupContainer createDropdownLink(int idx,
+				protected AbstractLink createDropdownLink(int idx,
 						String id) {
 					return new Link<String>(id) {
 						@Override
@@ -61,7 +61,7 @@ public class DropdownsPage extends BasePage {
 		List<String> hoverLinks = Arrays.asList("First link", "Second link", "Third link");
 		FoundationDropdown hoverDropdown = new FoundationDropdown("hoverDropdown", "Has Hover Dropdown", new DropdownOptions(DropdownHover.HOVERABLE), hoverLinks) {
 				@Override
-				protected WebMarkupContainer createDropdownLink(int idx, String id) {
+				protected AbstractLink createDropdownLink(int idx, String id) {
 					return new Link<String>(id) {
 						@Override
 						public void onClick() {}
@@ -75,7 +75,7 @@ public class DropdownsPage extends BasePage {
 		DropdownOptions options = new DropdownOptions(DropdownType.DROPDOWNLINK).setListAlignment(align);
 		return new FoundationDropdown(id, title, options, Collections.unmodifiableList(links)) {
 				@Override
-				protected WebMarkupContainer createDropdownLink(int idx, String id) {
+				protected AbstractLink createDropdownLink(int idx, String id) {
 					return new Link<String>(id) {
 						@Override
 						public void onClick() {}

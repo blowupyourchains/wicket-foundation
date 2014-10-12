@@ -10,6 +10,7 @@ import com.iluwatar.foundation.util.Attribute;
 
 /**
  * Dropdown buttons are elements that, when tapped, reveal additional content.
+ * FoundationContentDropdown opens additional HTML content when clicked.
  * http://foundation.zurb.com/docs/components/dropdown_buttons.html
  * @author ilkka
  *
@@ -18,10 +19,24 @@ public class FoundationContentDropdown extends FoundationDropdownBase {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationContentDropdown.
+	 * @param id - Wicket id.
+	 * @param title - Title for the dropdown button.
+	 * @param options - Options for the dropdown.
+	 * @param content - Dropdown content HTML.
+	 */
 	public FoundationContentDropdown(String id, String title, DropdownOptions options, String content) {
 		this(id, Model.of(title), Model.of(options), Model.of(content));
 	}
 	
+	/**
+	 * Create FoundationContentDropdown.
+	 * @param id - Wicket id.
+	 * @param titleModel - Model for the dropdown button title.
+	 * @param optionsModel - Model for the dropdown options.
+	 * @param contentModel - Model for the dropdown content HTML.
+	 */
 	public FoundationContentDropdown(String id, IModel<String> titleModel, IModel<DropdownOptions> optionsModel, IModel<String> contentModel) {
 		super(id, titleModel, optionsModel);
 		FoundationDropdownContent content = new FoundationDropdownContent("content", contentModel);

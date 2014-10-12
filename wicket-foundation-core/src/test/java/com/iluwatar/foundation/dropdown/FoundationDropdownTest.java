@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.util.tester.TagTester;
 import org.apache.wicket.util.tester.WicketTester;
@@ -24,7 +24,7 @@ public class FoundationDropdownTest {
 		FoundationDropdown dropdown = new FoundationDropdown("id", "dropdown", new DropdownOptions(), Arrays.asList("foo", "bar", "baz")) {
 
 			@Override
-			protected WebMarkupContainer createDropdownLink(int idx, String id) {
+			protected AbstractLink createDropdownLink(int idx, String id) {
 				return new Link<String>(id) {
 					@Override
 					public void onClick() {}
@@ -54,7 +54,7 @@ public class FoundationDropdownTest {
 		FoundationDropdown dropdown = new FoundationDropdown("id", "dropdown", new DropdownOptions(DropdownType.DROPDOWNLINK), Arrays.asList("foo", "bar", "baz")) {
 
 			@Override
-			protected WebMarkupContainer createDropdownLink(int idx, String id) {
+			protected AbstractLink createDropdownLink(int idx, String id) {
 				return new Link<String>(id) {
 					@Override
 					public void onClick() {}
@@ -85,7 +85,7 @@ public class FoundationDropdownTest {
 		FoundationDropdown dropdown = new FoundationDropdown("id", "dropdown", new DropdownOptions(DropdownType.DROPDOWNBUTTON), Arrays.asList("foo", "bar", "baz")) {
 
 			@Override
-			protected WebMarkupContainer createDropdownLink(int idx, String id) {
+			protected AbstractLink createDropdownLink(int idx, String id) {
 				return new Link<String>(id) {
 					@Override
 					public void onClick() {}
@@ -127,7 +127,7 @@ public class FoundationDropdownTest {
 		FoundationDropdown dropdown = new FoundationDropdown("id", "dropdown", options, Arrays.asList("foo", "bar", "baz")) {
 
 			@Override
-			protected WebMarkupContainer createDropdownLink(int idx, String id) {
+			protected AbstractLink createDropdownLink(int idx, String id) {
 				return new Link<String>(id) {
 					@Override
 					public void onClick() {

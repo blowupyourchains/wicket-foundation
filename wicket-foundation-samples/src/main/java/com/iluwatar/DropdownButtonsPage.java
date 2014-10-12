@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
@@ -32,7 +32,7 @@ public class DropdownButtonsPage extends BasePage {
 	private FoundationDropdown createDropdownButton(String id, String title, List<String> links, DropdownOptions options) {
 		return new FoundationDropdown(id, title, options, Collections.unmodifiableList(links)) {
 				@Override
-				protected WebMarkupContainer createDropdownLink(int idx, String id) {
+				protected AbstractLink createDropdownLink(int idx, String id) {
 					return new Link<String>(id) {
 						@Override
 						public void onClick() {}
