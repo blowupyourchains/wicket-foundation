@@ -15,7 +15,7 @@ public class FoundationBorderTest {
 		FoundationPanelBorder border = new FoundationPanelBorder("foo", Model.of(FoundationPanelType.NORMAL));
 		tester.startComponentInPage(border);
 		TagTester tagTester = tester.getTagByWicketId("wrapper");
-		assertEquals(FoundationPanelClassNames.get(FoundationPanelType.NORMAL), tagTester.getAttribute("class"));
+		assertEquals("panel", tagTester.getAttribute("class"));
 	}
 	
 	@Test
@@ -24,6 +24,6 @@ public class FoundationBorderTest {
 		FoundationPanelBorder border = new FoundationPanelBorder("foo", Model.of(FoundationPanelType.CALLOUT));
 		tester.startComponentInPage(border);
 		TagTester tagTester = tester.getTagByWicketId("wrapper");
-		assertEquals(FoundationPanelClassNames.get(FoundationPanelType.CALLOUT), tagTester.getAttribute("class"));
+		assertEquals("panel callout radius", tagTester.getAttribute("class"));
 	}
 }

@@ -3,7 +3,6 @@ package com.iluwatar.foundation.foundationpanel;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.util.lang.Args;
 
 import com.iluwatar.foundation.border.FoundationBaseBorder;
 
@@ -16,31 +15,46 @@ import com.iluwatar.foundation.border.FoundationBaseBorder;
 public class FoundationPanelBorder extends FoundationBaseBorder {
 
 	private static final long serialVersionUID = 1L;
-	private IModel<FoundationPanelType> type;
+	
+	private IModel<FoundationPanelType> typeModel;
 
-	public FoundationPanelBorder(String id, IModel<FoundationPanelType> type) {
+	/**
+	 * Create FoundationPanelBorder.
+	 * @param id - Wicket id.
+	 * @param typeModel - Model for the panel type.
+	 */
+	public FoundationPanelBorder(String id, IModel<FoundationPanelType> typeModel) {
 		super(id);
-		this.type = type;
-		Args.notNull(type, "type");
+		this.typeModel = typeModel;
 		initComponents();
 	}
-	
-	public FoundationPanelBorder(String id, IModel<?> model, IModel<FoundationPanelType> type) {
+
+	/**
+	 * Create FoundationPanel.
+	 * @param id - Wicket id.
+	 * @param model - Model for the panel.
+	 * @param typeModel - Model for the panel type.
+	 */
+	public FoundationPanelBorder(String id, IModel<?> model, IModel<FoundationPanelType> typeModel) {
 		super(id, model);
-		this.type = type;
-		Args.notNull(type, "type");
+		this.typeModel = typeModel;
 		initComponents();
 	}
 	
 	private void initComponents() {
 		WebMarkupContainer wrapper = new WebMarkupContainer("wrapper");
-		wrapper.add(new AttributeModifier("class", FoundationPanelClassNames.get(this.type.getObject())));
+		FoundationPanelType type = typeModel.getObject();
+		if (type.equals(FoundationPanelType.NORMAL)) {
+			wrapper.add(new AttributeModifier("class", "panel"));
+		} else if (type.equals(FoundationPanelType.CALLOUT)) {
+			wrapper.add(new AttributeModifier("class", "panel callout radius"));
+		}
 		this.addToBorder(wrapper);
 	}
 	
 	@Override
 	protected void onDetach() {
-		this.type.detach();
+		this.typeModel.detach();
 		super.onDetach();
 	}
 }

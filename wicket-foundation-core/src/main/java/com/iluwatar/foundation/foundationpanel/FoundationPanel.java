@@ -2,7 +2,6 @@ package com.iluwatar.foundation.foundationpanel;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.util.lang.Args;
 
 import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
@@ -16,29 +15,44 @@ import com.iluwatar.foundation.util.Attribute;
 public abstract class FoundationPanel extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
-	private IModel<FoundationPanelType> type;
+	
+	private IModel<FoundationPanelType> typeModel;
 
-	public FoundationPanel(String id, IModel<FoundationPanelType> type) {
+	/**
+	 * Create FoundationPanel.
+	 * @param id - Wicket id.
+	 * @param typeModel - Model for the panel type.
+	 */
+	public FoundationPanel(String id, IModel<FoundationPanelType> typeModel) {
 		super(id);
-		this.type = type;
-		Args.notNull(type, "type");
+		this.typeModel = typeModel;
 	}
 	
-	public FoundationPanel(final String id, final IModel<?> model, IModel<FoundationPanelType> type) {
+	/**
+	 * Create FoundationPanel.
+	 * @param id - Wicket id.
+	 * @param model - Model for the panel.
+	 * @param typeModel - Model for the panel type.
+	 */
+	public FoundationPanel(final String id, final IModel<?> model, IModel<FoundationPanelType> typeModel) {
 		super(id, model);
-		this.type = type;
-		Args.notNull(type, "type");
+		this.typeModel = typeModel;
 	}
 	
 	@Override
 	protected void onComponentTag(ComponentTag tag) {
-		Attribute.addClass(tag, FoundationPanelClassNames.get(this.type.getObject()));
+		FoundationPanelType type = typeModel.getObject();
+		if (type.equals(FoundationPanelType.NORMAL)) {
+			Attribute.addClass(tag, "panel");
+		} else if (type.equals(FoundationPanelType.CALLOUT)) {
+			Attribute.addClass(tag, "panel callout radius");
+		}
 		super.onComponentTag(tag);
 	}
 	
 	@Override
 	protected void onDetach() {
-		this.type.detach();
+		this.typeModel.detach();
 		super.onDetach();
 	}
 }

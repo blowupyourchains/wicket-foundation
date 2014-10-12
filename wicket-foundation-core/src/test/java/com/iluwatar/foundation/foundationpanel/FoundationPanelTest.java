@@ -16,7 +16,7 @@ public class FoundationPanelTest {
 		TestPanel panel = new TestPanel("panel", Model.of(FoundationPanelType.NORMAL));
 		tester.startComponentInPage(panel);
 		TagTester tagTester = tester.getTagByWicketId("panel");
-		assertEquals(FoundationPanelClassNames.get(FoundationPanelType.NORMAL), tagTester.getAttribute("class"));
+		assertEquals("panel", tagTester.getAttribute("class"));
 	}
 
 	@Test
@@ -25,7 +25,7 @@ public class FoundationPanelTest {
 		TestPanel panel = new TestPanel("panel", Model.of(FoundationPanelType.CALLOUT));
 		tester.startComponentInPage(panel);
 		TagTester tagTester = tester.getTagByWicketId("panel");
-		assertEquals(FoundationPanelClassNames.get(FoundationPanelType.CALLOUT), tagTester.getAttribute("class"));
+		assertEquals("panel callout radius", tagTester.getAttribute("class"));
 	}
 	
 	private static class TestPanel extends FoundationPanel {
