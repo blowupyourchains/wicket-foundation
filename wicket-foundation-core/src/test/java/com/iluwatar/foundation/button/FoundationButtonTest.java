@@ -63,7 +63,7 @@ public class FoundationButtonTest {
 	private void testButton(WicketTester tester, FoundationButton btn, List<String> additionalCssClassesToVerify) {
 		tester.startComponentInPage(btn);
 		TagTester tagTester = tester.getTagByWicketId(btn.getId());
-		assertTrue(tagTester.getAttributeContains("class", FoundationButtonClassNames.BUTTON));
+		assertTrue(tagTester.getAttributeContains("class", "button"));
 		for (String clazz: additionalCssClassesToVerify) {
 			assertTrue(tagTester.getAttributeContains("class", clazz));
 		}

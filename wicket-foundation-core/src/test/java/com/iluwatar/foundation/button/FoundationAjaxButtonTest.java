@@ -63,7 +63,7 @@ public class FoundationAjaxButtonTest {
 		FoundationButtonTestPage page = new FoundationButtonTestPage(btn);
 		tester.startPage(page);
 		TagTester tagTester = tester.getTagByWicketId(btn.getId());
-		assertTrue(tagTester.getAttributeContains("class", FoundationButtonClassNames.BUTTON));
+		assertTrue(tagTester.getAttributeContains("class", "button"));
 		for (String clazz: additionalCssClassesToVerify) {
 			assertTrue(tagTester.getAttributeContains("class", clazz));
 		}

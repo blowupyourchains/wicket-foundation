@@ -9,9 +9,8 @@ import org.apache.wicket.util.tester.TagTester;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
 
-import com.iluwatar.foundation.button.ButtonOptions;
-import com.iluwatar.foundation.button.FoundationButtonClassNames;
 import com.iluwatar.foundation.button.ButtonColor;
+import com.iluwatar.foundation.button.ButtonOptions;
 import com.iluwatar.foundation.button.ButtonRadius;
 import com.iluwatar.foundation.util.StringUtil;
 
@@ -34,15 +33,15 @@ public class ButtonGroupPanelTest {
 		assertTrue(group.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonRadius.ROUND.name())));
 		List<TagTester> btnList = tester.getTagsByWicketId("btn");
 		assertTrue(btnList.get(0).getAttributeContains("class", 
-				FoundationButtonClassNames.BUTTON));
+				"button"));
 		assertTrue(btnList.get(0).getAttributeContains("class", 
 				StringUtil.EnumNameToCssClassName(ButtonColor.ALERT.name())));
 		assertTrue(btnList.get(1).getAttributeContains("class", 
-				FoundationButtonClassNames.BUTTON));
+				"button"));
 		assertTrue(btnList.get(1).getAttributeContains("class", 
 				StringUtil.EnumNameToCssClassName(ButtonColor.SECONDARY.name())));
 		assertTrue(btnList.get(2).getAttributeContains("class", 
-				FoundationButtonClassNames.BUTTON));
+				"button"));
 		assertTrue(btnList.get(2).getAttributeContains("class", 
 				StringUtil.EnumNameToCssClassName(ButtonColor.SUCCESS.name())));
 	}
