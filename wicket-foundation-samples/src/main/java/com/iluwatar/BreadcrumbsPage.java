@@ -3,11 +3,13 @@ package com.iluwatar;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.wicket.model.util.ListModel;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.iluwatar.foundation.breadcrumbs.BreadcrumbsItem;
-import com.iluwatar.foundation.breadcrumbs.BreadcrumbsPanel;
+import com.iluwatar.foundation.breadcrumbs.FoundationBreadcrumbs;
 
 public class BreadcrumbsPage extends BasePage {
 
@@ -17,20 +19,39 @@ public class BreadcrumbsPage extends BasePage {
 		super(params);
 		
 		List<BreadcrumbsItem> basicItems = new ArrayList<>();
-		basicItems.add(new BreadcrumbsItem(CatalogPage.class, "First", false));
-		basicItems.add(new BreadcrumbsItem(ButtonsPage.class, "Second", false));
-		basicItems.add(new BreadcrumbsItem(VisibilityPage.class, "Third", false));
-		basicItems.add(new BreadcrumbsItem(BreadcrumbsPage.class, "Fourth", false));
-		add(new BreadcrumbsPanel("basic", new ListModel<>(basicItems)));
+		basicItems.add(new BreadcrumbsItem("First"));
+		basicItems.add(new BreadcrumbsItem("Second"));
+		basicItems.add(new BreadcrumbsItem("Third"));
+		basicItems.add(new BreadcrumbsItem("Fourth"));
+		add(new FoundationBreadcrumbs("basic", basicItems) {
+			@Override
+			public AbstractLink createLink(String id, final int idx) {
+				return new AjaxLink<Void>(id) {
+					@Override
+					public void onClick(AjaxRequestTarget target) {
+						target.appendJavaScript(String.format("alert('%d');", idx));
+					}
+				};
+			}
+		});
 		
 		List<BreadcrumbsItem> advancedItems = new ArrayList<>();
-		advancedItems.add(new BreadcrumbsItem(CatalogPage.class, "First", false));
-		advancedItems.add(new BreadcrumbsItem(ButtonsPage.class, "Second", false));
-		advancedItems.add(new BreadcrumbsItem(VisibilityPage.class, "Third", false));
-		advancedItems.add(new BreadcrumbsItem(GridPage.class, "Fourth", true));
-		advancedItems.add(new BreadcrumbsItem(BlockGridPage.class, "Fifth", true));
-		advancedItems.add(new BreadcrumbsItem(BreadcrumbsPage.class, "Sixth", false));
-		add(new BreadcrumbsPanel("advanced", new ListModel<>(advancedItems)));
+		advancedItems.add(new BreadcrumbsItem("First"));
+		advancedItems.add(new BreadcrumbsItem("Second"));
+		advancedItems.add(new BreadcrumbsItem("Third"));
+		advancedItems.add(new BreadcrumbsItem("Fourth", true, false));
+		advancedItems.add(new BreadcrumbsItem("Fifth", false, true));
+		advancedItems.add(new BreadcrumbsItem("Sixth"));
+		add(new FoundationBreadcrumbs("advanced", advancedItems) {
+			@Override
+			public AbstractLink createLink(String id, final int idx) {
+				return new AjaxLink<Void>(id) {
+					@Override
+					public void onClick(AjaxRequestTarget target) {
+						target.appendJavaScript(String.format("alert('%d');", idx));
+					}
+				};
+			}
+		});
 	}
-
 }

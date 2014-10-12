@@ -12,14 +12,23 @@ import com.iluwatar.foundation.Foundation;
  * @author ilkka
  *
  */
-public class FoundationBaseBorder extends Border {
+public abstract class FoundationBaseBorder extends Border {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationBaseBorder.
+	 * @param id - Wicket id.
+	 */
 	public FoundationBaseBorder(String id) {
 		super(id);
 	}
 	
+	/**
+	 * Create FoundationBaseBorder.
+	 * @param id - Wicket id.
+	 * @param model - Model for the component.
+	 */
 	public FoundationBaseBorder(String id, IModel<?> model) {
 		super(id, model);
 	}

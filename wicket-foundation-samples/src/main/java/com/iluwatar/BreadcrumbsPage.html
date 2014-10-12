@@ -27,12 +27,22 @@
       <div>
         <h4>Java</h4>
         
-<pre><code class="language-html"><div class="code-container">List&lt;BreadcrumbsItem&gt; items = new ArrayList&lt;&gt;();
-items.add(new BreadcrumbsItem(CatalogPage.class, "First", false));
-items.add(new BreadcrumbsItem(ButtonsPage.class, "Second", false));
-items.add(new BreadcrumbsItem(VisibilityPage.class, "Third", false));
-items.add(new BreadcrumbsItem(BreadcrumbsPage.class, "Fourth", false));
-add(new BreadcrumbsPanel("basic", new ListModel&lt;&gt;(items)));
+<pre><code class="language-html"><div class="code-container">List&lt;BreadcrumbsItem&gt; basicItems = new ArrayList&lt;&gt;();
+basicItems.add(new BreadcrumbsItem(&quot;First&quot;));
+basicItems.add(new BreadcrumbsItem(&quot;Second&quot;));
+basicItems.add(new BreadcrumbsItem(&quot;Third&quot;));
+basicItems.add(new BreadcrumbsItem(&quot;Fourth&quot;));
+add(new FoundationBreadcrumbs(&quot;basic&quot;, basicItems) {
+	@Override
+	public AbstractLink createLink(String id, final int idx) {
+		return new AjaxLink&lt;Void&gt;(id) {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				target.appendJavaScript(String.format(&quot;alert('%d');&quot;, idx));
+			}
+		};
+	}
+});
 </div></code>
 </pre>
 
@@ -57,18 +67,28 @@ add(new BreadcrumbsPanel("basic", new ListModel&lt;&gt;(items)));
       </div>
       <div>
         <h4>Java</h4>
-        
+
 <pre><code class="language-html"><div class="code-container">List&lt;BreadcrumbsItem&gt; advancedItems = new ArrayList&lt;&gt;();
-advancedItems.add(new BreadcrumbsItem(CatalogPage.class, "First", false));
-advancedItems.add(new BreadcrumbsItem(ButtonsPage.class, "Second", false));
-advancedItems.add(new BreadcrumbsItem(VisibilityPage.class, "Third", false));
-advancedItems.add(new BreadcrumbsItem(GridPage.class, "Fourth", true));
-advancedItems.add(new BreadcrumbsItem(BlockGridPage.class, "Fifth", true));
-advancedItems.add(new BreadcrumbsItem(BreadcrumbsPage.class, "Sixth", false));
-add(new BreadcrumbsPanel("advanced", new ListModel&lt;&gt;(advancedItems)));
+advancedItems.add(new BreadcrumbsItem(&quot;First&quot;));
+advancedItems.add(new BreadcrumbsItem(&quot;Second&quot;));
+advancedItems.add(new BreadcrumbsItem(&quot;Third&quot;));
+advancedItems.add(new BreadcrumbsItem(&quot;Fourth&quot;, true, false));
+advancedItems.add(new BreadcrumbsItem(&quot;Fifth&quot;, false, true));
+advancedItems.add(new BreadcrumbsItem(&quot;Sixth&quot;));
+add(new FoundationBreadcrumbs(&quot;advanced&quot;, advancedItems) {
+	@Override
+	public AbstractLink createLink(String id, final int idx) {
+		return new AjaxLink&lt;Void&gt;(id) {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				target.appendJavaScript(String.format(&quot;alert('%d');&quot;, idx));
+			}
+		};
+	}
+});
 </div></code>
 </pre>
-
+        
       </div>
       <div>
         <h4>Rendered HTML</h4>
