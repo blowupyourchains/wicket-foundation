@@ -17,10 +17,19 @@ public abstract class FoundationJsPanel extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationJsPanel.
+	 * @param id - Wicket id.
+	 */
 	public FoundationJsPanel(String id) {
 		super(id);
 	}
 	
+	/**
+	 * Create FoundationJsPanel.
+	 * @param id - Wicket id.
+	 * @param model - Model for the panel.
+	 */
 	public FoundationJsPanel(String id, IModel<?> model) {
 		super(id, model);
 	}
