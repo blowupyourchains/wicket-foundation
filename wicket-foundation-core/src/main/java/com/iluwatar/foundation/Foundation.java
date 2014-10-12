@@ -5,8 +5,8 @@ import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
 
 /**
- * Foundation resources container.
- * Typically used by component base classes.
+ * Foundation resources container. It is typically used by component base classes.
+ * The resources are available through static getters.
  * @author ilkka
  *
  */

@@ -20,8 +20,8 @@ public class FoundationAlertTest {
 		FoundationAlert alert = new FoundationAlert("alert", Model.of("hello world"), new AlertOptions());
 		tester.startComponentInPage(alert);
 		TagTester alertTag = tester.getTagByWicketId("alert");
-		assertTrue(alertTag.getMarkup().contains(FoundationAlertClassNames.DATA_ALERT));
-		assertTrue(alertTag.getAttributeIs("class", FoundationAlertClassNames.ALERT));
+		assertTrue(alertTag.getMarkup().contains("data-alert"));
+		assertTrue(alertTag.getAttributeIs("class", "alert-box"));
 		assertTrue(alertTag.hasChildTag("a"));
 		TagTester bodyTag = tester.getTagByWicketId("body");
 		assertEquals("hello world", bodyTag.getValue());
@@ -34,8 +34,8 @@ public class FoundationAlertTest {
 		FoundationAlert alert = new FoundationAlert("alert", Model.of("hello world"), options);
 		tester.startComponentInPage(alert);
 		TagTester alertTag = tester.getTagByWicketId("alert");
-		assertTrue(alertTag.getMarkup().contains(FoundationAlertClassNames.DATA_ALERT));
-		assertTrue(alertTag.getAttributeContains("class", FoundationAlertClassNames.ALERT));
+		assertTrue(alertTag.getMarkup().contains("data-alert"));
+		assertTrue(alertTag.getAttributeContains("class", "alert-box"));
 		assertTrue(alertTag.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonColor.ALERT.name())));
 		assertTrue(alertTag.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonRadius.ROUND.name())));
 		assertTrue(alertTag.hasChildTag("a"));

@@ -18,20 +18,38 @@ import com.iluwatar.foundation.util.StringUtil;
  * Block grids give you a way to evenly split contents of a list within the grid.
  * http://foundation.zurb.com/docs/components/block_grid.html
  * @author ilkka
- * @param <T>
+ * @param <T> - The type of model object.
  */
 public abstract class FoundationBlockGrid<T> extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationBlockGrid component.
+	 * @param id - Wicket id.
+	 * @param options - Options for the component.
+	 * @param modelObjects - The model objects passed to client through createContent models parameter.
+	 */
 	public FoundationBlockGrid(String id, BlockGridOptions options, List<T> modelObjects) {
 		this(id, new ListModel<BlockGridOptions>(Arrays.asList(options)), new ListModel<T>(modelObjects));
 	}
 
+	/**
+	 * Create FoundationBlockGrid component.
+	 * @param id - Wicket id.
+	 * @param optionsList - List of component options.
+	 * @param modelObjects - The model objects passed to client through createContent models parameter.
+	 */
 	public FoundationBlockGrid(String id, List<BlockGridOptions> optionsList, List<T> modelObjects) {
 		this(id, new ListModel<BlockGridOptions>(optionsList), new ListModel<T>(modelObjects));
 	}
 
+	/**
+	 * Create FoundationBlockGrid component.
+	 * @param id - Wicket id.
+	 * @param optionsListModel - Model providing list of options for the component.
+	 * @param models - The models passed to client through createContent models parameter.
+	 */
 	public FoundationBlockGrid(String id, IModel<List<BlockGridOptions>> optionsListModel, IModel<List<T>> models) {
 		super(id);
 		BlockGridContainer container = new BlockGridContainer("container", optionsListModel);
@@ -48,6 +66,13 @@ public abstract class FoundationBlockGrid<T> extends FoundationBasePanel {
 		});
 	}
 	
+	/**
+	 * 
+	 * @param idx - Index number of the content item.
+	 * @param id - Wicket id for the content item.
+	 * @param model - Model for the content item.
+	 * @return Content item to be placed into the FoundationBlockGrid.
+	 */
 	public abstract WebMarkupContainer createContent(int idx, String id, IModel<T> model);
 	
 	private class BlockGridContainer extends WebMarkupContainer {

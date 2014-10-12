@@ -8,7 +8,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.PackageResourceReference;
 
-import com.iluwatar.foundation.blockgrid.BlockGridImagePanel;
+import com.iluwatar.foundation.blockgrid.BlockGridImageContent;
 import com.iluwatar.foundation.blockgrid.BlockGridOptions;
 import com.iluwatar.foundation.blockgrid.BlockGridType;
 import com.iluwatar.foundation.blockgrid.FoundationBlockGrid;
@@ -23,7 +23,7 @@ public class BlockGridPage extends BasePage {
 			@Override
 			public WebMarkupContainer createContent(int idx, String id,
 					IModel<String> model) {
-				return new BlockGridImagePanel(id, new PackageResourceReference(this.getClass(), model.getObject()));
+				return new BlockGridImageContent(id, new PackageResourceReference(this.getClass(), model.getObject()));
 			}			
 		});
 		List<BlockGridOptions> optionsList = Arrays.asList(new BlockGridOptions(BlockGridType.SMALL_BLOCK_GRID, 2), 
@@ -33,7 +33,7 @@ public class BlockGridPage extends BasePage {
 			@Override
 			public WebMarkupContainer createContent(int idx, String id,
 					IModel<String> model) {
-				return new BlockGridImagePanel(id, new PackageResourceReference(this.getClass(), model.getObject()));
+				return new BlockGridImageContent(id, new PackageResourceReference(this.getClass(), model.getObject()));
 			}			
 		});
 	}
