@@ -2,6 +2,11 @@ package com.iluwatar.foundation.button;
 
 import java.io.Serializable;
 
+/**
+ * Options for different types of Foundation buttons.
+ * @author ilkka
+ *
+ */
 public class ButtonOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;

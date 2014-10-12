@@ -8,11 +8,12 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.util.lang.Args;
 
 /**
- * Foundation styles AjaxLink.
+ * Buttons are convenient tools when you need more traditional actions. To that end, Foundation has many 
+ * easy to use button styles that you can customize or override to fit your needs.
  * http://foundation.zurb.com/docs/components/buttons.html
  * @author ilkka
  *
- * @param <T>
+ * @param <T> The type of the model object.
  */
 public abstract class FoundationAjaxLink<T> extends AjaxLink<T> {
 
@@ -20,10 +21,19 @@ public abstract class FoundationAjaxLink<T> extends AjaxLink<T> {
 
 	private IModel<ButtonOptions> optionsModel;
 	
+	/**
+	 * Create FoundationAjaxLink.
+	 * @param id Wicket id.
+	 */
 	public FoundationAjaxLink(String id) {
 		this(id, new ButtonOptions());
 	}
 
+	/**
+	 * Create FoundationAjaxLink.
+	 * @param id Wicket id.
+	 * @param options Options for the link.
+	 */
 	public FoundationAjaxLink(String id, ButtonOptions options) {
 		super(id);
 		Args.notNull(options, "options");
@@ -31,14 +41,31 @@ public abstract class FoundationAjaxLink<T> extends AjaxLink<T> {
 		add(new FoundationButtonBehavior(optionsModel));
 	}
 	
+	/**
+	 * Create FoundationAjaxLink.
+	 * @param id Wicket id.
+	 * @param model Model for the link.
+	 */
 	public FoundationAjaxLink(String id, IModel<T> model) {
 		this(id, model, new ButtonOptions());
 	}
 
+	/**
+	 * Create FoundationAjaxLink.
+	 * @param id Wicket id.
+	 * @param model Model for the link.
+	 * @param options Options for the link.
+	 */
 	public FoundationAjaxLink(String id, IModel<T> model, ButtonOptions options) {
 		this(id, model, Model.of(options));
 	}
 
+	/**
+	 * Create FoundationAjaxLink.
+	 * @param id Wicket id.
+	 * @param model Model for the link.
+	 * @param optionsModel Model providing options for the link.
+	 */
 	public FoundationAjaxLink(String id, IModel<T> model, IModel<ButtonOptions> optionsModel) {
 		super(id, model);
 		Args.notNull(optionsModel, "optionsModel");
@@ -58,5 +85,4 @@ public abstract class FoundationAjaxLink<T> extends AjaxLink<T> {
 		this.optionsModel.detach();
 		super.onDetach();
 	}
-
 }

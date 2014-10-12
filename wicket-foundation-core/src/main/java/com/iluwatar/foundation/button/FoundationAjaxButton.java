@@ -9,7 +9,8 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.util.lang.Args;
 
 /**
- * Foundation styled AjaxButton.
+ * Buttons are convenient tools when you need more traditional actions. To that end, Foundation has many 
+ * easy to use button styles that you can customize or override to fit your needs.
  * http://foundation.zurb.com/docs/components/buttons.html
  * @author ilkka
  *
@@ -20,38 +21,69 @@ public class FoundationAjaxButton extends AjaxButton {
 
 	private IModel<ButtonOptions> optionsModel;
 
+	/**
+	 * Create FoundationAjaxButton.
+	 * @param id Wicket id.
+	 */
 	public FoundationAjaxButton(String id) {
 		this(id, new ButtonOptions());
 	}
 	
+	/**
+	 * Create FoundationAjaxButton.
+	 * @param id Wicket id.
+	 * @param options Options for the button.
+	 */
 	public FoundationAjaxButton(String id, ButtonOptions options) {
 		super(id);
-		Args.notNull(options, "options");
 		optionsModel = Model.of(options);
 		add(new FoundationButtonBehavior(optionsModel));
 	}
 	
+	/**
+	 * Create FoundationAjaxButton.
+	 * @param id Wicket id.
+	 * @param form The form to be submitted.
+	 * @param options Options for the button.
+	 */
 	public FoundationAjaxButton(String id, Form<?> form, ButtonOptions options) {
 		super(id, form);
-		Args.notNull(options, "options");
 		optionsModel = Model.of(options);
 		add(new FoundationButtonBehavior(optionsModel));
 	}
 	
+	/**
+	 * Create FoundationAjaxButton.
+	 * @param id Wicket id.
+	 * @param model Model for button title.
+	 * @param options Options for the button.
+	 */
 	public FoundationAjaxButton(String id, IModel<String> model, ButtonOptions options) {
 		super(id, model);
-		Args.notNull(options, "options");
 		optionsModel = Model.of(options);
 		add(new FoundationButtonBehavior(optionsModel));
 	}
 	
+	/**
+	 * Create FoundationAjaxButton.
+	 * @param id Wicket id.
+	 * @param model Model for button title.
+	 * @param form The form to be submitted.
+	 * @param options Options for the button.
+	 */
 	public FoundationAjaxButton(String id, IModel<String> model, Form<?> form, ButtonOptions options) {
 		this(id, model, form, Model.of(options));
 	}
 
+	/**
+	 * Create FoundationAjaxButton.
+	 * @param id Wicket id.
+	 * @param model Model for button title.
+	 * @param form The form to be submitted.
+	 * @param optionsModel Model providing options for the button.
+	 */
 	public FoundationAjaxButton(String id, IModel<String> model, Form<?> form, IModel<ButtonOptions> optionsModel) {
 		super(id, model, form);
-		Args.notNull(optionsModel, "optionsModel");
 		this.optionsModel = optionsModel;
 		add(new FoundationButtonBehavior(optionsModel));
 	}
@@ -67,6 +99,5 @@ public class FoundationAjaxButton extends AjaxButton {
 	protected void onDetach() {
 		this.optionsModel.detach();
 		super.onDetach();
-	}
-	
+	}	
 }

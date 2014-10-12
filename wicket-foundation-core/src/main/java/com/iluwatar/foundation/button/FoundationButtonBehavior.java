@@ -8,6 +8,11 @@ import com.iluwatar.foundation.behavior.FoundationBaseBehavior;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * Behavior providing correct CSS class names based on supplied ButtonOptions.
+ * @author ilkka
+ *
+ */
 public class FoundationButtonBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;
@@ -21,7 +26,7 @@ public class FoundationButtonBehavior extends FoundationBaseBehavior {
 	@Override
 	public void onComponentTag(Component component, ComponentTag tag) {
 
-		Attribute.setClass(tag, FoundationButtonClassNames.BUTTON);
+		Attribute.setClass(tag, "button");
 		ButtonOptions options = optionsModel.getObject();
 		if (options.getFoundationButtonSize() != null) {
 			Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options

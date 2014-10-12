@@ -10,11 +10,12 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.lang.Args;
 
 /**
- * Foundation styled BookmarkablePageLink.
+ * Buttons are convenient tools when you need more traditional actions. To that end, Foundation has many 
+ * easy to use button styles that you can customize or override to fit your needs.
  * http://foundation.zurb.com/docs/components/buttons.html
  * @author ilkka
  *
- * @param <T>
+ * @param <T> The type of the model object.
  */
 public class FoundationBookmarkablePageLink<T> extends BookmarkablePageLink<T> {
 
@@ -22,14 +23,31 @@ public class FoundationBookmarkablePageLink<T> extends BookmarkablePageLink<T> {
 	
 	private IModel<ButtonOptions> optionsModel;
 
+	/**
+	 * Create FoundationBookmarkablePageLink.
+	 * @param id - Wicket id.
+	 * @param pageClass - Target page's class.
+	 */
 	public <C extends Page> FoundationBookmarkablePageLink(String id, Class<C> pageClass) {
 		this(id, pageClass, new ButtonOptions());
 	}
 	
+	/**
+	 * Create FoundationBookmarkablePageLink.
+	 * @param id - Wicket id.
+	 * @param pageClass - Target page's class.
+	 * @param options - Options for the link.
+	 */
 	public <C extends Page> FoundationBookmarkablePageLink(String id, Class<C> pageClass, ButtonOptions options) {
 		this(id, pageClass, Model.of(options));
 	}
 
+	/**
+	 * Create FoundationBookmarkablePageLink.
+	 * @param id - Wicket id.
+	 * @param pageClass - Target page's class.
+	 * @param optionsModel - Model providing options for the link.
+	 */
 	public <C extends Page> FoundationBookmarkablePageLink(String id, Class<C> pageClass, IModel<ButtonOptions> optionsModel) {
 		super(id, pageClass);
 		Args.notNull(optionsModel, "optionsModel");
@@ -37,11 +55,25 @@ public class FoundationBookmarkablePageLink<T> extends BookmarkablePageLink<T> {
 		add(new FoundationButtonBehavior(optionsModel));
 	}
 	
+	/**
+	 * Create FoundationBookmarkablePageLink.
+	 * @param id - Wicket id.
+	 * @param pageClass - Target page's class.
+	 * @param parameters - Parameters for the target page.
+	 * @param options - Options for the link.
+	 */
 	public <C extends Page> FoundationBookmarkablePageLink(String id, Class<C> pageClass,
 			PageParameters parameters, ButtonOptions options) {
 		this(id, pageClass, parameters, Model.of(options));
 	}
 
+	/**
+	 * Create FoundationBookmarkablePageLink.
+	 * @param id - Wicket id.
+	 * @param pageClass - Target page's class.
+	 * @param parameters - Parameters for the target page.
+	 * @param optionsModel - Model providing options for the link.
+	 */
 	public <C extends Page> FoundationBookmarkablePageLink(String id, Class<C> pageClass,
 			PageParameters parameters, IModel<ButtonOptions> optionsModel) {
 		super(id, pageClass, parameters);
