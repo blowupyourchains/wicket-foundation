@@ -11,7 +11,7 @@ public class ButtonBarTestPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 	
 	public ButtonBarTestPage() {
-		ButtonBarBorder border = new ButtonBarBorder("border");
+		FoundationButtonBarBorder border = new FoundationButtonBarBorder("border");
 		add(border);
 		border.add(createBasicButtonGroup("first"));
 		border.add(createBasicButtonGroup("second"));

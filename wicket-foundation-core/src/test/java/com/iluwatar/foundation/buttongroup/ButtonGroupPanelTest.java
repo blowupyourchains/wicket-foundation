@@ -21,7 +21,7 @@ public class ButtonGroupPanelTest {
 		WicketTester tester = new WicketTester();
 		tester.startComponentInPage(createBasicButtonGroup("buttons"));
 		TagTester tag = tester.getTagByWicketId("buttons");
-		tag.getAttributeContains("class", ButtonGroupClassNames.BUTTON_GROUP);
+		tag.getAttributeContains("class", "button-group");
 	}
 
 	@Test
@@ -29,7 +29,7 @@ public class ButtonGroupPanelTest {
 		WicketTester tester = new WicketTester();
 		tester.startComponentInPage(createAdvancedButtonGroup("buttons"));
 		TagTester group = tester.getTagByWicketId("group");
-		assertTrue(group.getAttributeContains("class", ButtonGroupClassNames.BUTTON_GROUP));
+		assertTrue(group.getAttributeContains("class", "button-group"));
 		assertTrue(group.getAttributeContains("class", StringUtil.EnumNameToCssClassName(ButtonRadius.ROUND.name())));
 		List<TagTester> btnList = tester.getTagsByWicketId("btn");
 		assertTrue(btnList.get(0).getAttributeContains("class", 
@@ -52,7 +52,7 @@ public class ButtonGroupPanelTest {
 		tester.startPage(ButtonBarTestPage.class);
 		tester.dumpPage();
 		TagTester tag = tester.getTagByWicketId("border");
-		tag.getAttributeContains("class", ButtonGroupClassNames.BUTTON_BAR);
+		tag.getAttributeContains("class", "button-bar");
 	}
 	
 	@Test

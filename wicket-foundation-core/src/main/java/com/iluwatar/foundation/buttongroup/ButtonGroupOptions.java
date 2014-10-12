@@ -5,6 +5,11 @@ import java.io.Serializable;
 import com.iluwatar.foundation.button.ButtonColor;
 import com.iluwatar.foundation.button.ButtonRadius;
 
+/**
+ * Options for the button group.
+ * @author ilkka
+ *
+ */
 public class ButtonGroupOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;

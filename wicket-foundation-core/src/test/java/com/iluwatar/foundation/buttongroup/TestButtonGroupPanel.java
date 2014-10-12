@@ -8,7 +8,7 @@ import org.apache.wicket.model.IModel;
 import com.iluwatar.foundation.button.ButtonOptions;
 import com.iluwatar.foundation.button.FoundationLink;
 
-class TestButtonGroupPanel extends ButtonGroupPanel {
+class TestButtonGroupPanel extends FoundationButtonGroup {
 
 	private static final long serialVersionUID = 1L;
 	

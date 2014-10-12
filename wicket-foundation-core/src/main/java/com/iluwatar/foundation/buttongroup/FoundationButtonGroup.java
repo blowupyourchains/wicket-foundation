@@ -21,15 +21,27 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public abstract class ButtonGroupPanel extends FoundationBasePanel {
+public abstract class FoundationButtonGroup extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public ButtonGroupPanel(String id, ButtonGroupOptions groupOptions, List<ButtonOptions> btnOptions) {
+	/**
+	 * Create FoundationButtonGroup.
+	 * @param id - Wicket id.
+	 * @param groupOptions - Options for the button group.
+	 * @param btnOptions - Options for the button group buttons.
+	 */
+	public FoundationButtonGroup(String id, ButtonGroupOptions groupOptions, List<ButtonOptions> btnOptions) {
 		this(id, Model.of(groupOptions), new ListModel<ButtonOptions>(btnOptions));
 	}
 	
-	public ButtonGroupPanel(String id, IModel<ButtonGroupOptions> groupOptionsModel, IModel<List<ButtonOptions>> btnOptionsModel) {
+	/**
+	 * Create FoundationButtonGroup.
+	 * @param id - Wicket id.
+	 * @param groupOptionsModel - Model for the button group options.
+	 * @param btnOptionsModel - Model providing the button group button options.
+	 */
+	public FoundationButtonGroup(String id, IModel<ButtonGroupOptions> groupOptionsModel, IModel<List<ButtonOptions>> btnOptionsModel) {
 		super(id);
 		WebMarkupContainer container = createContainer("group", groupOptionsModel);
 		add(container);
@@ -48,7 +60,7 @@ public abstract class ButtonGroupPanel extends FoundationBasePanel {
 
 			@Override
 			protected void populateItem(ListItem<ButtonOptions> item) {
-				WebMarkupContainer btn = ButtonGroupPanel.this.createButton(item.getIndex(), "btn", item.getModel());
+				WebMarkupContainer btn = FoundationButtonGroup.this.createButton(item.getIndex(), "btn", item.getModel());
 				item.add(btn);
 			}
 		};
@@ -66,7 +78,7 @@ public abstract class ButtonGroupPanel extends FoundationBasePanel {
 	
 		@Override
 		protected void onComponentTag(ComponentTag tag) {
-			Attribute.setClass(tag, ButtonGroupClassNames.BUTTON_GROUP);
+			Attribute.setClass(tag, "button-group");
 			ButtonGroupOptions options = (ButtonGroupOptions) getDefaultModelObject();
 			if (options.getRadius() != null) {
 				Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(options.getRadius().name()));
