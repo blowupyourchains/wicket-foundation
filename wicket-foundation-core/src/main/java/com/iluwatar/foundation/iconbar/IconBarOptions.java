@@ -2,6 +2,11 @@ package com.iluwatar.foundation.iconbar;
 
 import java.io.Serializable;
 
+/**
+ * Options for the icon bar.
+ * @author ilkka
+ *
+ */
 public class IconBarOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;

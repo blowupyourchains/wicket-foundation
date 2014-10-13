@@ -6,6 +6,11 @@ import org.apache.wicket.request.resource.ResourceReference;
 
 import com.iluwatar.foundation.icon.FoundationIconType;
 
+/**
+ * IconBarItem resource implementation.
+ * @author ilkka
+ *
+ */
 public class IconBarResourceItem implements IconBarItem, Serializable {
 
 	private static final long serialVersionUID = 1L;

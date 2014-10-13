@@ -30,14 +30,31 @@ public class FoundationIconBar extends FoundationBasePanel {
 	private IModel<IconBarOptions> optionsModel;
 	private IModel<List<IconBarItem>> itemsModel;
 
+	/**
+	 * Create FoundationIconBar.
+	 * @param id - Wicket id.
+	 * @param items - List of icon bar items.
+	 */
 	public FoundationIconBar(String id, List<IconBarItem> items) {
 		this(id, new IconBarOptions(), items);
 	}
 	
+	/**
+	 * Create FoundationIconBar.
+	 * @param id - Wicket id.
+	 * @param options - Options for the icon bar.
+	 * @param items - List of icon bar items.
+	 */
 	public FoundationIconBar(String id, IconBarOptions options, List<IconBarItem> items) {
 		this(id, Model.of(options), new ListModel<>(items));
 	}
 	
+	/**
+	 * Create FoundationIconBar.
+	 * @param id - Wicket id.
+	 * @param optionsModel - Options for the icon bar.
+	 * @param itemsModel - Model for the icon bar items.
+	 */
 	public FoundationIconBar(String id, IModel<IconBarOptions> optionsModel, IModel<List<IconBarItem>> itemsModel) {
 		super(id);
 		this.optionsModel = optionsModel;

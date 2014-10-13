@@ -4,6 +4,11 @@ import org.apache.wicket.request.resource.ResourceReference;
 
 import com.iluwatar.foundation.icon.FoundationIconType;
 
+/**
+ * IconBarItem font implementation.
+ * @author ilkka
+ *
+ */
 public class IconBarFontItem implements IconBarItem {
 
 	private String text;
