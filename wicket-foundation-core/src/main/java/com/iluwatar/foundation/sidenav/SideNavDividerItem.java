@@ -1,5 +1,10 @@
 package com.iluwatar.foundation.sidenav;
 
+/**
+ * SideNavItem implementation for divider items.
+ * @author ilkka
+ *
+ */
 public class SideNavDividerItem implements SideNavItem {
 
 	private static final long serialVersionUID = 1L;

@@ -2,6 +2,11 @@ package com.iluwatar.foundation.sidenav;
 
 import java.io.Serializable;
 
+/**
+ * Interface for side nav items.
+ * @author ilkka
+ *
+ */
 public interface SideNavItem extends Serializable {
 
 	boolean isDivider();

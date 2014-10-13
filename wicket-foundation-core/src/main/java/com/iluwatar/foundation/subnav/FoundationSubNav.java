@@ -27,10 +27,22 @@ public abstract class FoundationSubNav extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationSubNav.
+	 * @param id - Wicket id.
+	 * @param title - Sub nav title.
+	 * @param items - Items for the sub nav.
+	 */
 	public FoundationSubNav(String id, String title, List<SubNavItem> items) {
 		this(id, Model.of(title), new ListModel<>(items));
 	}
 	
+	/**
+	 * Create FoundationSubNav.
+	 * @param id - Wicket id.
+	 * @param titleModel - Model for the sub nav title.
+	 * @param itemsModel - Model for the sub nav items.
+	 */
 	public FoundationSubNav(String id, IModel<String> titleModel, IModel<List<SubNavItem>> itemsModel) {
 		super(id);
 		SubNavContainer subNavContainer = new SubNavContainer("subNavContainer");

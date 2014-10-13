@@ -26,10 +26,20 @@ public abstract class FoundationSideNav extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationSideNav.
+	 * @param id - Wicket id.
+	 * @param items - List of side nav items.
+	 */
 	public FoundationSideNav(String id, List<SideNavItem> items) {
 		this(id, new ListModel<>(items));
 	}
 	
+	/**
+	 * Create FoundationSideNav.
+	 * @param id - Wicket id.
+	 * @param itemModels - Model for side nav items.
+	 */
 	public FoundationSideNav(String id, IModel<List<SideNavItem>> itemModels) {
 		super(id);
 		SideNavContainer sideNavContainer = new SideNavContainer("sideNavContainer");

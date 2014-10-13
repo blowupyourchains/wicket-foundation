@@ -2,6 +2,11 @@ package com.iluwatar.foundation.subnav;
 
 import java.io.Serializable;
 
+/**
+ * Item for FoundationSubNav.
+ * @author ilkka
+ *
+ */
 public class SubNavItem implements Serializable {
 
 	private static final long serialVersionUID = 1L;

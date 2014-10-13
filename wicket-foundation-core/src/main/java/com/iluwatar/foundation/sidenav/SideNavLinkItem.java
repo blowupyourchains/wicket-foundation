@@ -2,6 +2,11 @@ package com.iluwatar.foundation.sidenav;
 
 import java.io.Serializable;
 
+/**
+ * SideNavItem implementation for links.
+ * @author ilkka
+ *
+ */
 public class SideNavLinkItem implements SideNavItem, Serializable {
 
 	private static final long serialVersionUID = 1L;

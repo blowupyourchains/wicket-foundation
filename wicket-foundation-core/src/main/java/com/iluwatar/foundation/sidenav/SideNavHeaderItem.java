@@ -1,5 +1,10 @@
 package com.iluwatar.foundation.sidenav;
 
+/**
+ * SideNavItem implementation for header items.
+ * @author ilkka
+ *
+ */
 public class SideNavHeaderItem implements SideNavItem {
 
 	private static final long serialVersionUID = 1L;
