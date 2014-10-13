@@ -12,7 +12,7 @@ public class FoundationBorderTest {
 	@Test
 	public void renderNormalTest() {
 		WicketTester tester = new WicketTester();
-		FoundationPanelBorder border = new FoundationPanelBorder("foo", Model.of(FoundationPanelType.NORMAL));
+		FoundationPanelBorder border = new FoundationPanelBorder("foo", Model.of(PanelType.NORMAL));
 		tester.startComponentInPage(border);
 		TagTester tagTester = tester.getTagByWicketId("wrapper");
 		assertEquals("panel", tagTester.getAttribute("class"));
@@ -21,7 +21,7 @@ public class FoundationBorderTest {
 	@Test
 	public void renderCalloutTest() {
 		WicketTester tester = new WicketTester();
-		FoundationPanelBorder border = new FoundationPanelBorder("foo", Model.of(FoundationPanelType.CALLOUT));
+		FoundationPanelBorder border = new FoundationPanelBorder("foo", Model.of(PanelType.CALLOUT));
 		tester.startComponentInPage(border);
 		TagTester tagTester = tester.getTagByWicketId("wrapper");
 		assertEquals("panel callout radius", tagTester.getAttribute("class"));

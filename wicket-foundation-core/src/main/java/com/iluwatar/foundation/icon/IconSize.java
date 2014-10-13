@@ -1,5 +1,5 @@
 package com.iluwatar.foundation.icon;
 
-public enum FoundationIconSize {
+public enum IconSize {
 	SMALL, MEDIUM, LARGE;
 }

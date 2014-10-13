@@ -1,6 +1,6 @@
 package com.iluwatar.foundation.icon;
 
-public enum FoundationIconType {
+public enum IconType {
 	// General icons
 	HEART,
 	STAR,

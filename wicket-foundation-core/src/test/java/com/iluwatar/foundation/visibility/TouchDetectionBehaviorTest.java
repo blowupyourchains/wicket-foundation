@@ -9,8 +9,8 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iluwatar.foundation.visibility.TouchDetectionBehavior;
-import com.iluwatar.foundation.visibility.TouchDetectionBehavior.TouchDetectionType;
+import com.iluwatar.foundation.visibility.FoundationTouchDetectionBehavior;
+import com.iluwatar.foundation.visibility.FoundationTouchDetectionBehavior.TouchDetectionType;
 
 public class TouchDetectionBehaviorTest {
 
@@ -22,7 +22,7 @@ public class TouchDetectionBehaviorTest {
 	public void setup() {
 		tester = new WicketTester();
 		container = new WebMarkupContainer("id");
-		container.add(new TouchDetectionBehavior(Model.of(TouchDetectionType.SHOW_FOR_TOUCH)));
+		container.add(new FoundationTouchDetectionBehavior(Model.of(TouchDetectionType.SHOW_FOR_TOUCH)));
 	}
 	
 	@Test

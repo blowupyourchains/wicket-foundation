@@ -9,8 +9,8 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iluwatar.foundation.visibility.ShowByOrientationBehavior;
-import com.iluwatar.foundation.visibility.ShowByOrientationBehavior.ShowByOrientationType;
+import com.iluwatar.foundation.visibility.FoundationShowByOrientationBehavior;
+import com.iluwatar.foundation.visibility.FoundationShowByOrientationBehavior.ShowByOrientationType;
 
 public class ShowByOrientationBehaviorTest {
 
@@ -22,7 +22,7 @@ public class ShowByOrientationBehaviorTest {
 	public void setup() {
 		tester = new WicketTester();
 		container = new WebMarkupContainer("id");
-		container.add(new ShowByOrientationBehavior(Model.of(ShowByOrientationType.SHOW_FOR_LANDSCAPE)));
+		container.add(new FoundationShowByOrientationBehavior(Model.of(ShowByOrientationType.SHOW_FOR_LANDSCAPE)));
 	}
 	
 	@Test

@@ -1,6 +1,6 @@
 package com.iluwatar.foundation.foundationpanel;
 
-public enum FoundationPanelType {
+public enum PanelType {
 
 	NORMAL,
 	CALLOUT

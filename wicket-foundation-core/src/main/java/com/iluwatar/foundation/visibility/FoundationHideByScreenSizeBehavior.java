@@ -15,41 +15,47 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public class TouchDetectionBehavior extends FoundationBaseBehavior {
+public class FoundationHideByScreenSizeBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;
 	
-	public enum TouchDetectionType { 
-		SHOW_FOR_TOUCH,
-		HIDE_FOR_TOUCH };
+	public enum HideByScreenSizeType { 
+		HIDE_FOR_SMALL_ONLY,
+		HIDE_FOR_MEDIUM_UP,
+		HIDE_FOR_MEDIUM_ONLY,
+		HIDE_FOR_LARGE_UP,
+		HIDE_FOR_LARGE_ONLY,
+		HIDE_FOR_XLARGE_UP,
+		HIDE_FOR_XLARGE_ONLY,
+		HIDE_FOR_XXLARGE_UP };
 	
-	private IModel<TouchDetectionType> typeModel;
+	private IModel<HideByScreenSizeType> hideTypeModel;
 
 	/**
-	 * Create TouchDetectionBehavior.
-	 * @param type - Detection type.
+	 * Create HideByScreenSizeBehavior.
+	 * @param hideType - Hide type.
 	 */
-	public TouchDetectionBehavior(TouchDetectionType type) {
-		this(Model.of(type));
+	public FoundationHideByScreenSizeBehavior(HideByScreenSizeType hideType) {
+		this(Model.of(hideType));
 	}
 	
 	/**
-	 * Create TouchDetectionBehavior.
-	 * @param typeModel - Model for detection type.
+	 * Create HideByScreenSizeBehavior.
+	 * @param hideTypeModel - Model for hide type.
 	 */
-	public TouchDetectionBehavior(IModel<TouchDetectionType> typeModel) {
-		this.typeModel = typeModel;
+	public FoundationHideByScreenSizeBehavior(IModel<HideByScreenSizeType> hideTypeModel) {
+		this.hideTypeModel = hideTypeModel;
 	}
 	
 	@Override
 	public void onComponentTag(Component component, ComponentTag tag) {
 		super.onComponentTag(component, tag);
-		Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(typeModel.getObject().name()));
+		Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(hideTypeModel.getObject().name()));
 	}
 
 	@Override
 	public void detach(Component component) {
-		typeModel.detach();
+		hideTypeModel.detach();
 		super.detach(component);
 	}
 }

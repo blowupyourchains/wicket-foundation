@@ -15,7 +15,7 @@ import com.iluwatar.foundation.util.Attribute;
  * @author ilkka
  *
  */
-public class FoundationContentDropdown extends FoundationDropdownBase {
+public class FoundationContentDropdown extends DropdownBase {
 
 	private static final long serialVersionUID = 1L;
 

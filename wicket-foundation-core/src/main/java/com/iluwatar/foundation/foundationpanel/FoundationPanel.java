@@ -16,14 +16,14 @@ public abstract class FoundationPanel extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private IModel<FoundationPanelType> typeModel;
+	private IModel<PanelType> typeModel;
 
 	/**
 	 * Create FoundationPanel.
 	 * @param id - Wicket id.
 	 * @param typeModel - Model for the panel type.
 	 */
-	public FoundationPanel(String id, IModel<FoundationPanelType> typeModel) {
+	public FoundationPanel(String id, IModel<PanelType> typeModel) {
 		super(id);
 		this.typeModel = typeModel;
 	}
@@ -34,17 +34,17 @@ public abstract class FoundationPanel extends FoundationBasePanel {
 	 * @param model - Model for the panel.
 	 * @param typeModel - Model for the panel type.
 	 */
-	public FoundationPanel(final String id, final IModel<?> model, IModel<FoundationPanelType> typeModel) {
+	public FoundationPanel(final String id, final IModel<?> model, IModel<PanelType> typeModel) {
 		super(id, model);
 		this.typeModel = typeModel;
 	}
 	
 	@Override
 	protected void onComponentTag(ComponentTag tag) {
-		FoundationPanelType type = typeModel.getObject();
-		if (type.equals(FoundationPanelType.NORMAL)) {
+		PanelType type = typeModel.getObject();
+		if (type.equals(PanelType.NORMAL)) {
 			Attribute.addClass(tag, "panel");
-		} else if (type.equals(FoundationPanelType.CALLOUT)) {
+		} else if (type.equals(PanelType.CALLOUT)) {
 			Attribute.addClass(tag, "panel callout radius");
 		}
 		super.onComponentTag(tag);

@@ -15,29 +15,35 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public class ShowByOrientationBehavior extends FoundationBaseBehavior {
+public class FoundationShowByScreenSizeBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;
 	
-	public enum ShowByOrientationType { 
-		SHOW_FOR_LANDSCAPE,
-		SHOW_FOR_PORTRAIT };
+	public enum ShowByScreenSizeType { 
+		SHOW_FOR_SMALL_ONLY,
+		SHOW_FOR_MEDIUM_UP,
+		SHOW_FOR_MEDIUM_ONLY,
+		SHOW_FOR_LARGE_UP,
+		SHOW_FOR_LARGE_ONLY,
+		SHOW_FOR_XLARGE_UP,
+		SHOW_FOR_XLARGE_ONLY,
+		SHOW_FOR_XXLARGE_UP };
 	
-	private IModel<ShowByOrientationType> showTypeModel;
+	private IModel<ShowByScreenSizeType> showTypeModel;
 
 	/**
-	 * Create ShowByOrientationBehavior.
+	 * Create ShowByScreenSizeBehavior.
 	 * @param showType - Show type.
 	 */
-	public ShowByOrientationBehavior(ShowByOrientationType showType) {
+	public FoundationShowByScreenSizeBehavior(ShowByScreenSizeType showType) {
 		this(Model.of(showType));
 	}
-	
+
 	/**
-	 * Create ShowByOrientationBehavior.
+	 * Create ShowByScreenSizeBehavior.
 	 * @param showTypeModel - Model for show type.
 	 */
-	public ShowByOrientationBehavior(IModel<ShowByOrientationType> showTypeModel) {
+	public FoundationShowByScreenSizeBehavior(IModel<ShowByScreenSizeType> showTypeModel) {
 		this.showTypeModel = showTypeModel;
 	}
 	

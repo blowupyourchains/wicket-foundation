@@ -9,8 +9,8 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iluwatar.foundation.visibility.HiddenByScreenSizeBehavior;
-import com.iluwatar.foundation.visibility.HiddenByScreenSizeBehavior.HiddenByScreenSizeType;
+import com.iluwatar.foundation.visibility.FoundationHiddenByScreenSizeBehavior;
+import com.iluwatar.foundation.visibility.FoundationHiddenByScreenSizeBehavior.HiddenByScreenSizeType;
 
 public class HiddenByScreenSizeBehaviorTest {
 
@@ -22,7 +22,7 @@ public class HiddenByScreenSizeBehaviorTest {
 	public void setup() {
 		tester = new WicketTester();
 		container = new WebMarkupContainer("id");
-		container.add(new HiddenByScreenSizeBehavior(Model.of(HiddenByScreenSizeType.HIDDEN_FOR_MEDIUM_UP)));
+		container.add(new FoundationHiddenByScreenSizeBehavior(Model.of(HiddenByScreenSizeType.HIDDEN_FOR_MEDIUM_UP)));
 	}
 	
 	@Test

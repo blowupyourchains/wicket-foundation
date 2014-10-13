@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.PackageResourceReference;
 
-import com.iluwatar.foundation.icon.FoundationIconType;
+import com.iluwatar.foundation.icon.IconType;
 import com.iluwatar.foundation.iconbar.FoundationIconBar;
 import com.iluwatar.foundation.iconbar.IconBarFontItem;
 import com.iluwatar.foundation.iconbar.IconBarItem;
@@ -62,11 +62,11 @@ public class IconBarPage extends BasePage {
 	
 	private void createAdvanced() {
 		List<IconBarItem> items = new ArrayList<>();
-		items.add(new IconBarFontItem(FoundationIconType.BOOKMARK, "Bookmark"));
-		items.add(new IconBarFontItem(FoundationIconType.HOME, "Home"));
-		items.add(new IconBarFontItem(FoundationIconType.INFO, "Info"));
-		items.add(new IconBarFontItem(FoundationIconType.LIKE, "Like"));
-		items.add(new IconBarFontItem(FoundationIconType.MAIL, "Mail"));
+		items.add(new IconBarFontItem(IconType.BOOKMARK, "Bookmark"));
+		items.add(new IconBarFontItem(IconType.HOME, "Home"));
+		items.add(new IconBarFontItem(IconType.INFO, "Info"));
+		items.add(new IconBarFontItem(IconType.LIKE, "Like"));
+		items.add(new IconBarFontItem(IconType.MAIL, "Mail"));
 		FoundationIconBar iconBar = new FoundationIconBar("advanced", items);
 		add(iconBar);
 	}

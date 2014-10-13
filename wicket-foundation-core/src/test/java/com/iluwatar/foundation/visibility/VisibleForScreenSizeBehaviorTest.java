@@ -9,8 +9,8 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iluwatar.foundation.visibility.VisibleForScreenSizeBehavior;
-import com.iluwatar.foundation.visibility.VisibleForScreenSizeBehavior.VisibleForScreenSizeType;
+import com.iluwatar.foundation.visibility.FoundationVisibleForScreenSizeBehavior;
+import com.iluwatar.foundation.visibility.FoundationVisibleForScreenSizeBehavior.VisibleForScreenSizeType;
 
 public class VisibleForScreenSizeBehaviorTest {
 
@@ -22,7 +22,7 @@ public class VisibleForScreenSizeBehaviorTest {
 	public void setup() {
 		tester = new WicketTester();
 		container = new WebMarkupContainer("id");
-		container.add(new VisibleForScreenSizeBehavior(Model.of(VisibleForScreenSizeType.VISIBLE_FOR_MEDIUM_UP)));
+		container.add(new FoundationVisibleForScreenSizeBehavior(Model.of(VisibleForScreenSizeType.VISIBLE_FOR_MEDIUM_UP)));
 	}
 	
 	@Test

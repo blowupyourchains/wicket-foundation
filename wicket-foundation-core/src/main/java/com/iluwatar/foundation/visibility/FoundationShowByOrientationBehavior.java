@@ -15,47 +15,41 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public class HideByScreenSizeBehavior extends FoundationBaseBehavior {
+public class FoundationShowByOrientationBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;
 	
-	public enum HideByScreenSizeType { 
-		HIDE_FOR_SMALL_ONLY,
-		HIDE_FOR_MEDIUM_UP,
-		HIDE_FOR_MEDIUM_ONLY,
-		HIDE_FOR_LARGE_UP,
-		HIDE_FOR_LARGE_ONLY,
-		HIDE_FOR_XLARGE_UP,
-		HIDE_FOR_XLARGE_ONLY,
-		HIDE_FOR_XXLARGE_UP };
+	public enum ShowByOrientationType { 
+		SHOW_FOR_LANDSCAPE,
+		SHOW_FOR_PORTRAIT };
 	
-	private IModel<HideByScreenSizeType> hideTypeModel;
+	private IModel<ShowByOrientationType> showTypeModel;
 
 	/**
-	 * Create HideByScreenSizeBehavior.
-	 * @param hideType - Hide type.
+	 * Create ShowByOrientationBehavior.
+	 * @param showType - Show type.
 	 */
-	public HideByScreenSizeBehavior(HideByScreenSizeType hideType) {
-		this(Model.of(hideType));
+	public FoundationShowByOrientationBehavior(ShowByOrientationType showType) {
+		this(Model.of(showType));
 	}
 	
 	/**
-	 * Create HideByScreenSizeBehavior.
-	 * @param hideTypeModel - Model for hide type.
+	 * Create ShowByOrientationBehavior.
+	 * @param showTypeModel - Model for show type.
 	 */
-	public HideByScreenSizeBehavior(IModel<HideByScreenSizeType> hideTypeModel) {
-		this.hideTypeModel = hideTypeModel;
+	public FoundationShowByOrientationBehavior(IModel<ShowByOrientationType> showTypeModel) {
+		this.showTypeModel = showTypeModel;
 	}
 	
 	@Override
 	public void onComponentTag(Component component, ComponentTag tag) {
 		super.onComponentTag(component, tag);
-		Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(hideTypeModel.getObject().name()));
+		Attribute.addClass(tag, StringUtil.EnumNameToCssClassName(showTypeModel.getObject().name()));
 	}
 
 	@Override
 	public void detach(Component component) {
-		hideTypeModel.detach();
+		showTypeModel.detach();
 		super.detach(component);
 	}
 }

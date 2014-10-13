@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.apache.wicket.request.resource.ResourceReference;
 
-import com.iluwatar.foundation.icon.FoundationIconType;
+import com.iluwatar.foundation.icon.IconType;
 
 /**
  * IconBarItem resource implementation.
@@ -34,7 +34,7 @@ public class IconBarResourceItem implements IconBarItem, Serializable {
 	}
 
 	@Override
-	public FoundationIconType getIconType() {
+	public IconType getIconType() {
 		return null;
 	}
 }

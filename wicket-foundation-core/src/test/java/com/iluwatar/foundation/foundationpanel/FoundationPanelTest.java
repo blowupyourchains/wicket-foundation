@@ -13,7 +13,7 @@ public class FoundationPanelTest {
 	@Test
 	public void renderNormalTest() {
 		WicketTester tester = new WicketTester();
-		TestPanel panel = new TestPanel("panel", Model.of(FoundationPanelType.NORMAL));
+		TestPanel panel = new TestPanel("panel", Model.of(PanelType.NORMAL));
 		tester.startComponentInPage(panel);
 		TagTester tagTester = tester.getTagByWicketId("panel");
 		assertEquals("panel", tagTester.getAttribute("class"));
@@ -22,7 +22,7 @@ public class FoundationPanelTest {
 	@Test
 	public void renderCalloutTest() {
 		WicketTester tester = new WicketTester();
-		TestPanel panel = new TestPanel("panel", Model.of(FoundationPanelType.CALLOUT));
+		TestPanel panel = new TestPanel("panel", Model.of(PanelType.CALLOUT));
 		tester.startComponentInPage(panel);
 		TagTester tagTester = tester.getTagByWicketId("panel");
 		assertEquals("panel callout radius", tagTester.getAttribute("class"));
@@ -32,7 +32,7 @@ public class FoundationPanelTest {
 
 		private static final long serialVersionUID = 1L;
 
-		public TestPanel(String id, IModel<FoundationPanelType> type) {
+		public TestPanel(String id, IModel<PanelType> type) {
 			super(id, type);
 		}
 	}

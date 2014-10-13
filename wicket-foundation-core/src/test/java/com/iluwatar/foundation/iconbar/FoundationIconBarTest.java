@@ -7,7 +7,7 @@ import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Test;
 
-import com.iluwatar.foundation.icon.FoundationIconType;
+import com.iluwatar.foundation.icon.IconType;
 
 public class FoundationIconBarTest {
 
@@ -25,9 +25,9 @@ public class FoundationIconBarTest {
 	public void testIcon() {
 		WicketTester tester = new WicketTester();
 		List<IconBarItem> items = new ArrayList<>();
-		items.add(new IconBarFontItem(FoundationIconType.ARROW_DOWN, "Down"));
-		items.add(new IconBarFontItem(FoundationIconType.ARROW_LEFT, "Left"));
-		items.add(new IconBarFontItem(FoundationIconType.ARROW_RIGHT, "Right"));
+		items.add(new IconBarFontItem(IconType.ARROW_DOWN, "Down"));
+		items.add(new IconBarFontItem(IconType.ARROW_LEFT, "Left"));
+		items.add(new IconBarFontItem(IconType.ARROW_RIGHT, "Right"));
 		FoundationIconBar iconBar = new FoundationIconBar("id", items);
 		tester.startComponentInPage(iconBar);
 	}

@@ -16,16 +16,16 @@ public class FoundationIcon extends WebMarkupContainer {
 
 	private static final long serialVersionUID = 1L;
 	
-	private FoundationIconType iconType;
+	private IconType iconType;
 
-	private FoundationIconSize iconSize;
+	private IconSize iconSize;
 
 	/**
 	 * Create FoundationIcon.
 	 * @param id - Wicket id.
 	 * @param iconType - Type of the icon.
 	 */
-	public FoundationIcon(String id, FoundationIconType iconType) {
+	public FoundationIcon(String id, IconType iconType) {
 		this(id, iconType, null);
 	}
 
@@ -35,7 +35,7 @@ public class FoundationIcon extends WebMarkupContainer {
 	 * @param iconType - Type of the icon.
 	 * @param iconSize - Size of the icon.
 	 */
-	public FoundationIcon(String id, FoundationIconType iconType, FoundationIconSize iconSize) {
+	public FoundationIcon(String id, IconType iconType, IconSize iconSize) {
 		super(id);
 		this.iconType = iconType;
 		this.iconSize = iconSize;

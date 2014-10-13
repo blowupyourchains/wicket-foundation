@@ -4,7 +4,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.iluwatar.foundation.foundationpanel.FoundationPanelBorder;
-import com.iluwatar.foundation.foundationpanel.FoundationPanelType;
+import com.iluwatar.foundation.foundationpanel.PanelType;
 
 public class PanelsPage extends BasePage {
 
@@ -12,8 +12,8 @@ public class PanelsPage extends BasePage {
 
 	public PanelsPage(PageParameters params) {
 		super(params);
-		add(new FoundationPanelBorder("regular", Model.of(FoundationPanelType.NORMAL)));
-		add(new FoundationPanelBorder("callout", Model.of(FoundationPanelType.CALLOUT)));
+		add(new FoundationPanelBorder("regular", Model.of(PanelType.NORMAL)));
+		add(new FoundationPanelBorder("callout", Model.of(PanelType.CALLOUT)));
 	}
 
 }

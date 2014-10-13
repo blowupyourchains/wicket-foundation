@@ -22,7 +22,7 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public abstract class FoundationDropdown extends FoundationDropdownBase {
+public abstract class FoundationDropdown extends DropdownBase {
 
 	private static final long serialVersionUID = 1L;
 

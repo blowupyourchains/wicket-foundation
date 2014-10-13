@@ -15,7 +15,7 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public class HiddenByScreenSizeBehavior extends FoundationBaseBehavior {
+public class FoundationHiddenByScreenSizeBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -35,7 +35,7 @@ public class HiddenByScreenSizeBehavior extends FoundationBaseBehavior {
 	 * Create HiddenByScreenSizeBehavior.
 	 * @param hideType - Hide type.
 	 */
-	public HiddenByScreenSizeBehavior(HiddenByScreenSizeType hideType) {
+	public FoundationHiddenByScreenSizeBehavior(HiddenByScreenSizeType hideType) {
 		this(Model.of(hideType));
 	}
 	
@@ -43,7 +43,7 @@ public class HiddenByScreenSizeBehavior extends FoundationBaseBehavior {
 	 * Create HiddenByScreenSizeBehavior.
 	 * @param hideTypeModel - Model for hide type.
 	 */
-	public HiddenByScreenSizeBehavior(IModel<HiddenByScreenSizeType> hideTypeModel) {
+	public FoundationHiddenByScreenSizeBehavior(IModel<HiddenByScreenSizeType> hideTypeModel) {
 		this.hideTypeModel = hideTypeModel;
 	}
 	

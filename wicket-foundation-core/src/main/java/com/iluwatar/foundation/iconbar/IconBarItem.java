@@ -2,7 +2,7 @@ package com.iluwatar.foundation.iconbar;
 
 import org.apache.wicket.request.resource.ResourceReference;
 
-import com.iluwatar.foundation.icon.FoundationIconType;
+import com.iluwatar.foundation.icon.IconType;
 
 /**
  * Interface for the icon bar item.
@@ -12,7 +12,7 @@ import com.iluwatar.foundation.icon.FoundationIconType;
 public interface IconBarItem {
 
 	ResourceReference getImageResourceReference();
-	FoundationIconType getIconType();
+	IconType getIconType();
 	String getLabel();
 	
 }

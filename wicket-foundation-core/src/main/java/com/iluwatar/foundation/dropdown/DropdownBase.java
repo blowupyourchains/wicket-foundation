@@ -15,7 +15,7 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public abstract class FoundationDropdownBase extends FoundationJsPanel {
+public abstract class DropdownBase extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -28,7 +28,7 @@ public abstract class FoundationDropdownBase extends FoundationJsPanel {
 	 * @param title - Dropdown button title.
 	 * @param options - Options for the dropdown.
 	 */
-	public FoundationDropdownBase(String id, String title, DropdownOptions options) {
+	public DropdownBase(String id, String title, DropdownOptions options) {
 		this(id, Model.of(title), Model.of(options));
 	}
 	
@@ -38,7 +38,7 @@ public abstract class FoundationDropdownBase extends FoundationJsPanel {
 	 * @param titleModel - Model for dropdown button title.
 	 * @param optionsModel - Model for dropdown options.
 	 */
-	public FoundationDropdownBase(String id, IModel<String> titleModel, IModel<DropdownOptions> optionsModel) {
+	public DropdownBase(String id, IModel<String> titleModel, IModel<DropdownOptions> optionsModel) {
 		super(id);
 		this.titleModel = titleModel;
 		this.optionsModel = optionsModel;

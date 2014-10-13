@@ -15,35 +15,35 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public class ShowByScreenSizeBehavior extends FoundationBaseBehavior {
+public class FoundationVisibleForScreenSizeBehavior extends FoundationBaseBehavior {
 
 	private static final long serialVersionUID = 1L;
 	
-	public enum ShowByScreenSizeType { 
-		SHOW_FOR_SMALL_ONLY,
-		SHOW_FOR_MEDIUM_UP,
-		SHOW_FOR_MEDIUM_ONLY,
-		SHOW_FOR_LARGE_UP,
-		SHOW_FOR_LARGE_ONLY,
-		SHOW_FOR_XLARGE_UP,
-		SHOW_FOR_XLARGE_ONLY,
-		SHOW_FOR_XXLARGE_UP };
+	public enum VisibleForScreenSizeType { 
+		VISIBLE_FOR_SMALL_ONLY,
+		VISIBLE_FOR_MEDIUM_UP,
+		VISIBLE_FOR_MEDIUM_ONLY,
+		VISIBLE_FOR_LARGE_UP,
+		VISIBLE_FOR_LARGE_ONLY,
+		VISIBLE_FOR_XLARGE_UP,
+		VISIBLE_FOR_XLARGE_ONLY,
+		VISIBLE_FOR_XXLARGE_UP };
 	
-	private IModel<ShowByScreenSizeType> showTypeModel;
+	private IModel<VisibleForScreenSizeType> showTypeModel;
 
 	/**
-	 * Create ShowByScreenSizeBehavior.
+	 * Create VisibleForScreenSizeBehavior.
 	 * @param showType - Show type.
 	 */
-	public ShowByScreenSizeBehavior(ShowByScreenSizeType showType) {
+	public FoundationVisibleForScreenSizeBehavior(VisibleForScreenSizeType showType) {
 		this(Model.of(showType));
 	}
-
+	
 	/**
-	 * Create ShowByScreenSizeBehavior.
+	 * Create VisibleForScreenSizeBehavior.
 	 * @param showTypeModel - Model for show type.
 	 */
-	public ShowByScreenSizeBehavior(IModel<ShowByScreenSizeType> showTypeModel) {
+	public FoundationVisibleForScreenSizeBehavior(IModel<VisibleForScreenSizeType> showTypeModel) {
 		this.showTypeModel = showTypeModel;
 	}
 	

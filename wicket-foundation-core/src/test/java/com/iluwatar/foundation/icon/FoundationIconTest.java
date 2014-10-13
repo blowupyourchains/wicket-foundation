@@ -11,7 +11,7 @@ public class FoundationIconTest {
 	@Test
 	public void testBasic() {
 		WicketTester tester = new WicketTester();
-		FoundationIcon foundationIcon = new FoundationIcon("id", FoundationIconType.ARROW_RIGHT);
+		FoundationIcon foundationIcon = new FoundationIcon("id", IconType.ARROW_RIGHT);
 		tester.startComponentInPage(foundationIcon);
 		TagTester idTag = tester.getTagByWicketId("id");
 		assertTrue(idTag.getAttributeIs("class", "fi-arrow-right"));
@@ -20,7 +20,7 @@ public class FoundationIconTest {
 	@Test
 	public void testAdvanced() {
 		WicketTester tester = new WicketTester();
-		FoundationIcon foundationIcon = new FoundationIcon("id", FoundationIconType.ARROW_RIGHT, FoundationIconSize.LARGE);
+		FoundationIcon foundationIcon = new FoundationIcon("id", IconType.ARROW_RIGHT, IconSize.LARGE);
 		tester.startComponentInPage(foundationIcon);
 		TagTester idTag = tester.getTagByWicketId("id");
 		assertTrue(idTag.getAttributeContains("class", "fi-arrow-right"));
