@@ -6,6 +6,8 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.util.ListModel;
 
 import com.iluwatar.foundation.component.FoundationBasePanel;
 
@@ -19,9 +21,23 @@ public abstract class FoundationInlineList extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create FoundationInlineList.
+	 * @param id - Wicket id.
+	 * @param titles - List of titles.
+	 */
 	public FoundationInlineList(String id, List<String> titles) {
+		this(id, new ListModel<>(titles));
+	}
+	
+	/**
+	 * Create FoundationInlineList.
+	 * @param id - Wicket id.
+	 * @param titles - Model for the titles.
+	 */
+	public FoundationInlineList(String id, IModel<List<String>> titlesModel) {
 		super(id);
-		add(new ListView<String>("item", titles) {
+		add(new ListView<String>("item", titlesModel) {
 
 			private static final long serialVersionUID = 1L;
 
