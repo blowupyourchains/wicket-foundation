@@ -3,25 +3,38 @@ package com.iluwatar.foundation.topbar;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.model.IModel;
 
 import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 
-public abstract class FoundationTopBarTitlePanel extends FoundationBasePanel {
+/**
+ * Title section for the FoundationTopBar.
+ * @author ilkka
+ *
+ */
+public abstract class FoundationTopBarTitle extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public FoundationTopBarTitlePanel(String id, IModel<String> titleModel, 
+	/**
+	 * Create FoundationTopBarTitle.
+	 * @param id - Wicket id.
+	 * @param titleModel - Model for the title.
+	 * @param menuLayoutModel - Model for the menu layout.
+	 * @param menuTitleModel - Model for the menu title.
+	 */
+	public FoundationTopBarTitle(String id, IModel<String> titleModel, 
 			IModel<TopBarMenuLayout> menuLayoutModel, IModel<String> menuTitleModel) {
 		super(id);
-		WebMarkupContainer link = createTitleLink("titleLink");
+		AbstractLink link = createTitleLink("titleLink");
 		add(link);
 		link.add(new Label("titleLabel", titleModel));
 		add(new FoundationTopBarMenuContainer("menuContainer", menuLayoutModel, menuTitleModel));
 	}
 	
-	public abstract WebMarkupContainer createTitleLink(String id);
+	public abstract AbstractLink createTitleLink(String id);
 	
 	private static class FoundationTopBarMenuContainer extends WebMarkupContainer {
 

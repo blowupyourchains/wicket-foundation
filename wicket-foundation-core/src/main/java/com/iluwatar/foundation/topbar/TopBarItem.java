@@ -3,6 +3,11 @@ package com.iluwatar.foundation.topbar;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Interface for top bar items.
+ * @author ilkka
+ *
+ */
 public interface TopBarItem extends Serializable {
 
 	String getItemId();

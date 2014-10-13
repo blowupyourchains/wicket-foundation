@@ -3,6 +3,11 @@ package com.iluwatar.foundation.topbar;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Simple TopBarItem implementation.
+ * @author ilkka
+ *
+ */
 public class SimpleTopBarItem implements TopBarItem {
 
 	private static final long serialVersionUID = 1L;

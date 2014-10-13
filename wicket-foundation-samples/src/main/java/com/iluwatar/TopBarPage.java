@@ -6,12 +6,13 @@ import java.util.List;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import com.iluwatar.foundation.topbar.FoundationTopBarPanel;
-import com.iluwatar.foundation.topbar.FoundationTopBarTitlePanel;
+import com.iluwatar.foundation.topbar.FoundationTopBar;
+import com.iluwatar.foundation.topbar.FoundationTopBarTitle;
 import com.iluwatar.foundation.topbar.SimpleTopBarItem;
 import com.iluwatar.foundation.topbar.TopBarItem;
 import com.iluwatar.foundation.topbar.TopBarMenuLayout;
@@ -36,13 +37,13 @@ public class TopBarPage extends BasePage {
 		List<TopBarItem> leftItems = new ArrayList<>();
 		leftItems.add(new SimpleTopBarItem("leftButton", "Left Button"));
 		
-		add(new FoundationTopBarPanel("basic", rightItems, leftItems) {
+		add(new FoundationTopBar("basic", rightItems, leftItems) {
 
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
-				return new FoundationTopBarTitlePanel(id, Model.of("My Site"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
+				return new FoundationTopBarTitle(id, Model.of("My Site"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
 					@Override
-					public WebMarkupContainer createTitleLink(String id) {
+					public AbstractLink createTitleLink(String id) {
 						return new Link(id) {
 							@Override
 							public void onClick() {
@@ -53,7 +54,7 @@ public class TopBarPage extends BasePage {
 			}
 
 			@Override
-			public WebMarkupContainer createLink(String id, final String itemId) {
+			public AbstractLink createLink(String id, final String itemId) {
 				return new AjaxLink<Void>(id) {
 
 					@Override
@@ -128,13 +129,13 @@ public class TopBarPage extends BasePage {
 		clickableRightDropdown.addChild(new SimpleTopBarItem("activeLinkInDropdown", "Active link in dropdown", true, false));
 		clickableRightItems.add(rightButtonDropdown);
 		
-		add(new FoundationTopBarPanel("clickable", new TopBarOptions().setClickable(true), rightItems, new ArrayList<TopBarItem>()) {
+		add(new FoundationTopBar("clickable", new TopBarOptions().setClickable(true), rightItems, new ArrayList<TopBarItem>()) {
 
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
-				return new FoundationTopBarTitlePanel(id, Model.of("My Site"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
+				return new FoundationTopBarTitle(id, Model.of("My Site"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
 					@Override
-					public WebMarkupContainer createTitleLink(String id) {
+					public AbstractLink createTitleLink(String id) {
 						return new Link(id) {
 							@Override
 							public void onClick() {
@@ -145,7 +146,7 @@ public class TopBarPage extends BasePage {
 			}
 
 			@Override
-			public WebMarkupContainer createLink(String id, final String itemId) {
+			public AbstractLink createLink(String id, final String itemId) {
 				return new AjaxLink<Void>(id) {
 
 					@Override

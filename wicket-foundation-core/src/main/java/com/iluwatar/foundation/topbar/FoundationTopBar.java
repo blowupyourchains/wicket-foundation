@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -19,40 +20,60 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public abstract class FoundationTopBarPanel extends FoundationJsPanel {
+public abstract class FoundationTopBar extends FoundationJsPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public FoundationTopBarPanel(String id, List<TopBarItem> rightItems, List<TopBarItem> leftItems) {
+	/**
+	 * Create FoundationTopBar.
+	 * @param id - Wicket id.
+	 * @param rightItems - Items on the right.
+	 * @param leftItems - Items on the left.
+	 */
+	public FoundationTopBar(String id, List<TopBarItem> rightItems, List<TopBarItem> leftItems) {
 		this(id, new TopBarOptions(), rightItems, leftItems);
 	}
 	
-	public FoundationTopBarPanel(String id, TopBarOptions options, List<TopBarItem> rightItems, List<TopBarItem> leftItems) {
+	/**
+	 * Create FoundationTopBar.
+	 * @param id - Wicket id.
+	 * @param options - Options for the top bar.
+	 * @param rightItems - Items on the right.
+	 * @param leftItems - Items on the left.
+	 */
+	public FoundationTopBar(String id, TopBarOptions options, List<TopBarItem> rightItems, List<TopBarItem> leftItems) {
 		this(id, Model.of(options), new ListModel<>(rightItems), new ListModel<>(leftItems));
 	}
 	
-	public FoundationTopBarPanel(String id, IModel<TopBarOptions> optionsModel, IModel<List<TopBarItem>> rightItemsModel, 
+	/**
+	 * Create FoundationTopBar.
+	 * @param id - Wicket id.
+	 * @param optionsModel - Model for the top bar options.
+	 * @param rightItemsModel - Model for the items on the right.
+	 * @param leftItemsModel - Model for the items on the left.
+	 */
+	public FoundationTopBar(String id, IModel<TopBarOptions> optionsModel, IModel<List<TopBarItem>> rightItemsModel, 
 			IModel<List<TopBarItem>> leftItemsModel) {
 		super(id);
-		FoundationTopBarContainer topBarContainer = new FoundationTopBarContainer("topBarContainer", optionsModel);
+		TopBarContainer topBarContainer = new TopBarContainer("topBarContainer", optionsModel);
 		add(topBarContainer);
-		FoundationTopBar topBar = new FoundationTopBar("topBar", optionsModel);
+		TopBar topBar = new TopBar("topBar", optionsModel);
 		topBarContainer.add(topBar);
 		WebMarkupContainer titleContainer = createTitleContainer("titleContainer");
 		topBar.add(titleContainer);
-		topBar.add(new FoundationItemContainer("rightContainer", rightItemsModel));
-		topBar.add(new FoundationItemContainer("leftContainer", leftItemsModel));
+		topBar.add(new TopBarItemContainer("rightContainer", rightItemsModel));
+		topBar.add(new TopBarItemContainer("leftContainer", leftItemsModel));
 	}
 	
 	public abstract WebMarkupContainer createTitleContainer(String id);
 	
-	public abstract WebMarkupContainer createLink(String id, String itemId);
+	public abstract AbstractLink createLink(String id, String itemId);
 	
-	private class FoundationItemContainer extends WebMarkupContainer {
+	private class TopBarItemContainer extends WebMarkupContainer {
 
 		private static final long serialVersionUID = 1L;
 		
-		public FoundationItemContainer(String id, final IModel<List<TopBarItem>> itemsModel) {
+		public TopBarItemContainer(String id, final IModel<List<TopBarItem>> itemsModel) {
 			super(id);
 			add(new RepeatingView("item") {
 
@@ -68,8 +89,8 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 							private static final long serialVersionUID = 1L;
 
 							@Override
-							public WebMarkupContainer createLink(String id, String itemId) {
-								return FoundationTopBarPanel.this.createLink(id, itemId);
+							public AbstractLink createLink(String id, String itemId) {
+								return FoundationTopBar.this.createLink(id, itemId);
 							}
 						};
 						add(linkPanel);
@@ -79,13 +100,13 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 		}
 	}
 	
-	private static class FoundationTopBarContainer extends WebMarkupContainer {
+	private static class TopBarContainer extends WebMarkupContainer {
 
 		private static final long serialVersionUID = 1L;
 		
 		private IModel<TopBarOptions> optionsModel;
 
-		public FoundationTopBarContainer(String id, IModel<TopBarOptions> optionsModel) {
+		public TopBarContainer(String id, IModel<TopBarOptions> optionsModel) {
 			super(id);
 			this.optionsModel = optionsModel;
 		}
@@ -112,13 +133,13 @@ public abstract class FoundationTopBarPanel extends FoundationJsPanel {
 		}
 	}
 	
-	private static class FoundationTopBar extends WebMarkupContainer {
+	private static class TopBar extends WebMarkupContainer {
 
 		private static final long serialVersionUID = 1L;
 		
 		private IModel<TopBarOptions> optionsModel;
 
-		public FoundationTopBar(String id, IModel<TopBarOptions> optionsModel) {
+		public TopBar(String id, IModel<TopBarOptions> optionsModel) {
 			super(id);
 			this.optionsModel = optionsModel;
 		}

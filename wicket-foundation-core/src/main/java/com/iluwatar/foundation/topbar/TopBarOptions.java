@@ -3,6 +3,11 @@ package com.iluwatar.foundation.topbar;
 import java.io.Serializable;
 import java.util.EnumSet;
 
+/**
+ * Options for the FoundationTopBar.
+ * @author ilkka
+ *
+ */
 public class TopBarOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;

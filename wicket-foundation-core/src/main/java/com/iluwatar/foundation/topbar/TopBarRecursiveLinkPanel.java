@@ -6,6 +6,7 @@ import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 
@@ -22,7 +23,7 @@ public abstract class TopBarRecursiveLinkPanel extends Panel {
 			labelContainer.add(new Label("label", topBarItem.getText()));
 			labelContainer.setVisible(topBarItem.isLabel());
 			// link
-			WebMarkupContainer link = createLink("link", topBarItem.getItemId());
+			AbstractLink link = createLink("link", topBarItem.getItemId());
 			add(link);
 			link.add(new Label("text", topBarItem.getText()));
 			link.setVisible(!topBarItem.isLabel());
@@ -57,7 +58,7 @@ public abstract class TopBarRecursiveLinkPanel extends Panel {
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public WebMarkupContainer createLink(String id, String itemId) {
+					public AbstractLink createLink(String id, String itemId) {
 						return TopBarRecursiveLinkPanel.this.createLink(id, itemId);
 					}
 				});
@@ -68,5 +69,5 @@ public abstract class TopBarRecursiveLinkPanel extends Panel {
 		}
 	}
 	
-	public abstract WebMarkupContainer createLink(String id, String itemId);
+	public abstract AbstractLink createLink(String id, String itemId);
 }

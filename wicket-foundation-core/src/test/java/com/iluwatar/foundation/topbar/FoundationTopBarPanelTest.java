@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.EmptyPanel;
 import org.apache.wicket.model.Model;
@@ -24,13 +25,13 @@ public class FoundationTopBarPanelTest {
 		leftItems.add(new SimpleTopBarItem("foo", "Foo"));
 		leftItems.add(new SimpleTopBarItem("bar", "Bar"));
 		
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {
+		FoundationTopBar topBarPanel = new FoundationTopBar("id", new ArrayList<TopBarItem>(), leftItems) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
 			}
 			@Override
-			public WebMarkupContainer createLink(String id, String itemId) {
+			public AbstractLink createLink(String id, String itemId) {
 				return new Link<Void>(id) {
 					@Override
 					public void onClick() {
@@ -56,13 +57,13 @@ public class FoundationTopBarPanelTest {
 		WicketTester tester = new WicketTester();
 		TopBarOptions options = new TopBarOptions().setFixed(true);
 		
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", options, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+		FoundationTopBar topBarPanel = new FoundationTopBar("id", options, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
 			}
 			@Override
-			public WebMarkupContainer createLink(String id, String itemId) {
+			public AbstractLink createLink(String id, String itemId) {
 				return new Link<Void>(id) {
 					@Override
 					public void onClick() {
@@ -83,13 +84,13 @@ public class FoundationTopBarPanelTest {
 		TopBarOptions options = new TopBarOptions().setClickable(true).setContainToGrid(true)
 				.setSticky(true).setStickySizes(EnumSet.of(TopBarStickySize.LARGE));
 		
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", options, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+		FoundationTopBar topBarPanel = new FoundationTopBar("id", options, new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
 			}
 			@Override
-			public WebMarkupContainer createLink(String id, String itemId) {
+			public AbstractLink createLink(String id, String itemId) {
 				return new Link<Void>(id) {
 					@Override
 					public void onClick() {
@@ -112,12 +113,12 @@ public class FoundationTopBarPanelTest {
 	public void testTitlePanel() {
 		WicketTester tester = new WicketTester();
 
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
+		FoundationTopBar topBarPanel = new FoundationTopBar("id", new ArrayList<TopBarItem>(), new ArrayList<TopBarItem>()) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
-				return new FoundationTopBarTitlePanel(id, Model.of("Home"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
+				return new FoundationTopBarTitle(id, Model.of("Home"), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of("Menu")) {
 					@Override
-					public WebMarkupContainer createTitleLink(String id) {
+					public AbstractLink createTitleLink(String id) {
 						return new Link(id) {
 							@Override
 							public void onClick() {
@@ -127,7 +128,7 @@ public class FoundationTopBarPanelTest {
 				};
 			}
 			@Override
-			public WebMarkupContainer createLink(String id, String itemId) {
+			public AbstractLink createLink(String id, String itemId) {
 				return new Link<Void>(id) {
 					@Override
 					public void onClick() {
@@ -162,13 +163,13 @@ public class FoundationTopBarPanelTest {
 		bar.addChild(new SimpleTopBarItem("bar2", "Bar2"));
 		leftItems.add(foo);
 		
-		FoundationTopBarPanel topBarPanel = new FoundationTopBarPanel("id", new ArrayList<TopBarItem>(), leftItems) {
+		FoundationTopBar topBarPanel = new FoundationTopBar("id", new ArrayList<TopBarItem>(), leftItems) {
 			@Override
 			public WebMarkupContainer createTitleContainer(String id) {
 				return new EmptyPanel(id);
 			}
 			@Override
-			public WebMarkupContainer createLink(String id, String itemId) {
+			public AbstractLink createLink(String id, String itemId) {
 				return new Link<Void>(id) {
 					@Override
 					public void onClick() {

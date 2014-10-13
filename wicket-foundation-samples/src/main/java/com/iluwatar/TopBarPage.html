@@ -56,7 +56,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
     public WebMarkupContainer createTitleContainer(String id) {
         return new FoundationTopBarTitlePanel(id, Model.of(&quot;My Site&quot;), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of(&quot;Menu&quot;)) {
             @Override
-            public WebMarkupContainer createTitleLink(String id) {
+            public AbstractLink createTitleLink(String id) {
                 return new Link(id) {
                     @Override
                     public void onClick() {
@@ -67,7 +67,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
     }
 
     @Override
-    public WebMarkupContainer createLink(String id, final String itemId) {
+    public AbstractLink createLink(String id, final String itemId) {
         return new AjaxLink&lt;Void&gt;(id) {
 
             @Override
@@ -131,7 +131,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
       return new EmptyPanel(id);
   }
   @Override
-  public WebMarkupContainer createLink(String id, String itemId) {
+  public AbstractLink createLink(String id, String itemId) {
       return new Link&lt;Void&gt;(id) {
           @Override
           public void onClick() {
@@ -185,7 +185,7 @@ add(new FoundationTopBarPanel(&quot;basic&quot;, rightItems, leftItems) {
         return new EmptyPanel(id);
     }
     @Override
-    public WebMarkupContainer createLink(String id, String itemId) {
+    public AbstractLink createLink(String id, String itemId) {
         return new Link&lt;Void&gt;(id) {
             @Override
             public void onClick() {
@@ -246,7 +246,7 @@ add(new FoundationTopBarPanel(&quot;stickyConditions&quot;, stickyConditionsOpti
         return new EmptyPanel(id);
     }
     @Override
-    public WebMarkupContainer createLink(String id, String itemId) {
+    public AbstractLink createLink(String id, String itemId) {
         return new Link&lt;Void&gt;(id) {
             @Override
             public void onClick() {
@@ -298,7 +298,7 @@ add(new FoundationTopBarPanel(&quot;clickable&quot;, new TopBarOptions().setClic
     public WebMarkupContainer createTitleContainer(String id) {
         return new FoundationTopBarTitlePanel(id, Model.of(&quot;My Site&quot;), Model.of(TopBarMenuLayout.TITLE_AND_ICON), Model.of(&quot;Menu&quot;)) {
             @Override
-            public WebMarkupContainer createTitleLink(String id) {
+            public AbstractLink createTitleLink(String id) {
                 return new Link(id) {
                     @Override
                     public void onClick() {
@@ -309,7 +309,7 @@ add(new FoundationTopBarPanel(&quot;clickable&quot;, new TopBarOptions().setClic
     }
 
     @Override
-    public WebMarkupContainer createLink(String id, final String itemId) {
+    public AbstractLink createLink(String id, final String itemId) {
         return new AjaxLink&lt;Void&gt;(id) {
 
             @Override
