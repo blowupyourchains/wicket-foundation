@@ -20,7 +20,7 @@ Wicket-Foundation is available in the Sonatype Nexus. Add the following dependen
 <dependency>
     <groupId>com.iluwatar</groupId>
     <artifactId>wicket-foundation-core</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 
@@ -59,13 +59,19 @@ Wicket-foundation uses [semantic versioning](http://semver.org/). However, for v
 
 ## Changelog
 
+v0.2.1
+* Redesign of Breadcrumbs component.
+* Improved Javadocs for all components.
+* Checked naming of all classes.
+* Checked visibility of all classes.
+
 v0.2.0
-* Added progress bar.
-* Added side nav.
-* Added sub nav.
+* Added Progress Bar.
+* Added Side Nav.
+* Added Sub Nav.
 
 v0.1.1
-* Added tests. Minor implementation changes to FoundationIconBar.
+* Added tests. Minor implementation changes to Icon Bar.
 
 v0.1.0
 * Foundation icons added.
@@ -73,7 +79,7 @@ v0.1.0
 v0.0.2
 * Added basic Javadoc to important classes.
 * Removed Guava dependency.
-* Removed jetty dependency from wicket-foundation-core.
+* Removed Jetty dependency from wicket-foundation-core.
  
 v0.0.1
 * Initial release with Visibility, Grid, Block Grid, Top Bar, Icon Bar, Breadcrumbs, Buttons, Button Groups, Dropdown Buttons, Type, Inline Lists, Labels, Alerts, Panels, Tooltips, Dropdowns.
