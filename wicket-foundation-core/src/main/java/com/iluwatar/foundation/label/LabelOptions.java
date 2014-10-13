@@ -5,6 +5,11 @@ import java.io.Serializable;
 import com.iluwatar.foundation.button.ButtonColor;
 import com.iluwatar.foundation.button.ButtonRadius;
 
+/**
+ * Options for FoundationLabel.
+ * @author ilkka
+ *
+ */
 public class LabelOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
