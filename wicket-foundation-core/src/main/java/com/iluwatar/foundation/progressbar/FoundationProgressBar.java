@@ -15,19 +15,36 @@ import com.iluwatar.foundation.util.StringUtil;
  * @author ilkka
  *
  */
-public class FoundationProgressBarPanel extends FoundationBasePanel {
+public class FoundationProgressBar extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public FoundationProgressBarPanel(String id, int percent) {
+	/**
+	 * Create FoundationProgressBar.
+	 * @param id - Wicket id.
+	 * @param percent - Percent value to display.
+	 */
+	public FoundationProgressBar(String id, int percent) {
 		this(id, Model.of(new ProgressBarOptions()), Model.of(percent));
 	}
 	
-	public FoundationProgressBarPanel(String id, ProgressBarOptions options, int percent) {
+	/**
+	 * Create FoundationProgressBar.
+	 * @param id - Wicket id.
+	 * @param options - Options for the progress bar.
+	 * @param percent - Percent value to display.
+	 */
+	public FoundationProgressBar(String id, ProgressBarOptions options, int percent) {
 		this(id, Model.of(options), Model.of(percent));
 	}
 
-	public FoundationProgressBarPanel(String id, IModel<ProgressBarOptions> optionsModel, IModel<Integer> percentModel) {
+	/**
+	 * Create FoundationProgressBar.
+	 * @param id - Wicket id.
+	 * @param optionsModel - Model for the progress bar options.
+	 * @param percentModel - Model for the percent value.
+	 */
+	public FoundationProgressBar(String id, IModel<ProgressBarOptions> optionsModel, IModel<Integer> percentModel) {
 		super(id);
 		ProgressContainer progressContainer = new ProgressContainer("progressContainer", optionsModel);
 		add(progressContainer);
