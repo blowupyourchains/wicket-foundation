@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import com.iluwatar.foundation.button.ButtonRadius;
 
+/**
+ * Options for tooltip.
+ * @author ilkka
+ *
+ */
 public class TooltipOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;

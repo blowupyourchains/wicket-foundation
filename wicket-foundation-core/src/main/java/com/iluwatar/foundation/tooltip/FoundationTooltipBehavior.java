@@ -23,14 +23,28 @@ public class FoundationTooltipBehavior extends FoundationJsBehavior {
 	private IModel<String> titleModel;
 	private IModel<TooltipOptions> optionsModel;
 
+	/**
+	 * Create FoundationTooltipBehavior.
+	 * @param title - Title text for the tooltip.
+	 */
 	public FoundationTooltipBehavior(String title) {
 		this(title, new TooltipOptions());
 	}
 	
+	/**
+	 * Create FoundationTooltipBehavior.
+	 * @param title - Title text for the tooltip.
+	 * @param options - Options for the tooltip.
+	 */
 	public FoundationTooltipBehavior(String title, TooltipOptions options) {
 		this(Model.of(title), Model.of(options));
 	}
-	
+
+	/**
+	 * Create FoundationTooltipBehavior.
+	 * @param titleModel - Model for the tooltip title text.
+	 * @param optionsModel - Model for the tooltip options.
+	 */
 	public FoundationTooltipBehavior(IModel<String> titleModel, IModel<TooltipOptions> optionsModel) {
 		Args.notNull(titleModel, "titleModel");
 		Args.notNull(optionsModel, "optionsModel");
