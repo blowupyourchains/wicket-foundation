@@ -9,7 +9,7 @@ import org.apache.wicket.util.string.StringValue;
 
 /**
  * 
- * Helper class for attributes
+ * Helper class for HTML attributes.
  *
  */
 public class Attribute {
@@ -246,6 +246,13 @@ public class Attribute {
 		return Arrays.asList(existing).contains(value);
 	}	
 	
+	/**
+	 * Removes token from attribute.
+	 * @param attribute - Attribute value.
+	 * @param remove - Token to remove.
+	 * @param separator - Token separator.
+	 * @return new attribute value.
+	 */
 	public static String removeToken(String attribute, String remove, String separator) {
 		if (attribute == null || remove == null || separator == null) {
 			return attribute;
