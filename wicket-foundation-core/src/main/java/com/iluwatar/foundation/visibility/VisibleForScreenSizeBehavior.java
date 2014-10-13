@@ -3,6 +3,7 @@ package com.iluwatar.foundation.visibility;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 import com.iluwatar.foundation.behavior.FoundationBaseBehavior;
 import com.iluwatar.foundation.util.Attribute;
@@ -30,6 +31,18 @@ public class VisibleForScreenSizeBehavior extends FoundationBaseBehavior {
 	
 	private IModel<VisibleForScreenSizeType> showTypeModel;
 
+	/**
+	 * Create VisibleForScreenSizeBehavior.
+	 * @param showType - Show type.
+	 */
+	public VisibleForScreenSizeBehavior(VisibleForScreenSizeType showType) {
+		this(Model.of(showType));
+	}
+	
+	/**
+	 * Create VisibleForScreenSizeBehavior.
+	 * @param showTypeModel - Model for show type.
+	 */
 	public VisibleForScreenSizeBehavior(IModel<VisibleForScreenSizeType> showTypeModel) {
 		this.showTypeModel = showTypeModel;
 	}

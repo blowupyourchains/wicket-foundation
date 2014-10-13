@@ -3,6 +3,7 @@ package com.iluwatar.foundation.visibility;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 import com.iluwatar.foundation.behavior.FoundationBaseBehavior;
 import com.iluwatar.foundation.util.Attribute;
@@ -30,6 +31,18 @@ public class HiddenByScreenSizeBehavior extends FoundationBaseBehavior {
 	
 	private IModel<HiddenByScreenSizeType> hideTypeModel;
 
+	/**
+	 * Create HiddenByScreenSizeBehavior.
+	 * @param hideType - Hide type.
+	 */
+	public HiddenByScreenSizeBehavior(HiddenByScreenSizeType hideType) {
+		this(Model.of(hideType));
+	}
+	
+	/**
+	 * Create HiddenByScreenSizeBehavior.
+	 * @param hideTypeModel - Model for hide type.
+	 */
 	public HiddenByScreenSizeBehavior(IModel<HiddenByScreenSizeType> hideTypeModel) {
 		this.hideTypeModel = hideTypeModel;
 	}
