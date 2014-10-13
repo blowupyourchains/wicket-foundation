@@ -4,17 +4,22 @@ import java.io.Serializable;
 
 import com.iluwatar.foundation.button.ButtonRadius;
 
+/**
+ * Options for FoundationAlert.
+ * @author ilkka
+ *
+ */
 public class AlertOptions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private FoundationAlertColor color;
+	private AlertColor color;
 	private ButtonRadius radius;
 	
 	public AlertOptions() {
 	}
 
-	public AlertOptions(FoundationAlertColor color) {
+	public AlertOptions(AlertColor color) {
 		this.color = color;
 	}
 
@@ -22,7 +27,7 @@ public class AlertOptions implements Serializable {
 		this.radius = radius;
 	}
 
-	public AlertOptions(FoundationAlertColor color, ButtonRadius radius) {
+	public AlertOptions(AlertColor color, ButtonRadius radius) {
 		this.color = color;
 		this.radius = radius;
 	}
@@ -32,11 +37,11 @@ public class AlertOptions implements Serializable {
 		this.radius = other.radius;
 	}
 	
-	public FoundationAlertColor getColor() {
+	public AlertColor getColor() {
 		return color;
 	}
 	
-	public AlertOptions setColor(FoundationAlertColor color) {
+	public AlertOptions setColor(AlertColor color) {
 		this.color = color;
 		return this;
 	}

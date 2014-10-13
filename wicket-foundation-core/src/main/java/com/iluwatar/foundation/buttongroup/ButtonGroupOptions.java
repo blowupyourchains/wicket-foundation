@@ -6,7 +6,7 @@ import com.iluwatar.foundation.button.ButtonColor;
 import com.iluwatar.foundation.button.ButtonRadius;
 
 /**
- * Options for the button group.
+ * Options for FoundationButtonGroup.
  * @author ilkka
  *
  */

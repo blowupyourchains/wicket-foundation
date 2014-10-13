@@ -5,7 +5,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.iluwatar.foundation.alert.AlertOptions;
 import com.iluwatar.foundation.alert.FoundationAlert;
-import com.iluwatar.foundation.alert.FoundationAlertColor;
+import com.iluwatar.foundation.alert.AlertColor;
 import com.iluwatar.foundation.button.ButtonRadius;
 
 public class AlertsPage extends BasePage {
@@ -17,14 +17,14 @@ public class AlertsPage extends BasePage {
 		add(new FoundationAlert("basic", Model.of("This is standard alert.")));
 		
 		add(new FoundationAlert("successRadius", Model.of("This is a success alert with a radius. "),
-				new AlertOptions(FoundationAlertColor.SUCCESS, ButtonRadius.RADIUS)));
+				new AlertOptions(AlertColor.SUCCESS, ButtonRadius.RADIUS)));
 		add(new FoundationAlert("warningRound", Model.of("This is a warning alert that is rounded. "),
-				new AlertOptions(FoundationAlertColor.WARNING, ButtonRadius.ROUND)));
+				new AlertOptions(AlertColor.WARNING, ButtonRadius.ROUND)));
 		add(new FoundationAlert("infoRadius", Model.of("This is an info alert with a radius. "),
-				new AlertOptions(FoundationAlertColor.INFO, ButtonRadius.RADIUS)));
+				new AlertOptions(AlertColor.INFO, ButtonRadius.RADIUS)));
 		add(new FoundationAlert("alertRound", Model.of("This is an alert - alert that is rounded. "),
-				new AlertOptions(FoundationAlertColor.ALERT, ButtonRadius.ROUND)));
+				new AlertOptions(AlertColor.ALERT, ButtonRadius.ROUND)));
 		add(new FoundationAlert("secondary", Model.of("This is a secondary alert. "),
-				new AlertOptions(FoundationAlertColor.SECONDARY)));
+				new AlertOptions(AlertColor.SECONDARY)));
 	}
 }

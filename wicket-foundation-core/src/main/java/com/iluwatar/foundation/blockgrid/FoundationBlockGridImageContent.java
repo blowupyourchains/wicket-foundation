@@ -9,7 +9,7 @@ import org.apache.wicket.request.resource.PackageResourceReference;
  * @author ilkka
  *
  */
-public class BlockGridImageContent extends Panel {
+public class FoundationBlockGridImageContent extends Panel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class BlockGridImageContent extends Panel {
 	 * @param id - Wicket id.
 	 * @param resourceReference - Resource reference for the image.
 	 */
-	public BlockGridImageContent(String id, PackageResourceReference resourceReference) {
+	public FoundationBlockGridImageContent(String id, PackageResourceReference resourceReference) {
 		super(id);
 		add(new Image("img", resourceReference));
 	}

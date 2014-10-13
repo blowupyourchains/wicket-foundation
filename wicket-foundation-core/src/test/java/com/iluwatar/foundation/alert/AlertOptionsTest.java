@@ -13,11 +13,11 @@ public class AlertOptionsTest {
 	public void testBasic() {
 		AlertOptions options = new AlertOptions();
 		AlertOptions options2 = new AlertOptions(options);
-		options2 = options2.setColor(FoundationAlertColor.SECONDARY).setRadius(ButtonRadius.ROUND);
-		AlertOptions options3 = new AlertOptions(FoundationAlertColor.SECONDARY);
+		options2 = options2.setColor(AlertColor.SECONDARY).setRadius(ButtonRadius.ROUND);
+		AlertOptions options3 = new AlertOptions(AlertColor.SECONDARY);
 		AlertOptions options4 = new AlertOptions(ButtonRadius.ROUND);
-		assertEquals(FoundationAlertColor.SECONDARY, options3.getColor());
+		assertEquals(AlertColor.SECONDARY, options3.getColor());
 		assertEquals(ButtonRadius.ROUND, options4.getRadius());
-		AlertOptions options5 = new AlertOptions(FoundationAlertColor.SECONDARY, ButtonRadius.ROUND);
+		AlertOptions options5 = new AlertOptions(AlertColor.SECONDARY, ButtonRadius.ROUND);
 	}
 }

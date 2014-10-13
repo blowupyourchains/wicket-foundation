@@ -10,7 +10,7 @@ import org.apache.wicket.markup.html.link.AbstractLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 
-public abstract class TopBarRecursiveLinkPanel extends Panel {
+abstract class TopBarRecursiveLinkPanel extends Panel {
 
 	private static final long serialVersionUID = 1L;
 

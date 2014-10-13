@@ -1,5 +1,5 @@
 package com.iluwatar.foundation.alert;
 
-public enum FoundationAlertColor {
+public enum AlertColor {
 	SECONDARY, SUCCESS, ALERT, WARNING, INFO;
 }

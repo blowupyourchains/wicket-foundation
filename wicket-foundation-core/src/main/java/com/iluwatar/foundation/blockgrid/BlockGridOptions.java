@@ -2,6 +2,11 @@ package com.iluwatar.foundation.blockgrid;
 
 import java.io.Serializable;
 
+/**
+ * Options for FoundationBlockGrid.
+ * @author ilkka
+ *
+ */
 public class BlockGridOptions implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
