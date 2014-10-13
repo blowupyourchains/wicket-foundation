@@ -1,8 +1,10 @@
-package com.iluwatar.foundation.icon;
+package com.iluwatar;
 
 import org.apache.wicket.markup.html.basic.Label;
 
 import com.iluwatar.foundation.component.FoundationBasePanel;
+import com.iluwatar.foundation.icon.FoundationIcon;
+import com.iluwatar.foundation.icon.FoundationIconType;
 
 public class FoundationIconAndTextPanel extends FoundationBasePanel {
 

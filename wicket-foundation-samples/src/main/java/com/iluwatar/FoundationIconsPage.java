@@ -11,7 +11,6 @@ import com.iluwatar.foundation.blockgrid.BlockGridOptions;
 import com.iluwatar.foundation.blockgrid.BlockGridType;
 import com.iluwatar.foundation.blockgrid.FoundationBlockGrid;
 import com.iluwatar.foundation.icon.FoundationIconType;
-import com.iluwatar.foundation.icon.FoundationIconAndTextPanel;
 import com.iluwatar.foundation.util.StringUtil;
 
 public class FoundationIconsPage extends BasePage {
