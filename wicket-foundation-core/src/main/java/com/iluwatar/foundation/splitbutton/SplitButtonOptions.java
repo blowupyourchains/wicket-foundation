@@ -31,24 +31,26 @@ public class SplitButtonOptions implements Serializable {
 		return size;
 	}
 
-	public void setSize(ButtonSize size) {
+	public SplitButtonOptions setSize(ButtonSize size) {
 		this.size = size;
+		return this;
 	}
 
 	public ButtonColor getColor() {
 		return color;
 	}
 
-	public void setColor(ButtonColor color) {
+	public SplitButtonOptions setColor(ButtonColor color) {
 		this.color = color;
+		return this;
 	}
 
 	public ButtonRadius getRadius() {
 		return radius;
 	}
 
-	public void setRadius(ButtonRadius radius) {
+	public SplitButtonOptions setRadius(ButtonRadius radius) {
 		this.radius = radius;
+		return this;
 	}
-	
 }

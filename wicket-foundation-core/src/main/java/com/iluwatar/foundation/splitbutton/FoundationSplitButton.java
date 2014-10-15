@@ -24,6 +24,10 @@ public abstract class FoundationSplitButton extends FoundationJsPanel {
 	public FoundationSplitButton(String id, String buttonTitle, List<String> linkTitles) {
 		this(id, Model.of(buttonTitle), new ListModel<>(linkTitles));
 	}
+
+	public FoundationSplitButton(String id, String buttonTitle, List<String> linkTitles, SplitButtonOptions options) {
+		this(id, Model.of(buttonTitle), new ListModel<>(linkTitles), Model.of(options));
+	}
 	
 	public FoundationSplitButton(String id, IModel<String> buttonTitleModel, IModel<List<String>> linkTitleModels) {
 		this(id, buttonTitleModel, linkTitleModels, Model.of(new SplitButtonOptions()));
