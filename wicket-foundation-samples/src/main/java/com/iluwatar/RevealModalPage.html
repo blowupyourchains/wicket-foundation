@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+<meta charset="utf-8" />
+<title>wicket-foundation</title>
+</head>
+<body>
+    <wicket:extend>
+
+		<div class="row">
+			<h1 id="reveal-modal">Reveal Modal</h1>
+			<h3 class="subheader">Modal dialogs, or pop-up windows, are
+				handy for prototyping and production. Foundation includes Reveal our
+				jQuery modal plugin, to make this easy for you.</h3>
+
+			<hr>
+			<h2>Basic</h2>
+
+			<p>You can create a reveal modal using minimal markup. The anchor
+				tag with the reveal-modal-id is what triggers the Reveal.</p>
+			<div>
+				<div>
+					<h4>HTML</h4>
+					<pre>
+						<code class="language-html">
+							<div class="code-container">
+								<span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span
+									class="attribute">data-reveal-id</span>=<span class="value">&quot;myModal&quot;</span>&gt;</span>Click Me For A Modal<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span
+									class="attribute">id</span>=<span class="value">&quot;myModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;reveal-modal&quot;</span> <span
+									class="attribute">data-reveal</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Awesome. I have it.<span
+									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span> <span
+									class="attribute">class</span>=<span class="value">&quot;lead&quot;</span>&gt;</span>Your couch.  It is mine.<span
+									class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>I&#39;m a cool paragraph that lives inside of an even cooler modal. Wins!<span
+									class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">class</span>=<span class="value">&quot;close-reveal-modal&quot;</span>&gt;</span>&amp;#215;<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+							</div>
+						</code>
+					</pre>
+
+
+
+
+
+				</div>
+				<div>
+					<h4>Rendered HTML</h4>
+					<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+					<div id="myModal" class="reveal-modal" data-reveal>
+						<h2>Awesome. I have it.</h2>
+						<p class="lead">Your couch. It is mine.</p>
+						<p>I&#39;m a cool paragraph that lives inside of an even
+							cooler modal. Wins!</p>
+						<a class="close-reveal-modal">&#215;</a>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+			<h2>Intermediate</h2>
+
+			<p>You can create a reveal modal with another inside it. You can
+				even put a video into a reveal.</p>
+			<div>
+				<div>
+					<h4>HTML</h4>
+					<pre>
+						<code class="language-html">
+							<div class="code-container">
+								<span class="comment">&lt;!-- Triggers the modals --&gt;</span>
+<span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span
+									class="attribute">data-reveal-id</span>=<span class="value">&quot;firstModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;radius button&quot;</span>&gt;</span>Modal in a modal&amp;hellip;<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span
+									class="attribute">data-reveal-id</span>=<span class="value">&quot;videoModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;radius button&quot;</span>&gt;</span>Example Modal w/Video&amp;hellip;<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+
+<span class="comment">&lt;!-- Reveal Modals begin --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span
+									class="attribute">id</span>=<span class="value">&quot;firstModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;reveal-modal&quot;</span> <span
+									class="attribute">data-reveal</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h2</span>&gt;</span>This is a modal.<span
+									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Reveal makes these very easy to summon and dismiss. The close button is simply an anchor with a unicode character icon and a class of <span
+									class="tag">&lt;<span class="title">code</span>&gt;</span>close-reveal-modal<span
+									class="tag">&lt;/<span class="title">code</span>&gt;</span>. Clicking anywhere outside the modal will also dismiss it.<span
+									class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Finally, if your modal summons another Reveal modal, the plugin will handle that for you gracefully.<span
+									class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span
+									class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">href</span>=<span class="value">&quot;#&quot;</span> <span
+									class="attribute">data-reveal-id</span>=<span class="value">&quot;secondModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;secondary button&quot;</span>&gt;</span>Second Modal...<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span><span
+									class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">class</span>=<span class="value">&quot;close-reveal-modal&quot;</span>&gt;</span>&amp;#215;<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span
+									class="attribute">id</span>=<span class="value">&quot;secondModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;reveal-modal&quot;</span> <span
+									class="attribute">data-reveal</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h2</span>&gt;</span>This is a second modal.<span
+									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>See? It just slides into place after the other first modal. Very handy when you need subsequent dialogs, or when a modal option impacts or requires another decision.<span
+									class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">class</span>=<span class="value">&quot;close-reveal-modal&quot;</span>&gt;</span>&amp;#215;<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">div</span> <span
+									class="attribute">id</span>=<span class="value">&quot;videoModal&quot;</span> <span
+									class="attribute">class</span>=<span class="value">&quot;reveal-modal large&quot;</span> <span
+									class="attribute">data-reveal</span>=<span class="value">&quot;&quot;</span> <span
+									class="attribute">style</span>=<span class="value">&quot;visibility: visible; display: block; top: 765px; opacity: 1;&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h2</span>&gt;</span>This modal has video<span
+									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span
+									class="attribute">class</span>=<span class="value">&quot;flex-video widescreen vimeo&quot;</span> <span
+									class="attribute">style</span>=<span class="value">&quot;display: block;&quot;</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">iframe</span> <span
+									class="attribute">width</span>=<span class="value">&quot;1280&quot;</span> <span
+									class="attribute">height</span>=<span class="value">&quot;720&quot;</span> <span
+									class="attribute">src</span>=<span class="value">&quot;<a
+										href="http://www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0">http://www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0</a>&quot;</span> <span
+									class="attribute">frameborder</span>=<span class="value">&quot;0&quot;</span> <span
+									class="attribute">allowfullscreen</span>=<span class="value">&quot;&quot;</span> <span
+									class="attribute">data-src</span>=<span class="value">&quot;<a
+										href="http://www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0">http://www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0</a>&quot;</span>&gt;</span><span
+									class="tag">&lt;/<span class="title">iframe</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">a</span> <span
+									class="attribute">class</span>=<span class="value">&quot;close-reveal-modal&quot;</span>&gt;</span>&amp;#215;<span
+									class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="comment">&lt;!-- Reveal Modals end --&gt;</span>
+							</div>
+						</code>
+					</pre>
+
+
+				</div>
+				<div>
+					<h4>Rendered HTML</h4>
+					<a href="#" data-reveal-id="firstModal" class="radius button">Modal
+						in a modal&hellip;</a> <a href="#" data-reveal-id="videoModal"
+						class="radius button">Example Modal with Video&hellip;</a>
+
+					<!-- Reveal Modals begin -->
+					<div id="firstModal" class="reveal-modal" data-reveal>
+						<h2>This is a modal.</h2>
+						<p>
+							Reveal makes these very easy to summon and dismiss. The close
+							button is simply an anchor with a unicode character icon and a
+							class of
+							<code>close-reveal-modal</code>
+							. Clicking anywhere outside the modal will also dismiss it.
+						</p>
+						<p>Finally, if your modal summons another Reveal modal, the
+							plugin will handle that for you gracefully.</p>
+						<p>
+							<a href="#" data-reveal-id="secondModal" class="secondary button">Second
+								Modal...</a>
+						</p>
+						<a class="close-reveal-modal">&#215;</a>
+					</div>
+
+					<div id="secondModal" class="reveal-modal" data-reveal>
+						<h2>This is a second modal.</h2>
+						<p>See? It just slides into place after the other first modal.
+							Very handy when you need subsequent dialogs, or when a modal
+							option impacts or requires another decision.</p>
+						<a class="close-reveal-modal">&#215;</a>
+					</div>
+
+					<div id="videoModal" class="reveal-modal large" data-reveal>
+						<h2>This modal has video</h2>
+						<div class="flex-video widescreen vimeo">
+							<iframe width="1280" height="720"
+								src="//www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0"
+								frameborder="0" allowfullscreen></iframe>
+						</div>
+
+						<p>
+							<a class="close-reveal-modal">&#215;</a>
+					</div>
+					<!-- Reveal Modals end -->
+				</div>
+			</div>
+			<hr>
+			<h2>Advanced</h2>
+
+			<p>Additional classes can be added to your reveal modal to change
+				its appearance.</p>
+			<p>The class options:</p>
+			<ul>
+				<li><code>tiny</code>: Set the width to 30%.</li>
+				<li><code>small</code>: Set the width to 40%.</li>
+				<li><code>medium</code>: Set the width to 60%.</li>
+				<li><code>large</code>: Set the width to 70%.</li>
+				<li><code>xlarge</code>: Set the width to 95%.</li>
+				<li><code>full</code>: Set the width and height to 100%.</li>
+			</ul>
+			<p>Note: Default on small is 100% (full) width.</p>
+			<h5 id="removing-the-background">Removing the Background</h5>
+			<h4>HTML</h4>
+
+			<pre>
+				<code class="language-html">
+					<div class="code-container">
+						<span class="tag">&lt;<span class="title">div</span> <span
+							class="attribute">class</span>=<span class="value">"reveal-modal-bg"</span> <span
+							class="attribute">style</span>=<span class="value">"display: none"</span>&gt;</span><span
+							class="tag">&lt;/<span class="title">div</span>&gt;</span>
+					</div>
+				</code>
+			</pre>
+
+
+			<h5>Firing a Reveal Modal</h5>
+
+			<p>
+				To launch a modal, just add a
+				<code>data-reveal-id</code>
+				to the object which you want to fire the modal when clicked. The
+				<code>data-reveal-id</code>
+				needs to match the
+				<code>id</code>
+				of your reveal.
+			</p>
+
+			<h4>HTML</h4>
+
+			<pre>
+				<code class="language-html">
+					<div class="code-container">
+						<span class="tag">&lt;<span class="title">a</span> <span
+							class="attribute">href</span>=<span class="value">"#"</span> <span
+							class="attribute">data-reveal-id</span>=<span class="value">"myModal"</span>&gt;</span>Click Me For A Modal<span
+							class="tag">&lt;/<span class="title">a</span>&gt;</span>
+					</div>
+				</code>
+			</pre>
+
+
+
+			<p>You can also open and close Reveal via Javascript:</p>
+			<pre>
+				<code class="language-javascript">
+					<div class="code-container">
+						<span class="comment">// trigger by event</span>
+$(<span class="string">'a.reveal-link'</span>).trigger(<span
+							class="string">'click'</span>);
+$(<span class="string">'a.close-reveal-modal'</span>).trigger(<span
+							class="string">'click'</span>);
+
+<span class="comment">// or directly on the modal</span>
+$(<span class="string">'#myModal'</span>).foundation(<span
+							class="string">'reveal'</span>, <span class="string">'open'</span>);
+$(<span class="string">'#myModal'</span>).foundation(<span
+							class="string">'reveal'</span>, <span class="string">'close'</span>);</div>
+				</code>
+			</pre>
+
+
+			<h5>Firing a Reveal Modal with Ajax Content</h5>
+
+			<p>
+				To launch a modal with content from another page, just add a
+				<code>data-reveal-ajax</code>
+				attribute pointing to the url of that page. When clicked, the Reveal
+				modal will be opened with a content from that page. Beware: content
+				of the object from
+				<code>data-reveal-id</code>
+				attribute will be overwritten as a result.
+			</p>
+			<p>
+				To use an url from
+				<code>href</code>
+				attribute just add
+				<code>data-reveal-ajax=&quot;true&quot;</code>
+				instead.
+			</p>
+			<h4>JS</h4>
+
+			<pre>
+				<code class="language-html">
+					<div class="code-container">
+						<span class="tag">&lt;<span class="title">button</span> <span
+							class="attribute">data-reveal-id</span>=<span class="value">"myModal"</span> <span
+							class="attribute">data-reveal-ajax</span>=<span class="value">"http://some-url"</span>&gt;</span>
+    Click Me For A Modal
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">a</span> <span
+							class="attribute">href</span>=<span class="value">"http://some-url"</span> <span
+							class="attribute">data-reveal-id</span>=<span class="value">"myModal"</span> <span
+							class="attribute">data-reveal-ajax</span>=<span class="value">"true"</span>&gt;</span>
+    Click Me For A Modal
+<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+					</div>
+				</code>
+			</pre>
+
+
+			<p>Ajax-based Reveal modals can also be opened via Javascript:</p>
+			<h4>JS</h4>
+
+			<pre>
+				<code class="language-javascript">
+					<div class="code-container">
+						<span class="comment">// just an url</span>
+$(<span class="string">'#myModal'</span>).foundation(<span
+							class="string">'reveal'</span>, <span class="string">'open'</span>, <span
+							class="string">'http://some-url'</span>);
+
+<span class="comment">// url with extra parameters</span>
+$(<span class="string">'#myModal'</span>).foundation(<span
+							class="string">'reveal'</span>, <span class="string">'open'</span>, {
+    url: <span class="string">'http://some-url'</span>,
+    data: {param1: <span class="string">'value1'</span>, param2: <span
+							class="string">'value2'</span>}
+});
+
+<span class="comment">// url with custom callbacks</span>
+$(<span class="string">'#myModal'</span>).foundation(<span
+							class="string">'reveal'</span>, <span class="string">'open'</span>, {
+    url: <span class="string">'http://some-url'</span>,
+    success: <span class="keyword">function</span>(data) {
+        alert(<span class="string">'modal data loaded'</span>);
+    },
+    error: <span class="keyword">function</span>() {
+        alert(<span class="string">'failed loading modal'</span>);
+    }
+});</div>
+				</code>
+			</pre>
+
+
+			<p>
+				Please refer to <a href="http://api.jquery.com/jQuery.ajax/"><a
+					href="http://api.jquery.com/jQuery.ajax/">http://api.jquery.com/jQuery.ajax/</a></a>
+				for a complete list of possible parameters.
+			</p>
+
+			<hr>
+			<h3 id="event-bindings">Event Bindings</h3>
+			<p>There are a series of events that you can bind to for
+				triggering callbacks:</p>
+			<div class="panel">
+				<p>
+					<strong>Deprecation Notice</strong>
+				</p>
+				<p>
+					Previous versions of the reveal plugin emitted un-namespaced
+					<code>open</code>
+					,
+					<code>opened</code>
+					,
+					<code>close</code>
+					and
+					<code>closed</code>
+					events, however, these have been replaced by the namespaced
+					<code>open.fndtn.reveal</code>
+					,
+					<code>opened.fndtn.reveal</code>
+					,
+					<code>close.fndtn.reveal</code>
+					and
+					<code>closed.fndtn.reveal</code>
+					events. The un-namespaced events will be fully deprecated when
+					Foundation 5.4 is released.
+				</p>
+			</div>
+
+			<pre>
+				<code class="language-js">
+					<div class="code-container">$(document).on(<span
+							class="string">'open.fndtn.reveal'</span>, <span class="string">'[data-reveal]'</span>, <span
+							class="function"><span class="keyword">function</span> <span
+							class="params">()</span> {</span>
+  <span class="keyword">var</span> modal = $(<span class="keyword">this</span>);
+});
+
+$(document).on(<span class="string">'opened.fndtn.reveal'</span>, <span
+							class="string">'[data-reveal]'</span>, <span class="function"><span
+							class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> modal = $(<span class="keyword">this</span>);
+});
+
+$(document).on(<span class="string">'close.fndtn.reveal'</span>, <span
+							class="string">'[data-reveal]'</span>, <span class="function"><span
+							class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> modal = $(<span class="keyword">this</span>);
+});
+
+$(document).on(<span class="string">'closed.fndtn.reveal'</span>, <span
+							class="string">'[data-reveal]'</span>, <span class="function"><span
+							class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> modal = $(<span class="keyword">this</span>);
+});</div>
+				</code>
+			</pre>
+		</div>
+
+	</wicket:extend>
+</body>
+</html>
