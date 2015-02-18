@@ -45,12 +45,24 @@ add(new FoundationRevealModal(&quot;basic&quot;, Model.of(&quot;Click Me For A M
 			<div>
 				<div>
 					<h4>HTML</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;modalInModal&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;video&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </div></code></pre>
 				</div>
 				<div>
 					<h4>Java</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">final String videoContent = &quot;&lt;h2&gt;This modal has video&lt;/h2&gt;&lt;div class=\&quot;flex-video widescreen vimeo\&quot;&gt;&lt;iframe width=\&quot;1280\&quot; height=\&quot;720\&quot; src=\&quot;//www.youtube-nocookie.com/embed/wnXCopXXblE?rel=0\&quot; frameborder=\&quot;0\&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=\&quot;close-reveal-modal\&quot;&gt;&#215;&lt;/a&gt;&quot;;
+add(new FoundationRevealModal(&quot;video&quot;, Model.of(&quot;Example Modal with Video...&quot;), Model.of(videoContent)));
+
+add(new FoundationRevealModal(&quot;modalInModal&quot;, Model.of(&quot;Modal in a modal...&quot;)) {
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public WebMarkupContainer createContentPanel(String id) {
+		return new ModalInModalPanel(id);
+	}
+});
 </div></code></pre>
 				</div>
 				<div>
