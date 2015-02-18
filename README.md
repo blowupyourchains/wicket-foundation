@@ -20,7 +20,7 @@ Wicket-Foundation is available in the Sonatype Nexus. Add the following dependen
 <dependency>
     <groupId>com.iluwatar</groupId>
     <artifactId>wicket-foundation-core</artifactId>
-    <version>0.2.1</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -58,6 +58,12 @@ Wicket-foundation uses [semantic versioning](http://semver.org/). However, for v
 <br>
 
 ## Changelog
+
+v0.3.0
+* Added FoundationSplitButton.
+* Added FoundationRevealModal.
+* Updated to Wicket 7.0.0-M5
+* Updated to Foundation 5.5.1
 
 v0.2.1
 * Redesign of Breadcrumbs component.
