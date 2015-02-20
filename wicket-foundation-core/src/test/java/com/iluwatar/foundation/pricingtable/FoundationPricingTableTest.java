@@ -3,17 +3,25 @@ package com.iluwatar.foundation.pricingtable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.iluwatar.pricingtable.FoundationPricingTable;
+import com.iluwatar.pricingtable.PricingTableButtonPanel;
 import com.iluwatar.pricingtable.PricingTableItem;
 import com.iluwatar.pricingtable.PricingTableItemType;
 
+/**
+ * 
+ * Unit test for pricing table component.
+ *
+ */
 public class FoundationPricingTableTest {
 
 	@Test
@@ -32,7 +40,15 @@ public class FoundationPricingTableTest {
 			@Override
 			public WebMarkupContainer createContent(int idx, String id,
 					IModel<PricingTableItem> model) {
-				return new PricingTableButtonPanel(id);
+				return new PricingTableButtonPanel(id, Model.of("Buy now")) {
+
+					private static final long serialVersionUID = 1L;
+
+					@Override
+					public void onClick(AjaxRequestTarget target) {
+						// TODO Auto-generated method stub
+					}
+				};
 			}
 			
 		};

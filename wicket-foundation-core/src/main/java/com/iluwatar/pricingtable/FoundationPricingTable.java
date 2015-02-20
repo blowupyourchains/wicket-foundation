@@ -14,6 +14,13 @@ import com.iluwatar.foundation.component.FoundationBasePanel;
 import com.iluwatar.foundation.util.Attribute;
 import com.iluwatar.foundation.util.StringUtil;
 
+/**
+ * 
+ * Pricing table component.
+ * 
+ * Supports simple string content and complex panel content types.
+ *
+ */
 public abstract class FoundationPricingTable extends FoundationBasePanel {
 
 	private static final long serialVersionUID = 1L;

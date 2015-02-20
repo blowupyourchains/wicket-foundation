@@ -30,7 +30,7 @@
 			<div>
 			
 				<h4>HTML</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </div></code></pre>
 
 			</div>
@@ -38,22 +38,35 @@
 			<div>
 			
 				<h4>Java</h4>
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">List&lt;PricingTableItem&gt; items = new ArrayList&lt;&gt;();
+items.add(new PricingTableItem(PricingTableItemType.TITLE, &quot;Hammer&quot;));
+items.add(new PricingTableItem(PricingTableItemType.PRICE, &quot;12€&quot;));
+items.add(new PricingTableItem(PricingTableItemType.DESCRIPTION, &quot;A really good hammer&quot;));
+items.add(new PricingTableItem(PricingTableItemType.BULLET_ITEM, &quot;Weight 3kg&quot;));
+items.add(new PricingTableItem(PricingTableItemType.BULLET_ITEM, &quot;Wooden handle&quot;));
+items.add(new PricingTableItem(PricingTableItemType.BULLET_ITEM, &quot;Good grip&quot;));
+items.add(new PricingTableItem(PricingTableItemType.CTA_BUTTON));
+add(new FoundationPricingTable(&quot;pricingTable&quot;, new ListModel&lt;&gt;(items)) {
+	@Override
+	public WebMarkupContainer createContent(int idx, String id,
+			IModel&lt;PricingTableItem&gt; model) {
+		return new PricingTableButtonPanel(id, Model.of(&quot;Buy now&quot;)) {
+			@Override
+			public void onClick(AjaxRequestTarget target) {
+				target.appendJavaScript(&quot;alert('clicked');&quot;);
+			}
+		};
+	}
+});
 </div></code></pre>
 
 			</div>
 
 			<div>
 				<h4>Rendered HTML</h4>
-				<ul class="pricing-table">
-					<li class="title">Standard</li>
-					<li class="price">$99.99</li>
-					<li class="description">An awesome description</li>
-					<li class="bullet-item">1 Database</li>
-					<li class="bullet-item">5GB Storage</li>
-					<li class="bullet-item">20 Users</li>
-					<li class="cta-button"><a class="button" href="#">Buy Now</a></li>
-				</ul>
+				
+				<div wicket:id="pricingTable"></div>
+				
 			</div>
 		</div>
 	</div>

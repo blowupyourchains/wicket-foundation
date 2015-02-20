@@ -1,5 +1,10 @@
 package com.iluwatar.pricingtable;
 
+/**
+ * 
+ * Pricing table item.
+ *
+ */
 public class PricingTableItem {
 
 	private PricingTableItemType itemType;
