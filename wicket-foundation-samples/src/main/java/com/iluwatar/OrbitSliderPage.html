@@ -13,20 +13,6 @@
 				image slider that allows users to swipe on touch-enabled devices.</h3>
 
 			<hr>
-			<ul class="example-orbit" data-orbit>
-				<li><img src="../assets/img/examples/satelite-orbit.jpg"
-					alt="slide 1" />
-					<div class="orbit-caption">Caption One.</div></li>
-				<li class="active"><img
-					src="../assets/img/examples/andromeda-orbit.jpg" alt="slide 2" />
-					<div class="orbit-caption">Caption Two.</div></li>
-				<li><img src="../assets/img/examples/launch-orbit.jpg"
-					alt="slide 3" />
-					<div class="orbit-caption">Caption Three.</div></li>
-			</ul>
-
-
-			<hr>
 			<h4 class="warn">Deprecation Notice:</h4>
 
 			<p>
@@ -63,141 +49,21 @@
 			</p>
 			<h4>HTML</h4>
 
-			<pre>
-				<code class="language-html">
-					<div class="code-container">
-						<span class="tag">&lt;<span class="title">ul</span> <span
-							class="attribute">class</span>=<span class="value">"example-orbit"</span> <span
-							class="attribute">data-orbit</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-							class="attribute">src</span>=<span class="value">"../assets/img/examples/satelite-orbit.jpg"</span> <span
-							class="attribute">alt</span>=<span class="value">"slide 1"</span> /&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-caption"</span>&gt;</span>
-      Caption One.
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-							class="attribute">class</span>=<span class="value">"active"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-							class="attribute">src</span>=<span class="value">"../assets/img/examples/andromeda-orbit.jpg"</span> <span
-							class="attribute">alt</span>=<span class="value">"slide 2"</span> /&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-caption"</span>&gt;</span>
-      Caption Two.
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span
-							class="attribute">src</span>=<span class="value">"../assets/img/examples/launch-orbit.jpg"</span> <span
-							class="attribute">alt</span>=<span class="value">"slide 3"</span> /&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-caption"</span>&gt;</span>
-      Caption Three.
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-					</div>
-				</code>
-			</pre>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;orbitSlider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code></pre>
 
+			<h4>Java</h4>
+
+<pre><code class="language-html"><div class="code-container">items.add(new OrbitSliderItem(&quot;1&quot;, new PackageResourceReference(this.getClass(), &quot;andromeda-orbit.jpg&quot;), &quot;Caption 1&quot;));
+items.add(new OrbitSliderItem(&quot;2&quot;, new PackageResourceReference(this.getClass(), &quot;launch-orbit.jpg&quot;), &quot;Caption 2&quot;));
+items.add(new OrbitSliderItem(&quot;3&quot;, new PackageResourceReference(this.getClass(), &quot;satelite-orbit.jpg&quot;), &quot;Caption 3&quot;));
+FoundationOrbitSlider orbitSlider = new FoundationOrbitSlider(&quot;orbitSlider&quot;, new ListModel&lt;&gt;(items));
+add(orbitSlider);
+</div></code></pre>
 
 			<h4>Rendered HTML</h4>
 
-			<pre>
-				<code class="language-html">
-					<div class="code-container">
-						<span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-container"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">ul</span> <span
-							class="attribute">data-orbit</span> <span class="attribute">class</span>=<span
-							class="value">"example-orbit orbit-slides-container"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">img</span> <span
-							class="attribute">src</span>=<span class="value">"../assets/img/examples/satelite-orbit.jpg"</span> <span
-							class="attribute">alt</span>=<span class="value">"slide 1"</span> /&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-caption"</span>&gt;</span>
-        Caption One.
-      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span> <span
-							class="attribute">class</span>=<span class="value">"active"</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">img</span> <span
-							class="attribute">src</span>=<span class="value">"../assets/img/examples/andromeda-orbit.jpg"</span> <span
-							class="attribute">alt</span>=<span class="value">"slide 1"</span> /&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-caption"</span>&gt;</span>
-        Caption Two.
-      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">img</span> <span
-							class="attribute">src</span>=<span class="value">"../assets/img/examples/launch-orbit.jpg"</span> <span
-							class="attribute">alt</span>=<span class="value">"slide 1"</span> /&gt;</span>
-      <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-caption"</span>&gt;</span>
-        Caption Three.
-      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-
-  <span class="comment">&lt;!-- Navigation Arrows --&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-							class="attribute">href</span>=<span class="value">"#"</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-prev"</span>&gt;</span>Prev <span
-							class="tag">&lt;<span class="title">span</span>&gt;</span><span
-							class="tag">&lt;/<span class="title">span</span>&gt;</span><span
-							class="tag">&lt;/<span class="title">a</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">a</span> <span
-							class="attribute">href</span>=<span class="value">"#"</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-next"</span>&gt;</span>Next <span
-							class="tag">&lt;<span class="title">span</span>&gt;</span><span
-							class="tag">&lt;/<span class="title">span</span>&gt;</span><span
-							class="tag">&lt;/<span class="title">a</span>&gt;</span>
-
-  <span class="comment">&lt;!-- Slide Numbers --&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-slide-number"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">span</span>&gt;</span>1<span
-							class="tag">&lt;/<span class="title">span</span>&gt;</span> of <span
-							class="tag">&lt;<span class="title">span</span>&gt;</span>3<span
-							class="tag">&lt;/<span class="title">span</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-  <span class="comment">&lt;!-- Timer and Play/Pause Button --&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-timer"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">span</span>&gt;</span><span
-							class="tag">&lt;/<span class="title">span</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-progress"</span>&gt;</span><span
-							class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-
-<span class="comment">&lt;!-- Bullets --&gt;</span>
-<span class="tag">&lt;<span class="title">ol</span> <span
-							class="attribute">class</span>=<span class="value">"orbit-bullets"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-							class="attribute">data-orbit-slide-number</span>=<span
-							class="value">"1"</span>&gt;</span><span class="tag">&lt;/<span
-							class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-							class="attribute">data-orbit-slide-number</span>=<span
-							class="value">"2"</span> <span class="attribute">class</span>=<span
-							class="value">"active"</span>&gt;</span><span class="tag">&lt;/<span
-							class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-							class="attribute">data-orbit-slide-number</span>=<span
-							class="value">"3"</span>&gt;</span><span class="tag">&lt;/<span
-							class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ol</span>&gt;</span>
-					</div>
-				</code>
-			</pre>
-
+			<div wicket:id="orbitSlider"></div>
 
 			<hr>
 			<h2 id="content-sliders">Content Sliders</h2>
