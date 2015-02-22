@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.wicket.model.util.ListModel;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.util.tester.WicketTester;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -26,6 +27,10 @@ public class FoundationOrbitSliderTest {
 		tester.startComponentInPage(orbitSlider);
 		tester.debugComponentTrees();
 		tester.dumpPage();
+		Assert.assertTrue(tester.getTagByWicketId("container").hasAttribute("data-orbit"));
+		Assert.assertEquals(3, tester.getTagsByWicketId("img").size());
+		Assert.assertEquals(3, tester.getTagsByWicketId("captionContainer").size());
+		Assert.assertEquals(3, tester.getTagsByWicketId("caption").size());
 	}
 	
 	@Test
@@ -39,5 +44,8 @@ public class FoundationOrbitSliderTest {
 		tester.startComponentInPage(orbitSlider);
 		tester.debugComponentTrees();
 		tester.dumpPage();
+		Assert.assertTrue(tester.getTagByWicketId("container").hasAttribute("data-orbit"));
+		Assert.assertEquals(3, tester.getTagsByWicketId("heading").size());
+		Assert.assertEquals(3, tester.getTagsByWicketId("subheading").size());
 	}
 }
