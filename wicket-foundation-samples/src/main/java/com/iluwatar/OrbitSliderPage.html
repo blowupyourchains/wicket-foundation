@@ -71,67 +71,27 @@ add(orbitSlider);
 			<div>
 				<div>
 					<h4>HTML</h4>
-					<pre>
-						<code class="language-html">
-							<div class="code-container">
-								<span class="tag">&lt;<span class="title">ul</span> <span
-									class="attribute">class</span>=<span class="value">&quot;example-orbit-content&quot;</span> <span
-									class="attribute">data-orbit</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-									class="attribute">data-orbit-slide</span>=<span class="value">&quot;headline-1&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Headline 1<span
-									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Subheadline<span
-									class="tag">&lt;/<span class="title">h3</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-									class="attribute">data-orbit-slide</span>=<span class="value">&quot;headline-2&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Headline 2<span
-									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Subheadline<span
-									class="tag">&lt;/<span class="title">h3</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span> <span
-									class="attribute">data-orbit-slide</span>=<span class="value">&quot;headline-3&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Headline 3<span
-									class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Subheadline<span
-									class="tag">&lt;/<span class="title">h3</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-							</div>
-						</code>
-					</pre>
-
+					
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;contentSlider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code></pre>
+					
+				</div>
+				<div>
+					<h4>Java</h4>
+					
+<pre><code class="language-html"><div class="code-container">List&lt;OrbitSliderContent&gt; contents = new ArrayList&lt;&gt;();
+contents.add(new OrbitSliderContent(&quot;1&quot;, &quot;Heading 1&quot;, &quot;Subheading 1&quot;));
+contents.add(new OrbitSliderContent(&quot;2&quot;, &quot;Heading 2&quot;, &quot;Subheading 2&quot;));
+contents.add(new OrbitSliderContent(&quot;3&quot;, &quot;Heading 3&quot;, &quot;Subheading 3&quot;));
+FoundationOrbitContentSlider contentSlider = new FoundationOrbitContentSlider(&quot;contentSlider&quot;, new ListModel&lt;&gt;(contents));
+add(contentSlider);
+</div></code></pre>
+					
 				</div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<ul class="example-orbit-content" data-orbit>
-						<li data-orbit-slide="headline-1">
-							<div>
-								<h2>Headline 1</h2>
-								<h3>Subheadline</h3>
-							</div>
-						</li>
-						<li data-orbit-slide="headline-2">
-							<div>
-								<h2>Headline 2</h2>
-								<h3>Subheadline</h3>
-							</div>
-						</li>
-						<li data-orbit-slide="headline-3">
-							<div>
-								<h2>Headline 3</h2>
-								<h3>Subheadline</h3>
-							</div>
-						</li>
-					</ul>
+					
+					<div wicket:id="contentSlider"></div>
 				</div>
 			</div>
 
