@@ -3,12 +3,14 @@ package com.iluwatar;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.PackageResourceReference;
 
 import com.iluwatar.foundation.orbitslider.FoundationOrbitContentSlider;
 import com.iluwatar.foundation.orbitslider.FoundationOrbitSlider;
+import com.iluwatar.foundation.orbitslider.FoundationOrbitSliderAjaxLink;
 import com.iluwatar.foundation.orbitslider.OrbitSliderContent;
 import com.iluwatar.foundation.orbitslider.OrbitSliderItem;
 
@@ -30,5 +32,16 @@ public class OrbitSliderPage extends BasePage {
 		contents.add(new OrbitSliderContent("3", "Heading 3", "Subheading 3"));
 		FoundationOrbitContentSlider contentSlider = new FoundationOrbitContentSlider("contentSlider", new ListModel<>(contents));
 		add(contentSlider);
+
+		add(new FoundationOrbitSliderAjaxLink("slide1", Model.of("slide1")));
+		add(new FoundationOrbitSliderAjaxLink("slide2", Model.of("slide2")));
+		add(new FoundationOrbitSliderAjaxLink("slide3", Model.of("slide3")));
+		
+		List<OrbitSliderContent> slides = new ArrayList<>();
+		slides.add(new OrbitSliderContent("slide1", "This is heading 1", "This is subheading 1"));
+		slides.add(new OrbitSliderContent("slide2", "This is heading 2", "This is subheading 2"));
+		slides.add(new OrbitSliderContent("slide3", "This is heading 3", "This is subheading 3"));
+		FoundationOrbitContentSlider slider = new FoundationOrbitContentSlider("slider", new ListModel<>(slides));
+		add(slider);
 	}
 }

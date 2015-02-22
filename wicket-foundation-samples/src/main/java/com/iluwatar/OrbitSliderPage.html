@@ -108,55 +108,29 @@ add(contentSlider);
 			<div>
 				<div>
 					<h4>HTML</h4>
-					<pre>
-						<code class="language-html">
-							<div class="code-container">
-								<span class="tag">&lt;<span class="title">a</span> <span
-									class="attribute">data-orbit-link</span>=<span class="value">&quot;headline-1&quot;</span> <span
-									class="attribute">class</span>=<span class="value">&quot;small button&quot;</span>&gt;</span>
-  Goto Slide 1
-<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;<span class="title">a</span> <span
-									class="attribute">data-orbit-link</span>=<span class="value">&quot;headline-2&quot;</span> <span
-									class="attribute">class</span>=<span class="value">&quot;small button&quot;</span>&gt;</span>
-  Goto Slide 2
-<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-<span class="tag">&lt;<span class="title">a</span> <span
-									class="attribute">data-orbit-link</span>=<span class="value">&quot;headline-3&quot;</span> <span
-									class="attribute">class</span>=<span class="value">&quot;small button&quot;</span>&gt;</span>
-  Goto Slide 3
-<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-							</div>
-						</code>
-					</pre>
+					
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;orbitSlider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code></pre>
+
+				</div>
+				<div>
+					<h4>Java</h4>
+					
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;orbitSlider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</div></code></pre>
 
 				</div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<a class="small button" data-orbit-link="headline-1">Goto Slide
-						1</a> <a class="small button" data-orbit-link="headline-2">Goto
-						Slide 2</a> <a class="small button" data-orbit-link="headline-3">Goto
-						Slide 3</a>
-					<ul class="example-orbit-content" data-orbit>
-						<li data-orbit-slide="headline-1">
-							<div>
-								<h2>Headline 1</h2>
-								<h3>Subheadline</h3>
-							</div>
-						</li>
-						<li data-orbit-slide="headline-2">
-							<div>
-								<h2>Headline 2</h2>
-								<h3>Subheadline</h3>
-							</div>
-						</li>
-						<li data-orbit-slide="headline-3">
-							<div>
-								<h2>Headline 3</h2>
-								<h3>Subheadline</h3>
-							</div>
-						</li>
-					</ul>
+					
+					<div>
+						<a wicket:id="slide1">Slide 1</a>
+						<a wicket:id="slide2">Slide 2</a>
+						<a wicket:id="slide3">Slide 3</a>
+					</div>
+					
+					<div wicket:id="slider"></div>
+					
 				</div>
 			</div>
 		</div>
