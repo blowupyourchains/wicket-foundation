@@ -8,6 +8,5 @@ public class CatalogPage extends BasePage {
 	
 	public CatalogPage(final PageParameters params) {
 		super(params);
-	}
-	
+	}	
 }
