@@ -25,7 +25,7 @@
                 <div>
                     <h4>HTML</h4>
                     
-<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;basic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">wicket:id</span>=<span class="value">&quot;thumbnail&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>
 </div></code>
 </pre>
 
@@ -33,15 +33,14 @@
                 <div>
                     <h4>Java</h4>
                     
-<pre><code class="language-html"><div class="code-container">
+<pre><code class="language-html"><div class="code-container">add(new FoundationThumbnail(&quot;thumbnail&quot;, new PackageResourceReference(this.getClass(), &quot;space.jpg&quot;), new PackageResourceReference(this.getClass(), &quot;space-th-sm.jpg&quot;)));
 </div></code>
 </pre>
 
                 </div>
 				<div>
 					<h4>Rendered HTML</h4>
-					<a class="th" href="../assets/img/examples/space.jpg"><img
-						src="../assets/img/examples/space-th-sm.jpg" /></a>
+					<div wicket:id="thumbnail"></div>
 				</div>
 			</div>
 		</div>

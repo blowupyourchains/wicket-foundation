@@ -1,12 +1,9 @@
 package com.iluwatar;
 
-import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.request.resource.PackageResourceReference;
 
-import com.iluwatar.foundation.alert.AlertOptions;
-import com.iluwatar.foundation.alert.FoundationAlert;
-import com.iluwatar.foundation.alert.AlertColor;
-import com.iluwatar.foundation.button.ButtonRadius;
+import com.iluwatar.foundation.thumbnail.FoundationThumbnail;
 
 public class ThumbnailsPage extends BasePage {
 
@@ -14,5 +11,7 @@ public class ThumbnailsPage extends BasePage {
 
 	public ThumbnailsPage(PageParameters params) {
 		super(params);
+		add(new FoundationThumbnail("thumbnail", new PackageResourceReference(this.getClass(), "space.jpg"), 
+				new PackageResourceReference(this.getClass(), "space-th-sm.jpg")));
 	}
 }
