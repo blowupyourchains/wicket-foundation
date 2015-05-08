@@ -1,4 +1,5 @@
-# 05/2015: The project has moved to [wicketstuff](https://github.com/wicketstuff/core)
+### 05/2015: The project has moved to [wicketstuff](https://github.com/wicketstuff/core) ->
+---
 
 #wicket-foundation
 
