@@ -1,3 +1,5 @@
+# 05/2015: The project has moved to [wicketstuff](https://github.com/wicketstuff/core)
+
 #wicket-foundation
 
 Integrates [Apache Wicket](http://wicket.apache.org/) 7.x and [Zurb Foundation](http://foundation.zurb.com/) 5.x
